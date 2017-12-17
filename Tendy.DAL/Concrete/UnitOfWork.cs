@@ -7,9 +7,9 @@ namespace Tendy.Concrete
 {
     public class UnitOfWork : IUnitOfWork
     {
-
         private ApplicationDbContext _context;
 
+        private readonly IRepository<ApplicationUser> _applicationUsersRepository;
         private readonly IRepository<UserProfile> _userProfilesRepository;
         private readonly IRepository<Idea> _ideasRepository;
         private readonly IRepository<IdeaImage> _ideaImagesRepository;
@@ -23,6 +23,7 @@ namespace Tendy.Concrete
         private readonly IRepository<PeopleGroup> _peopleGroupsRepository;
 
         public UnitOfWork(ApplicationDbContext context,
+            IRepository<ApplicationUser> applicationUsersRepository,
             IRepository<UserProfile> userProfilesRepository,
             IRepository<Idea> ideasRepository,
             IRepository<IdeaImage> ideaImagesRepository,
@@ -36,6 +37,7 @@ namespace Tendy.Concrete
             IRepository<PeopleGroup> peopleGroupsRepository)
         {
             Context = context;
+            _applicationUsersRepository = applicationUsersRepository;
             _userProfilesRepository = userProfilesRepository;
             _ideasRepository = ideasRepository;
             _ideaImagesRepository = ideaImagesRepository;
@@ -51,6 +53,8 @@ namespace Tendy.Concrete
 
         public ApplicationDbContext Context { get => _context; set => _context = value; }
 
+        public IRepository<ApplicationUser> ApplicationUsersRepository => _applicationUsersRepository;
+        
         public IRepository<UserProfile> UserProfilesRepository => _userProfilesRepository;
 
         public IRepository<Idea> IdeasRepository => _ideasRepository;

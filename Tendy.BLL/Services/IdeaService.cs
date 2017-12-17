@@ -1,7 +1,7 @@
 ﻿using Tendy.BLL.Interfaces;
 using System;
 using System.Collections.Generic;
- using Tendy.BLL.ViewModels;
+using Tendy.BLL.ViewModels;
 using System.Linq;
 using Tendy.Abstract;
 using AutoMapper;
@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Tendy.BLL.Services
 {
-    public class IdeaService : IIdeaService
+    public class IdeaService : IIdeasService
     {
         IUnitOfWork _uow;
         private readonly IMapper _mapper;

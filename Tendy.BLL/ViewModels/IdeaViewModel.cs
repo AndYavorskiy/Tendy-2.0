@@ -1,8 +1,11 @@
-﻿using System;
+﻿using FluentValidation.Attributes;
+using System;
 using System.Collections.Generic;
+using Tendy.BLL.Utils.Validations;
 
 namespace Tendy.BLL.ViewModels
 {
+    [Validator(typeof(IdeaViewModelValidator))]
     public class IdeaViewModel
     {
         public int Id { get; set; }

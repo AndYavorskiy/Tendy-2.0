@@ -8,6 +8,7 @@ namespace Tendy.BLL.Utils
     {
         public MappingProfile()
         {
+            //--- Entities-ViewModels
             CreateMap<ApplicationUser, ApplicationUserViewModel>();
             CreateMap<ApplicationUserViewModel, ApplicationUser>();
 
@@ -46,6 +47,10 @@ namespace Tendy.BLL.Utils
 
             CreateMap<UserProfile, UserProfileViewModel>();
             CreateMap<UserProfileViewModel, UserProfile>();
+
+            //--- AuxiliaryViewModels
+            CreateMap<RegistrationViewModel, ApplicationUser>();
+            CreateMap<ApplicationUser, RegistrationViewModel>();
         }
     }
 }

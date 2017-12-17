@@ -5,6 +5,7 @@ namespace Tendy.Abstract
 {
     public interface IUnitOfWork
     {
+        IRepository<ApplicationUser> ApplicationUsersRepository { get; }
         IRepository<UserProfile> UserProfilesRepository { get; }
         IRepository<Idea> IdeasRepository { get; }
         IRepository<IdeaImage> IdeaImagesRepository { get; }
