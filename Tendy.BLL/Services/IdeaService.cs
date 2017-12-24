@@ -40,6 +40,14 @@ namespace Tendy.BLL.Services
         public IdeaViewModel Create(IdeaViewModel ideaVm)
         {
             var idea = Mapper.Map<IdeaViewModel, Idea>(ideaVm);
+
+            if (idea == null)
+            {
+                throw new CustomException(StatusCodes.Status501NotImplemented, BLLExceptionsMessages.CantCreateIdea, new NullReferenceException());
+            }
+
+            idea.DateOfCreation = DateTime.UtcNow;
+
             try
             {
                 var createdIdea = _uow.IdeasRepository.Create(idea);

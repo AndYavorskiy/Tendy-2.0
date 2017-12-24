@@ -24,7 +24,7 @@ namespace Tendy.BLL.Services
         {
             var userIdentity = _mapper.Map<ApplicationUser>(regModel);
 
-            var result = await _userManager.CreateAsync(userIdentity, regModel.PasswordHash);
+            var result = await _userManager.CreateAsync(userIdentity, regModel.Password);
 
             if (!result.Succeeded)
             {

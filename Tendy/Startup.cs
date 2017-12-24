@@ -24,6 +24,7 @@ using System;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Tendy.Authorizations;
 using Tendy.Helpers;
+using Tendy.Middlewares;
 
 namespace Tendy
 {
@@ -130,6 +131,10 @@ namespace Tendy
 
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
+      if (env.IsDevelopment())
+      {
+        app.Shell("npm start");
+      }
       app.UseDefaultFiles();
       app.UseStaticFiles();
 

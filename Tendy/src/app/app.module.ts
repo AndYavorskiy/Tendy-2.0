@@ -1,18 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-
+import { CommonModule } from '@angular/common';
+import { HttpModule } from '@angular/http';
+import { IdeaModule } from './Idea/idea.module';
+import { RouterModule } from '@angular/router';
+import { NavHeaderComponent } from './NavHeader/nav-header.component';
+import { AuthorizationModule } from './Authorization/authorization.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    NavHeaderComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CommonModule,
+    HttpModule,
+    RouterModule.forRoot([ ]),
+    IdeaModule,
+    AuthorizationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
