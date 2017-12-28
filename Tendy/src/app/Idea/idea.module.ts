@@ -2,13 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { IdeaRoutingModule } from './idea-routing.module';
-import { IdeaListComponent } from './Components/idea-list.component';
+import {
+  IdeaListComponent,
+  IdeaLayoutComponent,
+  IdeaSideMenuComponent
+} from './Components/index';
 
 @NgModule({
   imports: [
     CommonModule,
     IdeaRoutingModule
   ],
-  declarations: [IdeaListComponent]
+  declarations: [
+    IdeaListComponent, 
+    IdeaLayoutComponent, 
+    IdeaSideMenuComponent, 
+  ]
 })
 export class IdeaModule { }

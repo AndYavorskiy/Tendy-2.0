@@ -1,15 +1,28 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { IdeaListComponent } from './Components/idea-list.component';
 import { IdeaService } from './Services/idea.service';
+
+import {
+  IdeaLayoutComponent,
+  IdeaListComponent,
+  IdeaSideMenuComponent
+} from './Components/index';
 
 @NgModule({
   imports: [RouterModule.forChild([
     {
       path: 'ideas',
+      component: IdeaLayoutComponent,
       children: [
-        { path: '', redirectTo: 'all', pathMatch: 'full' },
-        { path: 'all', component: IdeaListComponent }
+        {
+          path: '',
+          component: IdeaListComponent
+        },
+        {
+          path: '',
+          outlet: "sidemenu",
+          component: IdeaSideMenuComponent
+        }
       ]
     }
   ])],

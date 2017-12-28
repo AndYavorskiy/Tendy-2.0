@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { IdeaService } from '../Services/idea.service';
 import { IdeaModule } from '../idea.module';
 import { IdeaModel } from '../Models/idea.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-idea-list',
@@ -12,7 +13,10 @@ export class IdeaListComponent implements OnInit {
 
   ideas: IdeaModel[];
 
-  constructor(private ideaService: IdeaService) { }
+  constructor(route: ActivatedRoute,
+    private ideaService: IdeaService) {
+    route.params.subscribe(params => console.log("side menu id parameter", params['id']));
+  }
 
   ngOnInit() {
     // this.ideaService.getAllIdeas()
