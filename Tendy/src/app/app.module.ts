@@ -1,14 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-
 import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { IdeaModule } from './Idea/idea.module';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+
+import { IdeaModule } from './Idea/idea.module';
 import { NavHeaderComponent } from './NavHeader/nav-header.component';
 import { AuthorizationModule } from './Authorization/authorization.module';
+import { ConfigService } from './Common/Utils/config.service';
 
 @NgModule({
   declarations: [
@@ -19,11 +20,12 @@ import { AuthorizationModule } from './Authorization/authorization.module';
     BrowserModule,
     CommonModule,
     HttpModule,
-    RouterModule.forRoot([ ]),
+    FormsModule,
+    RouterModule.forRoot([]),
     IdeaModule,
     AuthorizationModule
   ],
-  providers: [],
+  providers: [ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

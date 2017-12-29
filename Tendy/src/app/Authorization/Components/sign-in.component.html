@@ -1,19 +1,36 @@
-<div class="container form-signin">
-  <form>
-    <h2 class="form-signin-heading">Please sign in</h2>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
-    <button class="btn  btn-primary btn-small btn-block" type="submit">Sign in</button>
-  </form>
+<div class="container">
+  <div class="row justify-content-md-center justify-content-sm-center justify-content-lg-center">
+    <div class="form-group col-sm-9 col-md-7 col-lg-5 full-padding">
+      <form #loginForm="ngForm" (ngSubmit)="signIn(loginForm)">
+        <h2 class="form-signin-heading">Please sign in</h2>
 
-  <a class="btn  btn-success btn-small btn-block" routerLink="/authorize/sign-up">
-    Sign up
-  </a>
+        <div class="form-group">
+          <input class="form-control" name="email" placeholder="Email" ngModel tmFocus required email />
+        </div>
+
+        <div class="form-group">
+          <input class="form-control" type="password" name="password" placeholder="Password" ngModel required password />
+        </div>
+
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me </label>
+        </div>
+
+        <div class="form-group">
+          <button [disabled]="loginForm.invalid" class="btn btn-primary btn-small btn-block">Sign in</button>
+        </div>
+
+        <a class="btn  btn-success btn-small btn-block" routerLink="/authorize/sign-up">
+          Sign up
+        </a>
+      </form>
+    </div>
+
+  </div>
+  <div class="row justify-content-md-center">
+    <div *ngIf="errors" class="col-md-6 alert alert-danger side-margin" role="alert">
+      <strong>Oops!</strong> {{errors}}
+    </div>
+  </div>
 </div>

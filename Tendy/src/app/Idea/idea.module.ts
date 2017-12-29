@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { IdeaRoutingModule } from './idea-routing.module';
+import { IdeaService } from './Services/index';
+
 import {
   IdeaListComponent,
   IdeaLayoutComponent,
@@ -17,6 +18,9 @@ import {
     IdeaListComponent, 
     IdeaLayoutComponent, 
     IdeaSideMenuComponent, 
+  ],
+  providers: [
+    IdeaService
   ]
 })
 export class IdeaModule { }
