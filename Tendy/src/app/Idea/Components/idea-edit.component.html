@@ -1,0 +1,105 @@
+<div class="container">
+  <h2 *ngIf="isNewIdea">Create new Idea</h2>
+  <h2 *ngIf="!isNewIdea">Edit
+    <strong>{{editIdea.title}}</strong>
+  </h2>
+
+  <div class="row">
+    <div class="col-md-4 image-wrapper">
+      <img class="image-wrapper" src="https://www.justpro.co/img/no-image.png" data-holder-rendered="true">
+
+      <div class="form-group">
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <form #editForm="ngForm" (ngSubmit)="save()">
+        <div class="form-group">
+          <label>Title</label>
+          <input class="form-control" type="text" name="title" [(ngModel)]="editIdea.title" required />
+        </div>
+
+        <div class="form-group">
+          <label>Subtitle</label>
+          <input class="form-control" type="text" name="subTitle" [(ngModel)]="editIdea.subTitle" />
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <textarea class="form-control blue-bootstr" name="description" rows="3" [(ngModel)]="editIdea.description"></textarea>
+          <small class="form-text text-muted">Write all you want about idea</small>
+        </div>
+
+        <div class="form-group">
+          <button [disabled]="editForm.invalid" class="btn btn-success btn-small btn-block">Save</button>
+        </div>
+      </form>
+
+      <div *ngIf="success" class="alert alert-success" role="alert">
+        {{success}}
+      </div>
+
+      <div *ngIf="errors" class="alert alert-danger" role="alert">
+        <strong>Oops!</strong>
+        <br /> {{errors}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 text-center">
+      Need people:
+      <h2>
+        <span>10</span>
+      </h2>
+    </div>
+    <div class="col-md-3 text-center">
+      Accepted people:
+      <h2>
+        <span>10</span>
+      </h2>
+    </div>
+    <div class="col-md-3 text-center">
+      All requests count:
+      <h2>
+        <span>10</span>
+      </h2>
+    </div>
+  </div>
+  <div class="row">
+    <h4>Attachment</h4>
+
+    <div class="attachment-container">
+      <span class="border border-primary"></span>
+      <span class="border border-secondary"></span>
+      <span class="border border-success"></span>
+      <span class="border border-danger"></span>
+      <span class="border border-warning"></span>
+      <span class="border border-info"></span>
+      <span class="border border-dark"></span>
+    </div>
+
+    <div class="form-group">
+      <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
+  </div>
+
+  <div class="row">
+    <h4>Publications</h4>
+
+    <div class="attachment-container">
+      <span class="border border-secondary"></span>
+      <span class="border border-secondary"></span>
+      <span class="border border-secondary"></span>
+      <span class="border border-secondary"></span>
+      <span class="border border-secondary"></span>
+      <span class="border border-secondary"></span>
+      <span class="border border-secondary"></span>
+    </div>
+    <div class="form-group">
+      <input type="file" class="form-control-file">
+    </div>
+  </div>
+
+  <button class="btn btn-sm btn-outline-primary" (click)="save()">Save</button>
+</div>

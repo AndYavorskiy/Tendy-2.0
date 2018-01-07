@@ -6,7 +6,7 @@ using Tendy.BLL.ViewModels;
 
 namespace Tendy.Controllers
 {
-    [Route("api/Account")]
+    [Route("api/account")]
     public class AccountController : Controller
     {
     private readonly IAccountsService _accountsService;
@@ -26,7 +26,7 @@ namespace Tendy.Controllers
 
         var result = await _accountsService.Create(model);
 
-        return StatusCode(StatusCodes.Status201Created, result);
+        return StatusCode(StatusCodes.Status201Created, true);
     }
   }
 }

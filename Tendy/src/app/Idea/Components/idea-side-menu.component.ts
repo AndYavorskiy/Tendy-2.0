@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IdeaService } from '../Services/idea.service';
+
+import { IdeaService } from '../Services';
 
 @Component({
   selector: 'app-idea-side-menu',

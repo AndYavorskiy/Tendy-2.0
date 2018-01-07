@@ -9,6 +9,7 @@ using Tendy.BLL.ViewModels;
 using Tendy.DAL.Entities;
 using Tendy.Models;
 using System.Security.Claims;
+using Tendy.Constants;
 
 namespace Tendy.Controllers
 {
@@ -41,7 +42,8 @@ namespace Tendy.Controllers
         return BadRequest(ModelState);
       }
 
-      var identity = await GetClaimsIdentity(credentials.UserName, credentials.Password);
+      var identity = await GetClaimsIdentity(credentials.Email, credentials.Password);
+
       if (identity == null)
       {
         return BadRequest("Invalid username or password.");
@@ -50,8 +52,9 @@ namespace Tendy.Controllers
       // Serialize and return the response
       var response = new
       {
-        id = identity.Claims.Single(c => c.Type == "id").Value,
-        auth_token = await _jwtFactory.GenerateEncodedToken(credentials.UserName, identity),
+        id = identity.Claims.Single(c => c.Type == JwtClaimIdentifiers.Id).Value,
+        user_name = identity.Claims.Single(c => c.Type == JwtClaimIdentifiers.UserName).Value,
+        auth_token = await _jwtFactory.GenerateEncodedToken(credentials.Email, identity),
         expires_in = (int) _jwtOptions.ValidFor.TotalSeconds
       };
 
@@ -61,20 +64,18 @@ namespace Tendy.Controllers
 
     private async Task<ClaimsIdentity> GetClaimsIdentity(string userName, string password)
     {
-      if (!string.IsNullOrEmpty(userName) && !string.IsNullOrEmpty(password))
-      {
         // get the user to verifty
-        var userToVerify = await _userManager.FindByNameAsync(userName);
+        var userToVerify = await _userManager.FindByEmailAsync(userName);
 
         if (userToVerify != null)
         {
           // check the credentials  
           if (await _userManager.CheckPasswordAsync(userToVerify, password))
           {
-            return await Task.FromResult(_jwtFactory.GenerateClaimsIdentity(userName, userToVerify.Id));
+            return await Task.FromResult(_jwtFactory.GenerateClaimsIdentity(userToVerify));
           }
         }
-      }
+      
 
       // Credentials are invalid, or account doesn't exist
       return await Task.FromResult<ClaimsIdentity>(null);

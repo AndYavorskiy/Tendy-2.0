@@ -6,6 +6,31 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="dist\**" />
+    <Content Remove="dist\**" />
+    <EmbeddedResource Remove="dist\**" />
+    <None Remove="dist\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="src\app\Authorization\Models\user-registration.model.ts" />
+    <None Remove="src\app\Authorization\Services\user.service.ts" />
+    <None Remove="src\app\Common\Auxiliary\api.service.ts" />
+    <None Remove="src\app\Common\Auxiliary\index.ts" />
+    <None Remove="src\app\Common\Models\aggregate-content.model.ts" />
+    <None Remove="src\app\Common\Models\auth-info.model.ts" />
+    <None Remove="src\app\Common\Models\custom-exception.model.ts" />
+    <None Remove="src\app\Common\Models\index.ts" />
+    <None Remove="src\app\Common\Models\search-filter.model.ts" />
+    <None Remove="src\app\Common\Utils\api-error-handler.ts" />
+    <None Remove="src\app\Common\Utils\index.ts" />
+    <None Remove="src\app\Common\Utils\local-storage-manager.service.ts" />
+    <None Remove="src\app\Idea\Models\index.ts" />
+    <None Remove="src\app\Idea\Models\search-filter.model.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="src\images\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
@@ -28,6 +53,86 @@
     <ProjectReference Include="..\Tendy.BLL\Tendy.BLL.csproj" />
     <ProjectReference Include="..\Tendy.Common\Tendy.Common.csproj" />
     <ProjectReference Include="..\Tendy.DAL\Tendy.DAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app\Authorization\Models\user-registration.model.ts" />
+    <TypeScriptCompile Include="src\app\Authorization\Services\user.service.ts" />
+    <TypeScriptCompile Include="src\app\Common\Auxiliary\api.service.ts" />
+    <TypeScriptCompile Include="src\app\Common\Auxiliary\index.ts" />
+    <TypeScriptCompile Include="src\app\Common\Models\aggregate-content.model.ts" />
+    <TypeScriptCompile Include="src\app\Common\Models\auth-info.model.ts" />
+    <TypeScriptCompile Include="src\app\Common\Models\custom-exception.model.ts" />
+    <TypeScriptCompile Include="src\app\Common\Models\index.ts" />
+    <TypeScriptCompile Include="src\app\Common\Models\search-filter.model.ts" />
+    <TypeScriptCompile Include="src\app\Common\Utils\api-error-handler.ts" />
+    <TypeScriptCompile Include="src\app\Common\Utils\index.ts" />
+    <TypeScriptCompile Include="src\app\Common\Utils\local-storage-manager.service.ts" />
+    <TypeScriptCompile Include="src\app\Idea\Models\index.ts" />
+    <TypeScriptCompile Include="src\app\Idea\Models\search-filter.model.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="src\app\app.component.html">
+      <DependentUpon>app.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\app.component.scss">
+      <DependentUpon>app.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\Authorization\Components\sign-in.component.html">
+      <DependentUpon>sign-in.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\Authorization\Components\sign-in.component.scss">
+      <DependentUpon>sign-in.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\Authorization\Components\sign-up.component.html">
+      <DependentUpon>sign-up.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\Authorization\Components\sign-up.component.scss">
+      <DependentUpon>sign-up.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\Idea\Components\idea-details.component.html">
+      <DependentUpon>idea-details.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\Idea\Components\idea-details.component.scss">
+      <DependentUpon>idea-details.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\Idea\Components\idea-edit.component.html">
+      <DependentUpon>idea-edit.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\Idea\Components\idea-edit.component.scss">
+      <DependentUpon>idea-edit.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\Idea\Components\idea-layout.component.html">
+      <DependentUpon>idea-layout.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\Idea\Components\idea-layout.component.scss">
+      <DependentUpon>idea-layout.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\Idea\Components\idea-list.component.css">
+      <DependentUpon>idea-list.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\Idea\Components\idea-list.component.html">
+      <DependentUpon>idea-list.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\Idea\Components\idea-side-menu.component.html">
+      <DependentUpon>idea-side-menu.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\Idea\Components\idea-side-menu.component.scss">
+      <DependentUpon>idea-side-menu.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\Idea\Components\my-idea.component.html">
+      <DependentUpon>my-idea.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\Idea\Components\my-idea.component.scss">
+      <DependentUpon>my-idea.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\NavHeader\nav-header.component.html">
+      <DependentUpon>nav-header.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\NavHeader\nav-header.component.scss">
+      <DependentUpon>nav-header.component.ts</DependentUpon>
+    </None>
   </ItemGroup>
 
   <!--<Target Name="AngularBuild" AfterTargets="Build">

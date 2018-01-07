@@ -5,6 +5,8 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Tendy.Models;
 using System.Security.Principal;
+using Tendy.DAL.Entities;
+using Tendy.Constants;
 
 namespace Tendy.Authorizations
 {
@@ -25,8 +27,8 @@ namespace Tendy.Authorizations
                  new Claim(JwtRegisteredClaimNames.Sub, userName),
                  new Claim(JwtRegisteredClaimNames.Jti, await _jwtOptions.JtiGenerator()),
                  new Claim(JwtRegisteredClaimNames.Iat, ToUnixEpochDate(_jwtOptions.IssuedAt).ToString(), ClaimValueTypes.Integer64),
-                 identity.FindFirst(Helpers.Constants.Strings.JwtClaimIdentifiers.Rol),
-                 identity.FindFirst(Helpers.Constants.Strings.JwtClaimIdentifiers.Id)
+                 identity.FindFirst(JwtClaimIdentifiers.Role),
+                 identity.FindFirst(JwtClaimIdentifiers.Id)
              };
 
       // Create the JWT security token and encode it.
@@ -43,12 +45,13 @@ namespace Tendy.Authorizations
       return encodedJwt;
     }
 
-    public ClaimsIdentity GenerateClaimsIdentity(string userName, string id)
+    public ClaimsIdentity GenerateClaimsIdentity(ApplicationUser user)
     {
-      return new ClaimsIdentity(new GenericIdentity(userName, "Token"), new[]
+      return new ClaimsIdentity(new GenericIdentity(user.UserName, "Token"), new[]
       {
-                new Claim(Helpers.Constants.Strings.JwtClaimIdentifiers.Id, id),
-                new Claim(Helpers.Constants.Strings.JwtClaimIdentifiers.Rol, Helpers.Constants.Strings.JwtClaims.ApiAccess)
+                new Claim(JwtClaimIdentifiers.Id, user.Id),
+                new Claim(JwtClaimIdentifiers.UserName, user.UserName),
+                new Claim(JwtClaimIdentifiers.Role, JwtClaims.ApiAccess)
             });
     }
 

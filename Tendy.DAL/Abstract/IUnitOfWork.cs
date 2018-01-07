@@ -8,7 +8,8 @@ namespace Tendy.Abstract
         IRepository<ApplicationUser> ApplicationUsersRepository { get; }
         IRepository<UserProfile> UserProfilesRepository { get; }
         IRepository<Idea> IdeasRepository { get; }
-        IRepository<IdeaImage> IdeaImagesRepository { get; }
+        IRepository<IdeaCategory> IdeasCategoriesRepository { get; }
+		IRepository<IdeaImage> IdeaImagesRepository { get; }
         IRepository<AttachmentGroup> AttachmentsGroupsRepository { get; }
         IRepository<Attachment> AttachmentsRepository { get; }
         IRepository<Publication> PublicationsRepository { get; }

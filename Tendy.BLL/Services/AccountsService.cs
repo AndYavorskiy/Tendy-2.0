@@ -9,29 +9,29 @@ using Tendy.DAL.Entities;
 
 namespace Tendy.BLL.Services
 {
-    public class AccountsService : IAccountsService
-    {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IMapper _mapper;
+	public class AccountsService : IAccountsService
+	{
+		private readonly UserManager<ApplicationUser> _userManager;
+		private readonly IMapper _mapper;
 
-        public AccountsService(UserManager<ApplicationUser> userManager, IMapper mapper)
-        {
-            _userManager = userManager;
-            _mapper = mapper;
-        }
+		public AccountsService(UserManager<ApplicationUser> userManager, IMapper mapper)
+		{
+			_userManager = userManager;
+			_mapper = mapper;
+		}
 
-        public async Task<RegistrationViewModel> Create(RegistrationViewModel regModel)
-        {
-            var userIdentity = _mapper.Map<ApplicationUser>(regModel);
+		public async Task<RegistrationViewModel> Create(RegistrationViewModel regModel)
+		{
+			var userIdentity = _mapper.Map<ApplicationUser>(regModel);
 
-            var result = await _userManager.CreateAsync(userIdentity, regModel.Password);
+			var result = await _userManager.CreateAsync(userIdentity, regModel.Password);
 
-            if (!result.Succeeded)
-            {
-                throw new CustomException(StatusCodes.Status501NotImplemented, BLLExceptionsMessages.CantRegisterAccount);
-            }
+			if (!result.Succeeded)
+			{
+				throw new CustomException(StatusCodes.Status501NotImplemented, BLLExceptionsMessages.CantRegisterAccount);
+			}
 
-            return regModel;
-        }
-    }
+			return regModel;
+		}
+	}
 }

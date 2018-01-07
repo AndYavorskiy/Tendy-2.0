@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { IdeaService } from './Services/idea.service';
+
+import { IdeaService } from './Services';
 
 import {
   IdeaLayoutComponent,
   IdeaListComponent,
-  IdeaSideMenuComponent
-} from './Components/index';
+  IdeaSideMenuComponent,
+  IdeaEditComponent,
+  IdeaDetailsComponent,
+  MyIdeaComponent
+} from './Components';
 
 @NgModule({
   imports: [RouterModule.forChild([
@@ -22,7 +26,23 @@ import {
           path: '',
           outlet: "sidemenu",
           component: IdeaSideMenuComponent
-        }
+        },
+        {
+          path: 'add',
+          component: IdeaEditComponent
+        },
+        {
+          path: 'edit/:id',
+          component: IdeaEditComponent
+        },
+        {
+          path: 'details/:id',
+          component: IdeaDetailsComponent
+        },
+        {
+          path: 'my',
+          component: MyIdeaComponent
+        },
       ]
     }
   ])],

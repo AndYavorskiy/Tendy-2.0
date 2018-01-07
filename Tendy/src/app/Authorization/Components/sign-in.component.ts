@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Credentials } from '../Models/index';
 import { Subscription } from 'rxjs';
+
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthorizationService } from '../Services/index';
+
+import { Credentials } from '../Models';
+import { AuthorizationService } from '../Services';
 
 @Component({
   selector: 'app-sign-in',
@@ -12,6 +13,9 @@ import { AuthorizationService } from '../Services/index';
 })
 export class SignInComponent implements OnInit {
 
+  subscription: Subscription;
+
+  credentials: Credentials = { email: '', password: '' };
   errors: string;
 
   constructor(
@@ -22,20 +26,22 @@ export class SignInComponent implements OnInit {
 
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.subscription = this.activatedRoute.queryParams.subscribe(
+      params => this.credentials.email = params['email']);
+  }
 
-  signIn({ value, valid }: { value: Credentials, valid: boolean }) {
-    console.log(value);
+  signIn(value: Credentials) {
+    console.log(this.credentials);
 
-    if (valid) {
-      this.authorizeService.login(value.email, value.password)
-        .subscribe(
-        result => {
-          if (result) {
-            this.router.navigate(['']);
-          }
-        },
-        error => this.errors = error);
-    }
+    this.authorizeService.login(value.email, value.password)
+      .subscribe(
+      result => {
+        if (result) {
+          this.router.navigate(['../../ideas']);
+        }
+      },
+      error => this.errors = error);
+
   }
 }

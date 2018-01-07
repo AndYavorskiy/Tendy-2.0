@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule }  from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { AuthorizationRoutingModule } from './authorization-routing.module';
-import { SignUpComponent, SignInComponent } from './Components/index';
-import { AuthorizationService } from './Services/index';
+import { AuthorizationService, UserService } from './Services';
+import { SignUpComponent, SignInComponent } from './Components';
 
 @NgModule({
   imports: [
@@ -16,8 +16,9 @@ import { AuthorizationService } from './Services/index';
     SignUpComponent,
     SignInComponent
   ],
-  providers:[
-    AuthorizationService
+  providers: [
+    AuthorizationService,
+    UserService
   ]
 })
 export class AuthorizationModule { }

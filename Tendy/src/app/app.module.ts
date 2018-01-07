@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 import { IdeaModule } from './Idea/idea.module';
 import { NavHeaderComponent } from './NavHeader/nav-header.component';
 import { AuthorizationModule } from './Authorization/authorization.module';
-import { ConfigService } from './Common/Utils/config.service';
+import { ConfigService, ApiService } from './Common/Auxiliary';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { ConfigService } from './Common/Utils/config.service';
     IdeaModule,
     AuthorizationModule
   ],
-  providers: [ConfigService],
+  providers: [ConfigService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

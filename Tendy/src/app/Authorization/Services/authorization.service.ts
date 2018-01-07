@@ -2,52 +2,61 @@ import { Observable } from 'rxjs/Rx';
 import { BehaviorSubject } from 'rxjs/Rx';
 
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { ConfigService } from '../../Common/Utils/config.service';
-import { BaseService } from '../../Common/Auxiliary/base.service';
+import { Http } from '@angular/http';
+import { LocalStrg, ApiErrorHandler } from '../../Common/Utils/index';
+import { AuthInfo } from '../../Common/Models/index';
+import { ConfigService } from '../../Common/Auxiliary';
 
 @Injectable()
-export class AuthorizationService extends BaseService {
+export class AuthorizationService {
 
-  baseUrl: string = '';
-
-  // Observable navItem source
-  _authNavStatusSource = new BehaviorSubject<boolean>(false);
-  // Observable navItem stream
+  _authNavStatusSource = new BehaviorSubject<AuthInfo>(new AuthInfo());
   authNavStatus$ = this._authNavStatusSource.asObservable();
 
-  private loggedIn = false;
+  baseUrl: string = "auth/";
+  authInfo: AuthInfo;
 
   constructor(
     private http: Http,
-    private configService: ConfigService
+    private configServ: ConfigService
   ) {
-    super();
-    this.loggedIn = !!localStorage.getItem('auth_token');
-    this._authNavStatusSource.next(this.loggedIn);
-    this.baseUrl = configService.getApiURI();
+
+    this.authInfo = {
+      isSignedIn: LocalStrg.exists('auth_token'),
+      userName: LocalStrg.get("user_name")
+    };
+
+    this._authNavStatusSource.next(this.authInfo);
   }
 
-  login(userName, password) {
+  login(email, password) {
+
     return this.http
-      .post(this.baseUrl + '/auth/login', JSON.stringify({ userName, password }), this.configService.getRequestOptions())
+      .post(this.configServ.apiUrl + this.baseUrl + 'login', JSON.stringify({ email, password }), this.configServ.getRequestOptions())
       .map(res => res.json())
       .map(res => {
-        localStorage.setItem('auth_token', res.auth_token);
-        this.loggedIn = true;
-        this._authNavStatusSource.next(true);
+        LocalStrg.setMany([
+          { key: "auth_token", value: res.auth_token },
+          { key: "user_name", value: res.user_name }
+        ]);
+
+        this.authInfo.isSignedIn = true;
+        this.authInfo.userName = res.user_name;
+        this._authNavStatusSource.next(this.authInfo);
         return true;
       })
-      .catch(this.handleError);
+      .catch(ApiErrorHandler.handleError);
   }
 
   logout() {
-    localStorage.removeItem('auth_token');
-    this.loggedIn = false;
-    this._authNavStatusSource.next(false);
+    LocalStrg.remove('auth_token');
+
+    this.authInfo.isSignedIn = false;
+    this.authInfo.userName = "";
+    this._authNavStatusSource.next(this.authInfo);
   }
 
   isLoggedIn() {
-    return this.loggedIn;
+    return this.authInfo.isSignedIn;
   }
 }

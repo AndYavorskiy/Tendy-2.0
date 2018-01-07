@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Tendy.DAL.Entities;
 
 namespace Tendy.Authorizations
 {
@@ -7,6 +8,6 @@ namespace Tendy.Authorizations
   {
     Task<string> GenerateEncodedToken(string userName, ClaimsIdentity identity);
 
-    ClaimsIdentity GenerateClaimsIdentity(string userName, string id);
+    ClaimsIdentity GenerateClaimsIdentity(ApplicationUser user);
   }
 }

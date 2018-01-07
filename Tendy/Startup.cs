@@ -1,30 +1,31 @@
+#region Usings
+using AutoMapper;
+using FluentValidation.AspNetCore;
+using System;
+using System.Reflection;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Tendy.DAL.EF;
-using Tendy.DAL.Entities;
-using Microsoft.AspNetCore.Identity;
-using System.Reflection;
-using AutoMapper;
+using Microsoft.IdentityModel.Tokens;
+using Tendy.Abstract;
+using Tendy.Authorizations;
+using Tendy.Concrete;
+using Tendy.Middlewares;
+using Tendy.Models;
+using Tendy.BLL.Interfaces;
+using Tendy.BLL.Services;
+using Tendy.BLL.Utils;
+using Tendy.BLL.Utils.Validations;
 using Tendy.DAL.Abstract;
 using Tendy.DAL.Concrete;
-using Tendy.Abstract;
-using Tendy.Concrete;
-using Tendy.BLL.Utils;
-using Tendy.BLL.Services;
-using Tendy.BLL.Interfaces;
-using FluentValidation.AspNetCore;
-using Tendy.BLL.Utils.Validations;
-using Tendy.Models;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using System;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Tendy.Authorizations;
-using Tendy.Helpers;
-using Tendy.Middlewares;
+using Tendy.DAL.EF;
+using Tendy.DAL.Entities;
+#endregion
 
 namespace Tendy
 {
@@ -47,22 +48,29 @@ namespace Tendy
       services.AddDbContext<ApplicationDbContext>(options =>
           options.UseSqlServer(Configuration.GetConnectionString(connectionType)));
 
-      services.AddIdentity<ApplicationUser, IdentityRole>()
+      services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+      {
+        options.Password.RequiredLength = 5;
+        options.Password.RequireLowercase = false;
+        options.Password.RequireUppercase = false;
+        options.Password.RequireNonAlphanumeric = false;
+        options.Password.RequireDigit = false;
+      })
           .AddEntityFrameworkStores<ApplicationDbContext>()
           .AddDefaultTokenProviders();
 
-      services.AddCors(options => options.AddPolicy("AllowCors",
-          builder =>
-          {
-            builder
-                     .AllowAnyOrigin()
+      services.AddCors(options =>
+          options.AddPolicy("AllowCors",
+          builder => builder
+                     .WithOrigins("http://localhost:4200")
                      .WithMethods("GET", "PUT", "POST", "DELETE")
-                     .AllowAnyHeader();
-          }));
+                     .AllowAnyHeader()
+          ));
 
       services.AddAuthorization(options =>
       {
-        options.AddPolicy("ApiUser", policy => policy.RequireClaim(Constants.Strings.JwtClaimIdentifiers.Rol, Constants.Strings.JwtClaims.ApiAccess));
+        options.AddPolicy("ApiUser", policy =>
+            policy.RequireClaim(Constants.JwtClaimIdentifiers.Role, Constants.JwtClaims.ApiAccess));
       });
 
       //jwt wire up. Get options from app settings
@@ -119,6 +127,7 @@ namespace Tendy
       services.AddScoped<IRepository<PublicationImage>, Repository<PublicationImage>>();
       services.AddScoped<IRepository<Request>, Repository<Request>>();
       services.AddScoped<IRepository<UserProfile>, Repository<UserProfile>>();
+      services.AddScoped<IRepository<IdeaCategory>, Repository<IdeaCategory>>();
 
       //dependency injection BLL
       services.AddScoped<IIdeasService, IdeaService>();
@@ -131,13 +140,17 @@ namespace Tendy
 
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
+      app.UseGlobalErrorHandling();
+
       if (env.IsDevelopment())
       {
         app.Shell("npm start");
       }
+
       app.UseDefaultFiles();
       app.UseStaticFiles();
 
+      app.UseCors("AllowCors");
       app.UseAuthentication();
 
       app.UseMvc();

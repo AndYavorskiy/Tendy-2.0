@@ -1,13 +1,13 @@
 ﻿using Tendy.BLL.ViewModels;
-using System.Collections.Generic;
+using Tendy.Common.ViewModels;
 
 namespace Tendy.BLL.Interfaces
 {
-    public interface IIdeasService
+	public interface IIdeasService
     {
-        IEnumerable<IdeaViewModel> GetAll();
+		AggregateContent<IdeaViewModel> Search(IdeaSearchFilter filter);
 
-        IdeaViewModel GetById(int id);
+		IdeaViewModel GetById(int id);
 
         IdeaViewModel Create(IdeaViewModel ideaVm);
 

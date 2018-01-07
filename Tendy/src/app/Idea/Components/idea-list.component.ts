@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { IdeaService } from '../Services/idea.service';
-import { IdeaModule } from '../idea.module';
-import { IdeaModel } from '../Models/idea.model';
 import { ActivatedRoute } from '@angular/router';
+
+import { IdeaService } from '../Services';
+import { IdeaModel } from '../Models';
 
 @Component({
   selector: 'app-idea-list',
@@ -19,7 +19,7 @@ export class IdeaListComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.ideaService.getAllIdeas()
+    // this.ideaService.getAll()
     //   .subscribe(result => this.ideas = result)
   }
 

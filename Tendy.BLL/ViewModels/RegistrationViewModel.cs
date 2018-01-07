@@ -10,7 +10,7 @@ namespace Tendy.BLL.ViewModels
 
         public virtual string Email { get; set; }
 
-        public virtual string PasswordHash { get; set; }
+        public virtual string Password { get; set; }
 
         public virtual string PhoneNumber { get; set; }
     }

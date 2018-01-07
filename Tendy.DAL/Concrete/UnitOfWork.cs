@@ -21,8 +21,9 @@ namespace Tendy.Concrete
         private readonly IRepository<Category> _categoriesRepository;
         private readonly IRepository<Request> _requestsRepository;
         private readonly IRepository<PeopleGroup> _peopleGroupsRepository;
+		private readonly IRepository<IdeaCategory> _ideasCategoriesRepository;
 
-        public UnitOfWork(ApplicationDbContext context,
+		public UnitOfWork(ApplicationDbContext context,
             IRepository<ApplicationUser> applicationUsersRepository,
             IRepository<UserProfile> userProfilesRepository,
             IRepository<Idea> ideasRepository,
@@ -34,9 +35,10 @@ namespace Tendy.Concrete
             IRepository<Image> imagesRepository,
             IRepository<Category> categoriesRepository,
             IRepository<Request> requestsRepository,
-            IRepository<PeopleGroup> peopleGroupsRepository)
+            IRepository<PeopleGroup> peopleGroupsRepository,
+            IRepository<IdeaCategory> ideasCategoriesRepository)
         {
-            Context = context;
+			Context = context;
             _applicationUsersRepository = applicationUsersRepository;
             _userProfilesRepository = userProfilesRepository;
             _ideasRepository = ideasRepository;
@@ -49,7 +51,8 @@ namespace Tendy.Concrete
             _categoriesRepository = categoriesRepository;
             _requestsRepository = requestsRepository;
             _peopleGroupsRepository = peopleGroupsRepository;
-        }
+			_ideasCategoriesRepository = ideasCategoriesRepository;
+		}
 
         public ApplicationDbContext Context { get => _context; set => _context = value; }
 
@@ -77,7 +80,9 @@ namespace Tendy.Concrete
 
         public IRepository<PeopleGroup> PeopleGroupsRepository => _peopleGroupsRepository;
 
-        public void SaveChanges()
+		public IRepository<IdeaCategory> IdeasCategoriesRepository => _ideasCategoriesRepository;
+
+		public void SaveChanges()
         {
             _context.SaveChanges();
         }
