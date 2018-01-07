@@ -12,7 +12,7 @@ export class MyIdeaComponent implements OnInit {
   page: number = 1;
   pageSize: number = 9;
   total: number;
-  myIdeas: IdeaModel[] = [{ id: 1, title: "fdsfsd" } as IdeaModel];
+  myIdeas: IdeaModel[];
 
   constructor(private ideaService: IdeaService) { }
 
@@ -27,6 +27,7 @@ export class MyIdeaComponent implements OnInit {
       .subscribe(
       res => {
         this.myIdeas = res.source;
+        this.myIdeas.push(res.source[0], res.source[0], res.source[0], res.source[0], res.source[0],);
         this.total = res.total;
       },
       error => console.log(error));

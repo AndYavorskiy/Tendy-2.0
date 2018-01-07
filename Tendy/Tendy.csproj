@@ -115,6 +115,12 @@
     <None Update="src\app\Idea\Components\idea-list.component.html">
       <DependentUpon>idea-list.component.ts</DependentUpon>
     </None>
+    <None Update="src\app\Idea\Components\idea-manage.component.html">
+      <DependentUpon>idea-manage.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\Idea\Components\idea-manage.component.scss">
+      <DependentUpon>idea-manage.component.ts</DependentUpon>
+    </None>
     <None Update="src\app\Idea\Components\idea-side-menu.component.html">
       <DependentUpon>idea-side-menu.component.ts</DependentUpon>
     </None>

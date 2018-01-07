@@ -1,42 +1,15 @@
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae elementum eros. Duis a sem quis ex interdum tempus
-    et eget justo. Pellentesque lectus mi, eleifend quis magna a, vehicula varius arcu. Pellentesque vitae ex a tortor cursus
-    varius in eget tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam justo sapien, euismod vitae elit
-    quis, fermentum ultrices elit. Curabitur a consequat nibh, eu iaculis quam. Nam eu purus consequat, cursus leo nec, scelerisque
-    nisl. Vestibulum vestibulum, dolor nec mattis feugiat, ipsum massa laoreet est, ac pretium felis ligula quis lectus.
-    Vestibulum sed congue justo. Suspendisse bibendum finibus ullamcorper.
-</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae elementum eros. Duis a sem quis ex interdum tempus
-    et eget justo. Pellentesque lectus mi, eleifend quis magna a, vehicula varius arcu. Pellentesque vitae ex a tortor cursus
-    varius in eget tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam justo sapien, euismod vitae elit
-    quis, fermentum ultrices elit. Curabitur a consequat nibh, eu iaculis quam. Nam eu purus consequat, cursus leo nec, scelerisque
-    nisl. Vestibulum vestibulum, dolor nec mattis feugiat, ipsum massa laoreet est, ac pretium felis ligula quis lectus.
-    Vestibulum sed congue justo. Suspendisse bibendum finibus ullamcorper.
-</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae elementum eros. Duis a sem quis ex interdum tempus
-    et eget justo. Pellentesque lectus mi, eleifend quis magna a, vehicula varius arcu. Pellentesque vitae ex a tortor cursus
-    varius in eget tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam justo sapien, euismod vitae elit
-    quis, fermentum ultrices elit. Curabitur a consequat nibh, eu iaculis quam. Nam eu purus consequat, cursus leo nec, scelerisque
-    nisl. Vestibulum vestibulum, dolor nec mattis feugiat, ipsum massa laoreet est, ac pretium felis ligula quis lectus.
-    Vestibulum sed congue justo. Suspendisse bibendum finibus ullamcorper.
-</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae elementum eros. Duis a sem quis ex interdum tempus
-    et eget justo. Pellentesque lectus mi, eleifend quis magna a, vehicula varius arcu. Pellentesque vitae ex a tortor cursus
-    varius in eget tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam justo sapien, euismod vitae elit
-    quis, fermentum ultrices elit. Curabitur a consequat nibh, eu iaculis quam. Nam eu purus consequat, cursus leo nec, scelerisque
-    nisl. Vestibulum vestibulum, dolor nec mattis feugiat, ipsum massa laoreet est, ac pretium felis ligula quis lectus.
-    Vestibulum sed congue justo. Suspendisse bibendum finibus ullamcorper.
-</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae elementum eros. Duis a sem quis ex interdum tempus
-    et eget justo. Pellentesque lectus mi, eleifend quis magna a, vehicula varius arcu. Pellentesque vitae ex a tortor cursus
-    varius in eget tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam justo sapien, euismod vitae elit
-    quis, fermentum ultrices elit. Curabitur a consequat nibh, eu iaculis quam. Nam eu purus consequat, cursus leo nec, scelerisque
-    nisl. Vestibulum vestibulum, dolor nec mattis feugiat, ipsum massa laoreet est, ac pretium felis ligula quis lectus.
-    Vestibulum sed congue justo. Suspendisse bibendum finibus ullamcorper.
-</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae elementum eros. Duis a sem quis ex interdum tempus
-    et eget justo. Pellentesque lectus mi, eleifend quis magna a, vehicula varius arcu. Pellentesque vitae ex a tortor cursus
-    varius in eget tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam justo sapien, euismod vitae elit
-    quis, fermentum ultrices elit. Curabitur a consequat nibh, eu iaculis quam. Nam eu purus consequat, cursus leo nec, scelerisque
-    nisl. Vestibulum vestibulum, dolor nec mattis feugiat, ipsum massa laoreet est, ac pretium felis ligula quis lectus.
-    Vestibulum sed congue justo. Suspendisse bibendum finibus ullamcorper.
-</p>
+<label *ngIf="!total">Ви ще не поширили жодної ідеї</label>
+
+<div class="row content-wrapper">
+  <div class="col-md-3" *ngFor="let item of ideas">
+    <div class="card card-wrapper">
+      <div class="card-body">
+        <h5 class="card-title">{{item.title}}</h5>
+
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+        <a class="btn btn-primary btn-sm" [routerLink]="['../manage',item.id]"> Manage </a>
+      </div>
+    </div>
+  </div>
+</div>

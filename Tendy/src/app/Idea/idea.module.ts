@@ -10,9 +10,11 @@ import {
   IdeaLayoutComponent,
   IdeaSideMenuComponent,
   IdeaEditComponent,
-  IdeaDetailsComponent
+  IdeaDetailsComponent,
+  MyIdeaComponent,
+  IdeaManageComponent
 } from './Components';
-import { MyIdeaComponent } from './Components/my-idea.component';
+
 
 @NgModule({
   imports: [
@@ -27,6 +29,7 @@ import { MyIdeaComponent } from './Components/my-idea.component';
     IdeaEditComponent,
     IdeaDetailsComponent,
     MyIdeaComponent,
+    IdeaManageComponent,
   ],
   providers: [
     IdeaService

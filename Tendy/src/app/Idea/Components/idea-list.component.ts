@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { IdeaService } from '../Services';
-import { IdeaModel } from '../Models';
+import { IdeaModel, SearchFilter } from '../Models';
 
 @Component({
   selector: 'app-idea-list',
@@ -11,16 +11,28 @@ import { IdeaModel } from '../Models';
 })
 export class IdeaListComponent implements OnInit {
 
+  page: number = 1;
+  pageSize: number = 12;
+  total: number;
+
   ideas: IdeaModel[];
 
   constructor(route: ActivatedRoute,
     private ideaService: IdeaService) {
-    route.params.subscribe(params => console.log("side menu id parameter", params['id']));
   }
 
   ngOnInit() {
-    // this.ideaService.getAll()
-    //   .subscribe(result => this.ideas = result)
-  }
+    let filter = {
+      page: this.page,
+      pageSize: this.pageSize
+    } as SearchFilter;
 
+    this.ideaService.search(filter)
+      .subscribe(
+      res => {
+        this.ideas = res.source;
+        this.total = res.total;
+      },
+      error => console.log(error));
+  }
 }

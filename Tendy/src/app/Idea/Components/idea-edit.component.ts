@@ -18,6 +18,7 @@ export class IdeaEditComponent implements OnInit {
 
   errors: string;
   success: string;
+
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -37,6 +38,7 @@ export class IdeaEditComponent implements OnInit {
         error => this.router.navigate(['../../ideas'])
         );
     }
+
     else {
       this.editIdea = new IdeaModel();
     }

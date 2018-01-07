@@ -1,7 +1,15 @@
-<p>
-  my-idea works!
-</p>
+<label *ngIf="!total">Ви ще не поширили жодної ідеї</label>
 
-<div *ngFor="let item of myIdeas">
-  {{item.title}}
+<div class="row content-wrapper">
+  <div class="col-md-3" *ngFor="let item of myIdeas">
+    <div class="card card-wrapper">
+      <div class="card-body">
+        <h5 class="card-title">{{item.title}}</h5>
+
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+        <a class="btn btn-primary btn-sm" [routerLink]="['../manage',item.id]"> Manage </a>
+      </div>
+    </div>
+  </div>
 </div>

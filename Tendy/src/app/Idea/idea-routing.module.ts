@@ -9,7 +9,8 @@ import {
   IdeaSideMenuComponent,
   IdeaEditComponent,
   IdeaDetailsComponent,
-  MyIdeaComponent
+  MyIdeaComponent,
+  IdeaManageComponent
 } from './Components';
 
 @NgModule({
@@ -42,6 +43,10 @@ import {
         {
           path: 'my',
           component: MyIdeaComponent
+        },
+        {
+          path: 'manage/:id',
+          component: IdeaManageComponent
         },
       ]
     }
