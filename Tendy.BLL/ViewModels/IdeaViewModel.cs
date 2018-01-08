@@ -15,8 +15,8 @@ namespace Tendy.BLL.ViewModels
         public string SubTitle { get; set; }
 
         public string Description { get; set; }
-
-        public DateTime? DateOfCreation { get; set; }
+		public string GitHubLink { get; set; }
+		public DateTime? DateOfCreation { get; set; }
 
         public string AuthorId { get; set; }
 

@@ -57,24 +57,24 @@ export class IdeaEditComponent implements OnInit {
     add(addIdea: IdeaModel) {
         this.ideaService.create(addIdea)
             .subscribe(
-            result => {
-                this.success = "cuccessfuly added!";
-                this.errors = "";
-            }, error => {
-                this.success = "";
-                this.errors = error
-            });
+            result => this.router.navigate(['../../ideas/my']),
+            error => this.showErrorMsg(error));
     }
 
     edit(editIdea: IdeaModel) {
         this.ideaService.update(editIdea)
             .subscribe(
-            result => {
-                this.success = "Changes seved successfuly!";
-                this.errors = "";
-            }, error => {
-                this.success = "";
-                this.errors = error
-            });
+            result => this.showSuccessMsg("Changes seved successfuly!"),
+            error => this.showErrorMsg(error));
+    }
+
+    private showSuccessMsg(message: string) {
+        this.success = message;
+        this.errors = "";
+    }
+
+    private showErrorMsg(error: any) {
+        this.success = "";
+        this.errors = error;
     }
 }

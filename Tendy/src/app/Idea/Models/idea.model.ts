@@ -3,6 +3,7 @@ export class IdeaModel {
     public title: string;
     public subTitle: string;
     public description: string;
+    public gitHubLink: string;
     public dateOfCreation: Date;
     public applicationUserId: string;
     public attachmentGroupId: number;

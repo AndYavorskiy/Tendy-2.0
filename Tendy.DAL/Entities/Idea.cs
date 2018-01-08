@@ -10,7 +10,8 @@ namespace Tendy.DAL.Entities
         public string Title { get; set; }
         public string SubTitle { get; set; }
         public string Description { get; set; }
-        public DateTime? DateOfCreation { get; set; }
+        public string GitHubLink { get; set; }
+		public DateTime? DateOfCreation { get; set; }
 
         public string AuthorId { get; set; }
         public virtual ApplicationUser Author { get; set; }
