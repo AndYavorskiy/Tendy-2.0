@@ -6,33 +6,33 @@ import { IdeaRoutingModule } from './idea-routing.module';
 import { IdeaService } from './Services';
 
 import {
-  IdeaListComponent,
-  IdeaLayoutComponent,
-  IdeaSideMenuComponent,
-  IdeaEditComponent,
-  IdeaDetailsComponent,
-  MyIdeaComponent,
-  IdeaManageComponent
-} from './Components';
-
-
-@NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IdeaRoutingModule
-  ],
-  declarations: [
     IdeaListComponent,
     IdeaLayoutComponent,
     IdeaSideMenuComponent,
     IdeaEditComponent,
     IdeaDetailsComponent,
     MyIdeaComponent,
-    IdeaManageComponent,
-  ],
-  providers: [
-    IdeaService
-  ]
+    IdeaManageComponent
+} from './Components';
+
+
+@NgModule({
+    imports: [
+        CommonModule,
+        FormsModule,
+        IdeaRoutingModule
+    ],
+    declarations: [
+        IdeaListComponent,
+        IdeaLayoutComponent,
+        IdeaSideMenuComponent,
+        IdeaEditComponent,
+        IdeaDetailsComponent,
+        MyIdeaComponent,
+        IdeaManageComponent,
+    ],
+    providers: [
+        IdeaService
+    ]
 })
 export class IdeaModule { }

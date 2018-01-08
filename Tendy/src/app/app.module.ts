@@ -12,20 +12,20 @@ import { AuthorizationModule } from './Authorization/authorization.module';
 import { ConfigService, ApiService } from './Common/Auxiliary';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavHeaderComponent,
-  ],
-  imports: [
-    BrowserModule,
-    CommonModule,
-    HttpModule,
-    FormsModule,
-    RouterModule.forRoot([]),
-    IdeaModule,
-    AuthorizationModule
-  ],
-  providers: [ConfigService, ApiService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavHeaderComponent,
+    ],
+    imports: [
+        BrowserModule,
+        CommonModule,
+        HttpModule,
+        FormsModule,
+        RouterModule.forRoot([]),
+        IdeaModule,
+        AuthorizationModule
+    ],
+    providers: [ConfigService, ApiService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

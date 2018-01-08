@@ -6,28 +6,28 @@ import { LocalStrg } from '../Common/Utils';
 import { AuthInfo } from '../Common/Models';
 
 @Component({
-  selector: 'nav-header',
-  templateUrl: './nav-header.component.html',
-  styleUrls: ['./nav-header.component.scss']
+    selector: 'nav-header',
+    templateUrl: './nav-header.component.html',
+    styleUrls: ['./nav-header.component.scss']
 })
 export class NavHeaderComponent implements OnInit {
 
-  authInfo: AuthInfo;
-  subscription: Subscription;
-  
-  constructor(private authorizeService: AuthorizationService) { }
+    authInfo: AuthInfo;
+    subscription: Subscription;
 
-  ngOnInit() {
+    constructor(private authorizeService: AuthorizationService) { }
 
-    this.subscription = this.authorizeService.authNavStatus$
-          .subscribe(status => this.authInfo = status);
-  }
+    ngOnInit() {
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+        this.subscription = this.authorizeService.authNavStatus$
+            .subscribe(status => this.authInfo = status);
+    }
 
-  logout() {
-    this.authorizeService.logout();
-  }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
+
+    logout() {
+        this.authorizeService.logout();
+    }
 }

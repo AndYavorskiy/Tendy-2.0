@@ -1,6 +1,6 @@
 import { SearchFilter } from "../../Common/Models";
 
 export interface SearchFilter extends SearchFilter {
-  isUserAuthor: boolean;
-  categories: number[];
+    isUserAuthor: boolean;
+    categories: number[];
 }
