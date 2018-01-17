@@ -2,21 +2,17 @@ import { map } from "rxjs/operator/map";
 import { Observable } from "rxjs/Observable";
 
 import { Injectable, Inject } from '@angular/core';
-import { Http } from '@angular/http'
 
 import { IdeaModel, SearchFilter } from "../Models";
-import { ApiService } from "../../Common/Auxiliary";
+import { ApiService } from "../../Common/Services";
 import { AggregateContent } from "../../Common/Models";
 
 @Injectable()
 export class IdeaService {
 
-    private readonly baseUrl = "idea/";;
+    private readonly baseUrl = "idea/";
 
-    constructor(
-        private _http: Http,
-        private api: ApiService
-    ) { }
+    constructor(private api: ApiService) { }
 
     search(filter: SearchFilter): Observable<AggregateContent<IdeaModel>> {
         return this.api.get<AggregateContent<IdeaModel>>(this.baseUrl + "search", filter);

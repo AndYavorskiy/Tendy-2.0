@@ -7,20 +7,22 @@
 
   <ItemGroup>
     <Compile Remove="dist\**" />
+    <Compile Remove="src\app\Common\Auxiliary\**" />
     <Compile Remove="src\images\**" />
     <Content Remove="dist\**" />
+    <Content Remove="src\app\Common\Auxiliary\**" />
     <Content Remove="src\images\**" />
     <EmbeddedResource Remove="dist\**" />
+    <EmbeddedResource Remove="src\app\Common\Auxiliary\**" />
     <EmbeddedResource Remove="src\images\**" />
     <None Remove="dist\**" />
+    <None Remove="src\app\Common\Auxiliary\**" />
     <None Remove="src\images\**" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="src\app\Authorization\Models\user-registration.model.ts" />
     <None Remove="src\app\Authorization\Services\user.service.ts" />
-    <None Remove="src\app\Common\Auxiliary\api.service.ts" />
-    <None Remove="src\app\Common\Auxiliary\index.ts" />
     <None Remove="src\app\Common\Models\aggregate-content.model.ts" />
     <None Remove="src\app\Common\Models\auth-info.model.ts" />
     <None Remove="src\app\Common\Models\custom-exception.model.ts" />
@@ -57,8 +59,6 @@
   <ItemGroup>
     <TypeScriptCompile Include="src\app\Authorization\Models\user-registration.model.ts" />
     <TypeScriptCompile Include="src\app\Authorization\Services\user.service.ts" />
-    <TypeScriptCompile Include="src\app\Common\Auxiliary\api.service.ts" />
-    <TypeScriptCompile Include="src\app\Common\Auxiliary\index.ts" />
     <TypeScriptCompile Include="src\app\Common\Models\aggregate-content.model.ts" />
     <TypeScriptCompile Include="src\app\Common\Models\auth-info.model.ts" />
     <TypeScriptCompile Include="src\app\Common\Models\custom-exception.model.ts" />

@@ -2,7 +2,7 @@ import { Observable } from 'rxjs/Rx';
 
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
-import { ApiService } from "../../Common/Auxiliary";
+import { ApiService } from "../../Common/Services";
 import { UserRegistrationViewModel } from '../Models';
 
 @Injectable()

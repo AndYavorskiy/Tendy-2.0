@@ -1,6 +1,4 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
 using Tendy.BLL.ViewModels;
 
 namespace Tendy.BLL.Utils.Validations

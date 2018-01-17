@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { LocalStrg, ApiErrorHandler } from '../../Common/Utils/index';
 import { AuthInfo } from '../../Common/Models/index';
-import { ConfigService } from '../../Common/Auxiliary';
+import { ConfigService } from '../../Common/Services';
 
 @Injectable()
 export class AuthorizationService {
