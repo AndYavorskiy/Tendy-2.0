@@ -22,9 +22,9 @@ import { AppCommonModule } from './Common/app-common.module';
         HttpModule,
         FormsModule,
         RouterModule.forRoot([]),
+        AppCommonModule.forRoot(),
         IdeaModule,
         AuthorizationModule,
-        AppCommonModule.forRoot(),
     ],
     
     bootstrap: [AppComponent]

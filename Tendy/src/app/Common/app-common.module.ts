@@ -1,17 +1,20 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConfigService, ApiService } from './Services';
+import { AlertModule, ModalModule } from 'ngx-bootstrap';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    AlertModule.forRoot(),
+    ModalModule.forRoot(),
   ],
   declarations: [
   ],
-  // providers: [
-  //   ConfigService,
-  //   ApiService
-  // ],
+  exports: [
+    AlertModule,
+    ModalModule,
+  ]
 })
 export class AppCommonModule {
   static forRoot(): ModuleWithProviders {

@@ -1,8 +1,10 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, TemplateRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { IdeaService } from '../Services';
 import { IdeaModel, SearchFilter } from '../Models';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 @Component({
   selector: 'app-idea-list',
@@ -20,7 +22,7 @@ export class IdeaListComponent implements OnInit {
   constructor(route: ActivatedRoute,
     private ideaService: IdeaService) {
   }
-
+  
   ngOnInit() {
     let filter = {
       page: this.page,

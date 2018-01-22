@@ -14,13 +14,16 @@ import {
     MyIdeaComponent,
     IdeaManageComponent
 } from './Components';
-
+import { AlertModule } from 'ngx-bootstrap';
+import { ModalModule } from 'ngx-bootstrap';
+import { AppCommonModule } from '../Common/app-common.module';
 
 @NgModule({
     imports: [
         CommonModule,
+        AppCommonModule,
         FormsModule,
-        IdeaRoutingModule
+        IdeaRoutingModule,
     ],
     declarations: [
         IdeaListComponent,
