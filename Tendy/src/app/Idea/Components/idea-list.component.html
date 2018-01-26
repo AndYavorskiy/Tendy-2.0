@@ -3,71 +3,20 @@
 <div class="row content-wrapper">
     <div class="col-md-3" *ngFor="let item of ideas">
         <div class="card card-wrapper">
+            <div class="card-image">
+                <img class="card-img-top" src="https://designmodo.com/wp-content/uploads/2015/08/bicycle.jpg" alt="Card image cap">
+            </div>
+
+            <div class="linear-status">
+                <div class="green"></div>
+                <div class="orange"></div>
+                <div class="blue"></div>
+            </div>
+
             <div class="card-body">
                 <h5 class="card-title">{{item.title}}</h5>
 
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                <a class="btn btn-primary btn-sm" [routerLink]="['../manage',item.id]"> Manage </a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<button type="button" class="btn btn-primary" (click)="parentModal.show()">Open parent modal</button>
-<div class="modal fade" bsModal #parentModal="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title pull-left">First modal</h4>
-                <button type="button" class="close pull-right" aria-label="Close" (click)="parentModal.hide()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-                <p>asdasdadasd asd asd asd as das das sa d</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success">Submit</button>               
             </div>
         </div>
     </div>

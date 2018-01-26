@@ -1,89 +1,114 @@
-<div class="container">
-    <h2>
-        <strong>{{idea.title}}</strong>
-    </h2>
-
-    <a class="btn btn-primary btn-sm" [routerLink]="['../../edit',idea.id]"> Edit  </a>
-
+<div class="container margin-bottom-1">
     <div class="row">
-        <div class="col-md-5 image-wrapper">
-            <img class="image-wrapper" src="https://www.justpro.co/img/no-image.png" data-holder-rendered="true">
-        </div>
+        <div class="container-fluid">
+            <div class="card-block">
+                <div class="card-block-header">
+                    <div class="text-2x">
+                        <strong>{{idea.title}}</strong>
+                    </div>
 
-        <div class="col-md-7">
-            <div>
-                <label>Title: </label>
-                <span>{{idea.title}}</span>
-            </div>
+                    <div>
+                        <a [routerLink]="['../../edit',idea.id]">
+                            <span class="fa fa-pencil-square-o fa-lg"></span>
+                        </a>
+                    </div>
+                </div>
 
-            <div>
-                <label>Subtitle: </label>
-                <span>{{idea.subTitle}}</span>
-            </div>
+                <div class="card-block-body">
+                    <div class="row ">
+                        <div class="col-md-5 image-wrapper">
+                            <img class="image-wrapper" src="https://www.justpro.co/img/no-image.png" data-holder-rendered="true">
+                        </div>
 
-            <div>
-                <label>Description: </label>
-                <span>{{idea.description}}</span>
-            </div>
+                        <div class="col-md-7">
+                            <div>
+                                <label>Title: </label>
+                                <span>{{idea.title}}</span>
+                            </div>
 
-            <div *ngIf="idea.gitHubLink">
-                <a class="btn btn-dark btn-sm" href="{{idea.gitHubLink}}" target="_blank">GitHub</a>
+                            <div>
+                                <label>Subtitle: </label>
+                                <span>{{idea.subTitle}}</span>
+                            </div>
+
+                            <div>
+                                <label>Description: </label>
+                                <span>{{idea.description}}</span>
+                            </div>
+
+                            <div *ngIf="idea.gitHubLink">
+                                <a class="btn btn-dark btn-sm" href="{{idea.gitHubLink}}" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-3 text-center">
-            Need people:
-            <h2>
-                <span>10</span>
-            </h2>
+        <div class="col-md-3 col-sm-6 col-6">
+            <div class="card-block">
+                <div class="card-block-body text-center">
+                    <span class="text-3x text-dark-cyan">10</span>
+
+                    <h6><span class="text-muted">Need people</span></h6>
+                </div>
+            </div>
         </div>
-        <div class="col-md-3 text-center">
-            Accepted people:
-            <h2>
-                <span>10</span>
-            </h2>
+
+        <div class="col-md-3 col-sm-6 col-6">
+            <div class="card-block">
+                <div class="card-block-body text-center">
+                    <span class="text-3x text-warning">10</span>
+
+                    <h6><span class="text-muted">Need people</span></h6>
+                </div>
+            </div>
         </div>
-        <div class="col-md-3 text-center">
-            All requests count:
-            <h2>
-                <span>10</span>
-            </h2>
+
+        <div class="col-md-3 col-sm-6 col-6">
+            <div class="card-block">
+                <div class="card-block-body text-center">
+                    <span class="text-3x text-dobger-blue">40</span>
+
+                    <h6><span class="text-muted">Need people</span></h6>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-6">
+            <div class="card-block">
+                <div class="card-block-body text-center">
+                    <span class="text-3x text-danger">25</span>
+
+                    <h6><span class="text-muted">Need people</span></h6>
+                </div>
+            </div>
         </div>
     </div>
+
     <div class="row">
-        <h4>Attachment</h4>
+        <div class="container-fluid">
+            <div class="card-block">
+                <div class="card-block-body">
+                    <h4 class="card-title">Attachments</h4>
 
-        <div class="attachment-container">
-            <span class="border border-primary"></span>
-            <span class="border border-secondary"></span>
-            <span class="border border-success"></span>
-            <span class="border border-danger"></span>
-            <span class="border border-warning"></span>
-            <span class="border border-info"></span>
-            <span class="border border-dark"></span>
-        </div>
-
-        <div class="form-group">
-            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    <app-attachments-layout></app-attachments-layout>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="row">
-        <h4>Publications</h4>
+        <div class="container-fluid">
+            <div class="card-block">
+                <div class="card-block-body">
+                    <h4 class="card-title">Publications</h4>
 
-        <div class="attachment-container">
-            <span class="border border-secondary"></span>
-            <span class="border border-secondary"></span>
-            <span class="border border-secondary"></span>
-            <span class="border border-secondary"></span>
-            <span class="border border-secondary"></span>
-            <span class="border border-secondary"></span>
-            <span class="border border-secondary"></span>
-        </div>
-        <div class="form-group">
-            <input type="file" class="form-control-file">
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

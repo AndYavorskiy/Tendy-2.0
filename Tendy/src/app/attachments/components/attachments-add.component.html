@@ -1,0 +1,35 @@
+<div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                <i class="fa fa-link" aria-hidden="true"></i>
+            </div>
+        </div>
+
+        <input #link type="text" class="form-control" placeholder="Link on file">
+
+        <div class="input-group-append">
+            <button type="button" class="btn btn-outline-success" (click)='addLink(link.value); link.value = ""'>Add</button>
+        </div>
+    </div>
+
+    <file-uploader (onSelect)="onFilesSelected($event)"></file-uploader>
+
+    <div class="file-list" *ngIf="fileList && fileList.length">
+        <h5>Files</h5>
+
+        <div class="file" *ngFor="let item of fileList">
+            <span> {{item.name}} </span>
+            <i class="fa fa-trash-o" (click)="removeFile(item)"></i>
+        </div>
+    </div>
+
+    <div class="file-list" *ngIf="linkList && linkList.length">
+        <h5>Links</h5>
+
+        <div class="file" *ngFor="let item of linkList">
+            <span> {{item}} </span>
+            <i class="fa fa-trash-o" (click)="removeLink(item)"></i>
+        </div>
+    </div>
+</div>

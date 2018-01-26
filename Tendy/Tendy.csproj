@@ -7,32 +7,34 @@
 
   <ItemGroup>
     <Compile Remove="dist\**" />
-    <Compile Remove="src\app\Common\Auxiliary\**" />
+    <Compile Remove="src\app\common\Auxiliary\**" />
     <Compile Remove="src\images\**" />
     <Content Remove="dist\**" />
-    <Content Remove="src\app\Common\Auxiliary\**" />
+    <Content Remove="src\app\common\Auxiliary\**" />
     <Content Remove="src\images\**" />
     <EmbeddedResource Remove="dist\**" />
-    <EmbeddedResource Remove="src\app\Common\Auxiliary\**" />
+    <EmbeddedResource Remove="src\app\common\Auxiliary\**" />
     <EmbeddedResource Remove="src\images\**" />
     <None Remove="dist\**" />
-    <None Remove="src\app\Common\Auxiliary\**" />
+    <None Remove="src\app\common\Auxiliary\**" />
     <None Remove="src\images\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="src\app\Authorization\Models\user-registration.model.ts" />
-    <None Remove="src\app\Authorization\Services\user.service.ts" />
-    <None Remove="src\app\Common\Models\aggregate-content.model.ts" />
-    <None Remove="src\app\Common\Models\auth-info.model.ts" />
-    <None Remove="src\app\Common\Models\custom-exception.model.ts" />
-    <None Remove="src\app\Common\Models\index.ts" />
-    <None Remove="src\app\Common\Models\search-filter.model.ts" />
-    <None Remove="src\app\Common\Utils\api-error-handler.ts" />
-    <None Remove="src\app\Common\Utils\index.ts" />
-    <None Remove="src\app\Common\Utils\local-storage-manager.service.ts" />
-    <None Remove="src\app\Idea\Models\index.ts" />
-    <None Remove="src\app\Idea\Models\search-filter.model.ts" />
+    <None Remove="src\app\attachments\components\index.ts" />
+    <None Remove="src\app\attachments\services\index.ts" />
+    <None Remove="src\app\authorization\models\user-registration.model.ts" />
+    <None Remove="src\app\authorization\services\user.service.ts" />
+    <None Remove="src\app\common\models\aggregate-content.model.ts" />
+    <None Remove="src\app\common\models\auth-info.model.ts" />
+    <None Remove="src\app\common\models\custom-exception.model.ts" />
+    <None Remove="src\app\common\models\index.ts" />
+    <None Remove="src\app\common\models\search-filter.model.ts" />
+    <None Remove="src\app\common\utils\api-error-handler.ts" />
+    <None Remove="src\app\common\utils\index.ts" />
+    <None Remove="src\app\common\utils\local-storage-manager.service.ts" />
+    <None Remove="src\app\idea\models\index.ts" />
+    <None Remove="src\app\idea\models\search-filter.model.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -57,18 +59,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="src\app\Authorization\Models\user-registration.model.ts" />
-    <TypeScriptCompile Include="src\app\Authorization\Services\user.service.ts" />
-    <TypeScriptCompile Include="src\app\Common\Models\aggregate-content.model.ts" />
-    <TypeScriptCompile Include="src\app\Common\Models\auth-info.model.ts" />
-    <TypeScriptCompile Include="src\app\Common\Models\custom-exception.model.ts" />
-    <TypeScriptCompile Include="src\app\Common\Models\index.ts" />
-    <TypeScriptCompile Include="src\app\Common\Models\search-filter.model.ts" />
-    <TypeScriptCompile Include="src\app\Common\Utils\api-error-handler.ts" />
-    <TypeScriptCompile Include="src\app\Common\Utils\index.ts" />
-    <TypeScriptCompile Include="src\app\Common\Utils\local-storage-manager.service.ts" />
-    <TypeScriptCompile Include="src\app\Idea\Models\index.ts" />
-    <TypeScriptCompile Include="src\app\Idea\Models\search-filter.model.ts" />
+    <TypeScriptCompile Include="src\app\attachments\components\index.ts" />
+    <TypeScriptCompile Include="src\app\attachments\services\index.ts" />
+    <TypeScriptCompile Include="src\app\authorization\models\user-registration.model.ts" />
+    <TypeScriptCompile Include="src\app\authorization\services\user.service.ts" />
+    <TypeScriptCompile Include="src\app\common\models\aggregate-content.model.ts" />
+    <TypeScriptCompile Include="src\app\common\models\auth-info.model.ts" />
+    <TypeScriptCompile Include="src\app\common\models\custom-exception.model.ts" />
+    <TypeScriptCompile Include="src\app\common\models\index.ts" />
+    <TypeScriptCompile Include="src\app\common\models\search-filter.model.ts" />
+    <TypeScriptCompile Include="src\app\common\utils\api-error-handler.ts" />
+    <TypeScriptCompile Include="src\app\common\utils\index.ts" />
+    <TypeScriptCompile Include="src\app\common\utils\local-storage-manager.service.ts" />
+    <TypeScriptCompile Include="src\app\idea\models\index.ts" />
+    <TypeScriptCompile Include="src\app\idea\models\search-filter.model.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -78,64 +82,82 @@
     <None Update="src\app\app.component.scss">
       <DependentUpon>app.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\Authorization\Components\sign-in.component.html">
+    <None Update="src\app\attachments\components\attachments-add.component.html">
+      <DependentUpon>attachments-add.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\attachments\components\attachments-add.component.scss">
+      <DependentUpon>attachments-add.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\attachments\components\attachments-layout.component.html">
+      <DependentUpon>attachments-layout.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\attachments\components\attachments-layout.component.scss">
+      <DependentUpon>attachments-layout.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\attachments\components\attachments-list.component.html">
+      <DependentUpon>attachments-list.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\attachments\components\attachments-list.component.scss">
+      <DependentUpon>attachments-list.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\authorization\components\sign-in.component.html">
       <DependentUpon>sign-in.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\Authorization\Components\sign-in.component.scss">
+    <None Update="src\app\authorization\components\sign-in.component.scss">
       <DependentUpon>sign-in.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\Authorization\Components\sign-up.component.html">
+    <None Update="src\app\authorization\components\sign-up.component.html">
       <DependentUpon>sign-up.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\Authorization\Components\sign-up.component.scss">
+    <None Update="src\app\authorization\components\sign-up.component.scss">
       <DependentUpon>sign-up.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\Idea\Components\idea-details.component.html">
+    <None Update="src\app\idea\components\idea-details.component.html">
       <DependentUpon>idea-details.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\Idea\Components\idea-details.component.scss">
+    <None Update="src\app\idea\components\idea-details.component.scss">
       <DependentUpon>idea-details.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\Idea\Components\idea-edit.component.html">
+    <None Update="src\app\idea\components\idea-edit.component.html">
       <DependentUpon>idea-edit.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\Idea\Components\idea-edit.component.scss">
+    <None Update="src\app\idea\components\idea-edit.component.scss">
       <DependentUpon>idea-edit.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\Idea\Components\idea-layout.component.html">
+    <None Update="src\app\idea\components\idea-layout.component.html">
       <DependentUpon>idea-layout.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\Idea\Components\idea-layout.component.scss">
+    <None Update="src\app\idea\components\idea-layout.component.scss">
       <DependentUpon>idea-layout.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\Idea\Components\idea-list.component.css">
+    <None Update="src\app\idea\components\idea-list.component.html">
       <DependentUpon>idea-list.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\Idea\Components\idea-list.component.html">
+    <None Update="src\app\idea\components\idea-list.component.scss">
       <DependentUpon>idea-list.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\Idea\Components\idea-manage.component.html">
+    <None Update="src\app\idea\components\idea-manage.component.html">
       <DependentUpon>idea-manage.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\Idea\Components\idea-manage.component.scss">
+    <None Update="src\app\idea\components\idea-manage.component.scss">
       <DependentUpon>idea-manage.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\Idea\Components\idea-side-menu.component.html">
+    <None Update="src\app\idea\components\idea-side-menu.component.html">
       <DependentUpon>idea-side-menu.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\Idea\Components\idea-side-menu.component.scss">
+    <None Update="src\app\idea\components\idea-side-menu.component.scss">
       <DependentUpon>idea-side-menu.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\Idea\Components\my-idea.component.html">
+    <None Update="src\app\idea\components\my-idea.component.html">
       <DependentUpon>my-idea.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\Idea\Components\my-idea.component.scss">
+    <None Update="src\app\idea\components\my-idea.component.scss">
       <DependentUpon>my-idea.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\NavHeader\nav-header.component.html">
+    <None Update="src\app\nav-header\nav-header.component.html">
       <DependentUpon>nav-header.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\NavHeader\nav-header.component.scss">
+    <None Update="src\app\nav-header\nav-header.component.scss">
       <DependentUpon>nav-header.component.ts</DependentUpon>
     </None>
   </ItemGroup>

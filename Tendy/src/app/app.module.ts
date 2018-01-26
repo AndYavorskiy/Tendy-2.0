@@ -6,10 +6,14 @@ import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { IdeaModule } from './Idea/idea.module';
-import { NavHeaderComponent } from './NavHeader/nav-header.component';
-import { AuthorizationModule } from './Authorization/authorization.module';
-import { AppCommonModule } from './Common/app-common.module';
+import { IdeaModule } from './idea/idea.module';
+import { NavHeaderComponent } from './nav-header/nav-header.component';
+import { AuthorizationModule } from './authorization/authorization.module';
+import { ServiceProviderModule } from './common/app-common.module';
+import { AttachmentsModule } from './attachments/attachments.module';
+import { FileUploaderComponent } from './common/components';
+import { SharedModule } from './common/shared.module';
+
 
 @NgModule({
     declarations: [
@@ -22,11 +26,12 @@ import { AppCommonModule } from './Common/app-common.module';
         HttpModule,
         FormsModule,
         RouterModule.forRoot([]),
-        AppCommonModule.forRoot(),
-        IdeaModule,
+        ServiceProviderModule.forRoot(),
         AuthorizationModule,
+        SharedModule,
+        IdeaModule,
+        AttachmentsModule,
     ],
-    
     bootstrap: [AppComponent]
 })
 export class AppModule { }

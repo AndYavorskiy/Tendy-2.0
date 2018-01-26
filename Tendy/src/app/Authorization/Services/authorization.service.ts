@@ -3,9 +3,10 @@ import { BehaviorSubject } from 'rxjs/Rx';
 
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { LocalStrg, ApiErrorHandler } from '../../Common/Utils/index';
-import { AuthInfo } from '../../Common/Models/index';
-import { ConfigService } from '../../Common/Services';
+
+import { LocalStrg, ApiErrorHandler } from '../../common/utils';
+import { AuthInfo } from '../../common/models';
+import { ConfigService } from '../../common/services';
 
 @Injectable()
 export class AuthorizationService {

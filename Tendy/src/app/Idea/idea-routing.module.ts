@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { IdeaService } from './Services';
+import { IdeaService } from './services';
 
 import {
     IdeaLayoutComponent,
@@ -11,7 +11,7 @@ import {
     IdeaDetailsComponent,
     MyIdeaComponent,
     IdeaManageComponent
-} from './Components';
+} from './components';
 
 @NgModule({
     imports: [RouterModule.forChild([

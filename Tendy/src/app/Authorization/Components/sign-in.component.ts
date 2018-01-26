@@ -3,8 +3,8 @@ import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Credentials } from '../Models';
-import { AuthorizationService } from '../Services';
+import { Credentials } from '../models';
+import { AuthorizationService } from '../services';
 
 @Component({
     selector: 'app-sign-in',

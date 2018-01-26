@@ -3,9 +3,9 @@ import { Observable } from "rxjs/Observable";
 
 import { Injectable, Inject } from '@angular/core';
 
-import { IdeaModel, SearchFilter } from "../Models";
-import { ApiService } from "../../Common/Services";
-import { AggregateContent } from "../../Common/Models";
+import { IdeaModel, SearchFilter } from "../models";
+import { ApiService } from "../../common/services";
+import { AggregateContent } from "../../common/models";
 
 @Injectable()
 export class IdeaService {

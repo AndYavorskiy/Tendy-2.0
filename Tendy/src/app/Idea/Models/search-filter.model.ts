@@ -1,4 +1,4 @@
-import { SearchFilter } from "../../Common/Models";
+import { SearchFilter } from "../../common/models";
 
 export interface SearchFilter extends SearchFilter {
     isUserAuthor: boolean;

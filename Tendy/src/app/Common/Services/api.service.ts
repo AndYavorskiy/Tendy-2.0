@@ -4,7 +4,7 @@ import { Observable } from "rxjs/Observable";
 import { Injectable, Inject } from '@angular/core';
 import { Http, RequestOptionsArgs } from '@angular/http'
 
-import { ApiErrorHandler } from "../Utils";
+import { ApiErrorHandler } from "../utils";
 import { ConfigService } from "./api-config.service";
 
 @Injectable()

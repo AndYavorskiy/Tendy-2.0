@@ -1,9 +1,9 @@
 import { Subscription } from 'rxjs/Subscription';
-
 import { Component, OnInit } from '@angular/core';
-import { AuthorizationService } from '../Authorization/Services';
-import { LocalStrg } from '../Common/Utils';
-import { AuthInfo } from '../Common/Models';
+
+import { AuthorizationService } from '../authorization/services';
+import { LocalStrg } from '../common/utils';
+import { AuthInfo } from '../common/models';
 
 @Component({
     selector: 'nav-header',

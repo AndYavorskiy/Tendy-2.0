@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { IdeaService } from '../Services';
-import { IdeaModel } from '../Models';
+import { IdeaService } from '../services';
+import { IdeaModel } from '../models';
 
 @Component({
     selector: 'app-idea-details',

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from '../../Common/Services';
+
+import { ApiService } from '../../common/services';
 
 @Injectable()
 export class AttachmentService {

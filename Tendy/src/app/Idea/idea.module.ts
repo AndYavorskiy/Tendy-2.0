@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IdeaRoutingModule } from './idea-routing.module';
-import { IdeaService } from './Services';
+import { IdeaService } from './services';
+import { ServiceProviderModule } from '../common/app-common.module';
+import { AttachmentsModule } from '../attachments/attachments.module';
 
 import {
     IdeaListComponent,
@@ -13,17 +15,18 @@ import {
     IdeaDetailsComponent,
     MyIdeaComponent,
     IdeaManageComponent
-} from './Components';
-import { AlertModule } from 'ngx-bootstrap';
-import { ModalModule } from 'ngx-bootstrap';
-import { AppCommonModule } from '../Common/app-common.module';
+} from './components';
+import { SharedModule } from '../common/shared.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        AppCommonModule,
+        ServiceProviderModule,
         FormsModule,
         IdeaRoutingModule,
+        AttachmentsModule,
+        SharedModule,
+
     ],
     declarations: [
         IdeaListComponent,

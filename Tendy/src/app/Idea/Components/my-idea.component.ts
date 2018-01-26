@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IdeaService } from '../Services';
-import { IdeaModel, SearchFilter } from '../Models';
+
+import { IdeaService } from '../services';
+import { IdeaModel, SearchFilter } from '../models';
 
 @Component({
     selector: 'app-my-idea',

@@ -2,8 +2,9 @@ import { Observable } from 'rxjs/Rx';
 
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
-import { ApiService } from "../../Common/Services";
-import { UserRegistrationViewModel } from '../Models';
+
+import { ApiService } from "../../common/services";
+import { UserRegistrationViewModel } from '../models';
 
 @Injectable()
 export class UserService {

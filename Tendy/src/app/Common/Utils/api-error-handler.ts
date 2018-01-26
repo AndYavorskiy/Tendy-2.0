@@ -1,5 +1,6 @@
-import { CustomException } from "../Models";
 import { Observable } from "rxjs/Observable";
+
+import { CustomException } from "../models";
 
 export class ApiErrorHandler {
   public static handleError(error: any) {

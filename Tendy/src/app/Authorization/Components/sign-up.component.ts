@@ -1,8 +1,8 @@
 import { Component, OnInit, Pipe} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { UserRegistrationViewModel } from '../Models';
-import { UserService } from '../Services';
+import { UserRegistrationViewModel } from '../models';
+import { UserService } from '../services';
 
 @Component({
   selector: 'app-sign-up',

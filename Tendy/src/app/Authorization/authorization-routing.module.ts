@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { SignUpComponent, SignInComponent } from './Components';
+import { SignUpComponent, SignInComponent } from './components';
 
 @NgModule({
   imports: [RouterModule.forChild([
