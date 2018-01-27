@@ -3,22 +3,19 @@ using Tendy.DAL.Entities;
 
 namespace Tendy.Abstract
 {
-    public interface IUnitOfWork
-    {
-        IRepository<ApplicationUser> ApplicationUsersRepository { get; }
-        IRepository<UserProfile> UserProfilesRepository { get; }
-        IRepository<Idea> IdeasRepository { get; }
-        IRepository<IdeaCategory> IdeasCategoriesRepository { get; }
-		IRepository<IdeaImage> IdeaImagesRepository { get; }
-        IRepository<AttachmentGroup> AttachmentsGroupsRepository { get; }
-        IRepository<Attachment> AttachmentsRepository { get; }
-        IRepository<Publication> PublicationsRepository { get; }
-        IRepository<PublicationImage> PublicationImagesRepository { get; }
-        IRepository<Image> ImagesRepository { get; }
-        IRepository<Category> CategoriesRepository { get; }
-        IRepository<Request> RequestsRepository { get; }
-        IRepository<PeopleGroup> PeopleGroupsRepository { get; }
+	public interface IUnitOfWork
+	{
+		IRepository<ApplicationUser> ApplicationUsersRepository { get; }
+		IRepository<UserProfile> UserProfilesRepository { get; }
+		IRepository<Idea> IdeasRepository { get; }
+		IRepository<IdeaCategory> IdeasCategoriesRepository { get; }
+		IRepository<Attachment> AttachmentsRepository { get; }
+		IRepository<Category> CategoriesRepository { get; }
+		IRepository<Request> RequestsRepository { get; }
+		IRepository<PeopleGroup> PeopleGroupsRepository { get; }
+		IRepository<Link> LinksRepository { get; }
+		IRepository<File> FilesRepository { get; }
 
-        void SaveChanges();
-    }
+		void SaveChanges();
+	}
 }

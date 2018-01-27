@@ -117,17 +117,14 @@ namespace Tendy
       services.AddScoped<IUnitOfWork, UnitOfWork>();
       services.AddScoped<IRepository<ApplicationUser>, Repository<ApplicationUser>>();
       services.AddScoped<IRepository<Attachment>, Repository<Attachment>>();
-      services.AddScoped<IRepository<AttachmentGroup>, Repository<AttachmentGroup>>();
       services.AddScoped<IRepository<Category>, Repository<Category>>();
       services.AddScoped<IRepository<Idea>, Repository<Idea>>();
-      services.AddScoped<IRepository<IdeaImage>, Repository<IdeaImage>>();
-      services.AddScoped<IRepository<Image>, Repository<Image>>();
       services.AddScoped<IRepository<PeopleGroup>, Repository<PeopleGroup>>();
-      services.AddScoped<IRepository<Publication>, Repository<Publication>>();
-      services.AddScoped<IRepository<PublicationImage>, Repository<PublicationImage>>();
       services.AddScoped<IRepository<Request>, Repository<Request>>();
       services.AddScoped<IRepository<UserProfile>, Repository<UserProfile>>();
       services.AddScoped<IRepository<IdeaCategory>, Repository<IdeaCategory>>();
+      services.AddScoped<IRepository<Link>, Repository<Link>>();
+      services.AddScoped<IRepository<File>, Repository<File>>();
 
       //dependency injection BLL
       services.AddScoped<IIdeasService, IdeaService>();

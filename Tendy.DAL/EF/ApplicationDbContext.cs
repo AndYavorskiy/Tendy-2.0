@@ -11,8 +11,11 @@ namespace Tendy.DAL.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<IdeaCategory>()
-           .HasKey(t => new { t.IdeaId, t.CategoryId });
+			modelBuilder.Entity<Link>().Property(p => p.IsPrivate).HasDefaultValue(false);
+			modelBuilder.Entity<File>().Property(p => p.IsPrivate).HasDefaultValue(false);
+
+			modelBuilder.Entity<IdeaCategory>()
+				.HasKey(t => new { t.IdeaId, t.CategoryId });
 
             modelBuilder.Entity<IdeaCategory>()
                 .HasOne(pt => pt.Idea)
@@ -29,13 +32,10 @@ namespace Tendy.DAL.EF
 
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Idea> Ideas { get; set; }
-        public DbSet<IdeaImage> IdeaImages { get; set; }
-        public DbSet<AttachmentGroup> AttachmentGroups { get; set; }
         public DbSet<Attachment> Attachments { get; set; }
-        public DbSet<Publication> Publications { get; set; }
-        public DbSet<PublicationImage> PublicationImages { get; set; }
-        public DbSet<Image> Images { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<Link> Links { get; set; }
+        public DbSet<File> Files { get; set; }
+		public DbSet<Category> Categories { get; set; }
         public DbSet<Request> Requests { get; set; }
         public DbSet<PeopleGroup> PeopleGroups { get; set; }
     }
