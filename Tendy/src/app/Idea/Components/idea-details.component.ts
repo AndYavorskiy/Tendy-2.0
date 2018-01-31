@@ -11,11 +11,18 @@ import { IdeaModel } from '../models';
 })
 export class IdeaDetailsComponent implements OnInit {
 
-    constructor(route: ActivatedRoute,
-        private ideaService: IdeaService) {
-        route.params.subscribe(params => console.log("side menu id parameter", params['id']));
-    }
+    idea: IdeaModel;
+    errors: string;
+    success: string;
+
+    constructor(private route: ActivatedRoute,
+        private ideaService: IdeaService) { }
 
     ngOnInit() {
+        this.route.params
+            .subscribe(params => {
+                this.ideaService.get(+params['id'])
+                    .subscribe(idea => this.idea = idea)
+            });
     }
 }

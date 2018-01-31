@@ -1,24 +1,5 @@
 <div>
     <attachments-list></attachments-list>
-</div>
 
-<button type="button" class="btn btn-primary" (click)="parentModal.show()">Add attachments</button>
-
-<div class="modal fade" bsModal #parentModal="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title pull-left">Add attachments</h4>
-                <button type="button" class="close pull-right" aria-label="Close" (click)="parentModal.hide()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <app-attachments-add></app-attachments-add>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success">Submit</button>
-            </div>
-        </div>
-    </div>
+    <app-attachments-add></app-attachments-add>
 </div>

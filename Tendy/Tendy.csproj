@@ -21,7 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="README.md" />
     <None Remove="src\app\attachments\components\index.ts" />
+    <None Remove="src\app\attachments\models\attachments.model.ts" />
+    <None Remove="src\app\attachments\models\file.model.ts" />
+    <None Remove="src\app\attachments\models\index.ts" />
     <None Remove="src\app\attachments\services\index.ts" />
     <None Remove="src\app\authorization\models\user-registration.model.ts" />
     <None Remove="src\app\authorization\services\user.service.ts" />
@@ -60,6 +64,9 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="src\app\attachments\components\index.ts" />
+    <TypeScriptCompile Include="src\app\attachments\models\attachments.model.ts" />
+    <TypeScriptCompile Include="src\app\attachments\models\file.model.ts" />
+    <TypeScriptCompile Include="src\app\attachments\models\index.ts" />
     <TypeScriptCompile Include="src\app\attachments\services\index.ts" />
     <TypeScriptCompile Include="src\app\authorization\models\user-registration.model.ts" />
     <TypeScriptCompile Include="src\app\authorization\services\user.service.ts" />
