@@ -4,7 +4,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ConfigService, ApiService } from './services';
-import { FileUploaderComponent } from './components/file-uploader.component';
+import { FileUploaderComponent, SpinnerComponent } from './components';
 
 @NgModule({
     imports: [
@@ -16,14 +16,16 @@ import { FileUploaderComponent } from './components/file-uploader.component';
         AngularFontAwesomeModule,
     ],
     declarations: [
-        FileUploaderComponent
+        FileUploaderComponent,
+        SpinnerComponent,
     ],
     exports: [
         AngularFontAwesomeModule,
         AlertModule,
         ModalModule,
         TooltipModule,
-        FileUploaderComponent
+        FileUploaderComponent,
+        SpinnerComponent,
     ]
 })
 export class SharedModule {

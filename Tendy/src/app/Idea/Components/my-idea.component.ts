@@ -10,6 +10,7 @@ import { IdeaModel, SearchFilter } from '../models';
 })
 export class MyIdeaComponent implements OnInit {
 
+    loading: boolean = true;
     page: number = 1;
     pageSize: number = 9;
     total: number;
@@ -29,7 +30,11 @@ export class MyIdeaComponent implements OnInit {
             res => {
                 this.myIdeas = res.source;
                 this.total = res.total;
+                this.loading = false;
             },
-            error => console.log(error));
+            error => {
+                console.log(error);
+                this.loading = false;
+            });
     }
 }

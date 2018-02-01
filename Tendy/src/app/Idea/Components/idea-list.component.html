@@ -1,6 +1,8 @@
-<label *ngIf="!total">Ви ще не поширили жодної ідеї</label>
+<app-spinner [visible]="loading"></app-spinner>
 
-<div class="row content-wrapper">
+<div class="row content-wrapper" *ngIf="!loading">
+    <label *ngIf="!total">Ви ще не поширили жодної ідеї</label>
+
     <div class="col-md-3" *ngFor="let item of ideas">
         <div class="card card-wrapper">
             <div class="card-image">

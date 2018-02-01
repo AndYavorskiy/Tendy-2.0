@@ -1,8 +1,9 @@
-<label *ngIf="!total">Ви ще не поширили жодної ідеї</label>
+<app-spinner [visible]="loading"></app-spinner>
 
-<div class="row content-wrapper">
+<div class="row content-wrapper" *ngIf="!loading">
+    <label *ngIf="!total">Ви ще не поширили жодної ідеї</label>
+
     <div class="col-md-3" *ngFor="let item of myIdeas">
-
         <div class="card card-wrapper">
             <div class="card-image">
                 <img class="card-img-top" src="https://designmodo.com/wp-content/uploads/2015/08/bicycle.jpg" alt="Card image cap">

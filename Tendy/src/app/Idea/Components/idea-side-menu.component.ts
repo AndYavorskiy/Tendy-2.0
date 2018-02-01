@@ -10,11 +10,17 @@ import { IdeaService } from '../services';
 })
 export class IdeaSideMenuComponent implements OnInit {
 
+    public isToggled: boolean = true;
+
     constructor(route: ActivatedRoute,
         private ideaService: IdeaService) {
         route.params.subscribe(params => console.log("side menu id parameter", params['id']));
     }
 
     ngOnInit() {
+    }
+
+    toggle(){
+        this.isToggled = !this.isToggled;
     }
 }

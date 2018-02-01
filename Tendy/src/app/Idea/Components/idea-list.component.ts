@@ -12,11 +12,11 @@ import { IdeaModel, SearchFilter } from '../models';
   styleUrls: ['./idea-list.component.scss']
 })
 export class IdeaListComponent implements OnInit {
-
+  
+  loading: boolean = true;
   page: number = 1;
   pageSize: number = 12;
   total: number;
-
   ideas: IdeaModel[];
 
   constructor(route: ActivatedRoute,
@@ -34,6 +34,7 @@ export class IdeaListComponent implements OnInit {
       res => {
         this.ideas = res.source;
         this.total = res.total;
+        this.loading = false;
       },
       error => console.log(error));
   }
