@@ -1,19 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Tendy.BLL.ViewModels
 {
-    public class AttachmentViewModel
-    {
-        public int Id { get; set; }
+	public class AttachmentViewModel
+	{
+		public int Id { get; set; }
 
-        public string SourceUrl { get; set; }
+		public int IdeaId { get; set; }
 
-        public DateTime? DateOfCreation { get; set; }
+		public virtual ICollection<LinkViewModel> Links { get; set; } = new List<LinkViewModel>();
 
-        public bool? IsPrivate { get; set; }
-
-        public int? AttachmentGroupId { get; set; }
-
-        public AttachmentGroupViewModel AttachmentGroup { get; set; }
-    }
+		public virtual IEnumerable<FileViewModel> Files { get; set; } = new List<FileViewModel>();
+	}
 }

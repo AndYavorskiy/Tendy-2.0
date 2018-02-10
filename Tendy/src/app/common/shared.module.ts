@@ -1,7 +1,9 @@
 import { AlertModule, ModalModule, TooltipModule, CarouselModule } from 'ngx-bootstrap';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { ConfigService, ApiService } from './services';
 import { FileUploaderComponent, SpinnerComponent } from './components';
@@ -14,6 +16,7 @@ import { FileUploaderComponent, SpinnerComponent } from './components';
         TooltipModule.forRoot(),
         CarouselModule.forRoot(),
         AngularFontAwesomeModule,
+        ReactiveFormsModule,
     ],
     declarations: [
         FileUploaderComponent,
@@ -26,6 +29,7 @@ import { FileUploaderComponent, SpinnerComponent } from './components';
         TooltipModule,
         FileUploaderComponent,
         SpinnerComponent,
+        ReactiveFormsModule,
     ]
 })
 export class SharedModule {

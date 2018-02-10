@@ -8,6 +8,8 @@ namespace Tendy.BLL.ViewModels
 	{
 		public int Id { get; set; }
 
+		public int AttachmentId { get; set; }
+
 		public string Url { get; set; }
 
 		public bool IsPrivate { get; set; }

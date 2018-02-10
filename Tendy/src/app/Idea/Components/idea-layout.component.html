@@ -1,9 +1,8 @@
 <div class="container-fluid bg-grey">
     <div class="row">
-        <div class="col-md-1 sidemenu-wrapper no-padding-r">
-            <router-outlet name="sidemenu"></router-outlet>
-        </div>
-        <div class="col-md-11">
+        <router-outlet name="sidemenu"></router-outlet>
+
+        <div class="container-fluid content">
             <router-outlet></router-outlet>
         </div>
     </div>

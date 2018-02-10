@@ -1,45 +1,47 @@
 <div id="wrapper" [ngClass]="{'toggled': isToggled}">
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav" style="margin-left:0;">
-            <li class="sidebar-brand">
-                <a (click)="toggle()" id="menu-toggle" style="margin-top:20px;float:right;">
+            <li>
+                <a (click)="toggle()" id="menu-toggle">
                     <i class="fa fa-bars " style="font-size:20px !Important;" aria-hidden="true" aria-hidden="true"> </i>
+                    <span style="margin-left:10px;">All Ideas</span>              
                 </a>
             </li>
+
             <li>
-                <a routerLink="./">
+                <a routerLink="./" (click)="hide()">
                     <i class="fa fa-lightbulb" aria-hidden="true"> </i>
                     <span style="margin-left:10px;">All Ideas</span>
                 </a>
             </li>
 
             <li>
-                <a routerLink="./">
+                <a routerLink="./" (click)="hide()">
                     <i class="fa fa-newspaper" aria-hidden="true"> </i>
                     <span style="margin-left:10px;">Publications</span>
                 </a>
             </li>
             <li>
-                <a routerLink="my">
+                <a routerLink="my" (click)="hide()">
                     <i class="fa fa-archive" aria-hidden="true"> </i>
                     <span style="margin-left:10px;">My Ideas</span>
                 </a>
             </li>
             <li>
-                <a routerLink="add">
+                <a routerLink="add" (click)="hide()">
                     <i class="fa fa-plus" aria-hidden="true"> </i>
                     <span style="margin-left:10px;">Add New One</span>
                 </a>
             </li>
             <li>
-                <a routerLink="./">
+                <a routerLink="./" (click)="hide()">
                     <i class="fa fa-users" aria-hidden="true"> </i>
                     <span style="margin-left:10px;">Requests</span>
                 </a>
 
             </li>
             <li>
-                <a routerLink="./">
+                <a routerLink="./" (click)="hide()">
                     <i class="fa fa-chart-line" aria-hidden="true"> </i>
                     <span style="margin-left:10px;">Statistics</span>
                 </a>

@@ -5,8 +5,7 @@ export class IdeaModel {
     public description: string;
     public gitHubLink: string;
     public dateOfCreation: Date;
-    public applicationUserId: string;
-    public attachmentGroupId: number;
-    public AcceptedPeopleGroupId: number;
-    public RequestedPeopleGroupId: number;
+    public authorId: string;
+    public acceptedPeopleGroupId: number;
+    public requestedPeopleGroupId: number;
 }

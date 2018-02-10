@@ -1,0 +1,52 @@
+//--------------------- Background Colors ----------------------
+.bg-grey {
+    background-color: #edeff5;
+}
+
+.bg-main-blue {
+    background-color: #2980b9;
+}
+
+//------------------------- Colors -----------------------------
+.white {
+    color: #ffffff;
+}
+
+.text-dark {
+    color: #3C4252 !important
+}
+
+.text-cyan {
+    color: #009688 !important;
+}
+
+.text-danger {
+    color: #F44336 !important;
+}
+
+.text-warning {
+    color: #FF9800 !important;
+}
+
+.text-muted {
+    color: rgba(0, 0, 0, 0.38) !important;
+}
+
+.text-dobger-blue {
+    color: #2196F3 !important
+}
+
+//------------------------ Text Sizes --------------------------
+.text-2x {
+    font-size: 2em;
+}
+
+.text-3x {
+    font-size: 3em;
+}
+
+//------------------------ Containers Sizes --------------------------
+.full-screen {
+    width: 100%;
+    height: calc(100vh);
+}

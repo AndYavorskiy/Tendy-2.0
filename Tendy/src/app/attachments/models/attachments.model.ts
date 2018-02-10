@@ -1,9 +1,9 @@
-import { Link, FileModel } from "./index";
+import { LinkModel, FileModel } from "./index";
 
 export class Attachments {
     public id: number;
 
-    public Links: Link[] = [];
+    public Links: LinkModel[] = [];
 
     public Files: FileModel[] = [];
 }

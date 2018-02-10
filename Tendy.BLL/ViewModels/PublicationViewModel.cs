@@ -18,7 +18,5 @@ namespace Tendy.BLL.ViewModels
         public ICollection<PublicationImageViewModel> PublicationImages { get; set; }
 
         public int? AttachmentGroupId { get; set; }
-
-        public AttachmentGroupViewModel AttachmentGroup { get; set; }
     }
 }

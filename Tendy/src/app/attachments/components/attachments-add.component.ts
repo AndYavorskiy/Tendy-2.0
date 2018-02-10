@@ -2,7 +2,7 @@ import * as _ from 'lodash';
 
 import { Component, OnInit } from '@angular/core';
 
-import { Attachments, Link, FileModel } from '../models';
+import { Attachments, LinkModel, FileModel } from '../models';
 import { AttachmentService } from '../services';
 
 @Component({
@@ -13,8 +13,6 @@ import { AttachmentService } from '../services';
 export class AttachmentsAddComponent implements OnInit {
 
     public ideaId: number = 1;
-    public fileList: File[] = [];
-    public linkList: string[] = [];
     public attachments: Attachments = new Attachments();
 
     constructor(
@@ -22,34 +20,27 @@ export class AttachmentsAddComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.attachments.Links
-
     }
 
     addLink(link: string) {
-        if (!!link) {
-            this.linkList.push(link);
-            this.attachments.Links.push({ url: link } as Link);
-        }
+        this.attachments.Links.push({ url: link } as LinkModel);
     }
 
-    removeLink(item: string) {
-        var index = this.linkList.indexOf(item, 0);
+    removeLink(item: LinkModel) {
+        var index = this.attachments.Links.indexOf(item, 0);
         if (index > -1) {
-            this.linkList.splice(index, 1);
+            this.attachments.Links.splice(index, 1);
         }
     }
 
-    onFilesSelected(files: File[]) {
-        //this.fileList.push(...files);
-
+    onFilesSelected(files: FileModel[]) {
         this.attachments.Files.push(...files as FileModel[]);
     }
 
-    removeFile(item: File) {
-        var index = this.fileList.indexOf(item, 0);
+    removeFile(item: FileModel) {
+        var index = this.attachments.Files.indexOf(item as FileModel, 0);
         if (index > -1) {
-            this.fileList.splice(index, 1);
+            this.attachments.Files.splice(index, 1);
         }
     }
 

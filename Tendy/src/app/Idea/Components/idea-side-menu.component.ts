@@ -6,7 +6,7 @@ import { IdeaService } from '../services';
 @Component({
     selector: 'app-idea-side-menu',
     templateUrl: './idea-side-menu.component.html',
-    styleUrls: ['./idea-side-menu.component.scss']
+    styleUrls: ['./idea-side-menu.component.scss'],
 })
 export class IdeaSideMenuComponent implements OnInit {
 
@@ -17,10 +17,14 @@ export class IdeaSideMenuComponent implements OnInit {
         route.params.subscribe(params => console.log("side menu id parameter", params['id']));
     }
 
-    ngOnInit() {
+    public ngOnInit() {
     }
 
-    toggle(){
+    public toggle() {
         this.isToggled = !this.isToggled;
+    }
+
+    public hide() {
+        this.isToggled = true;
     }
 }

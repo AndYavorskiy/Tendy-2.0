@@ -9,6 +9,8 @@ export class FileModel extends File {
 
     public sourceUrl: string;
 
+    public source: string;
+
     public isPrivate: boolean;
 
     public dateOfCreation: Date;

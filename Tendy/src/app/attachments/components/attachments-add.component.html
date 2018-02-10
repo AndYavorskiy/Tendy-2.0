@@ -1,12 +1,12 @@
-<button type="button" class="btn btn-primary" (click)="parentModal.show()">Add attachments</button>
+<button type="button" class="btn btn-primary" (click)="modal.show()">Add attachments</button>
 
-<div class="modal fade" bsModal #parentModal="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" bsModal #modal="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title pull-left">Add attachments</h4>
 
-                <button type="button" class="close pull-right" aria-label="Close" (click)="parentModal.hide()">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="modal.hide()">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -24,6 +24,15 @@
                         <button type="button" class="btn btn-outline-success" (click)='addLink(link.value); link.value = ""'>Add</button>
                     </div>
                 </div>
+                
+                <div class="file-list" *ngIf="attachments.Links && attachments.Links.length">
+                    <h5>Links</h5>
+
+                    <div class="file" *ngFor="let item of attachments.Links">
+                        <span> {{item.url}} </span>
+                        <i class="fa fa-trash-o" (click)="removeLink(item)"></i>
+                    </div>
+                </div>
 
                 <file-uploader (onSelect)="onFilesSelected($event)"></file-uploader>
 
@@ -33,15 +42,6 @@
                     <div class="file" *ngFor="let item of attachments.Files">
                         <span> {{item.name}} </span>
                         <i class="fa fa-trash-o" (click)="removeFile(item)"></i>
-                    </div>
-                </div>
-
-                <div class="file-list" *ngIf="attachments.Links && attachments.Links.length">
-                    <h5>Links</h5>
-
-                    <div class="file" *ngFor="let item of attachments.Links">
-                        <span> {{item.url}} </span>
-                        <i class="fa fa-trash-o" (click)="removeLink(item)"></i>
                     </div>
                 </div>
             </div>

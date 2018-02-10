@@ -1,4 +1,4 @@
-export class Link {
+export class LinkModel {
     public id: number;
 
     public url: string;

@@ -5,9 +5,7 @@
 
     <div class="col-md-3" *ngFor="let item of ideas">
         <div class="card card-wrapper">
-            <div class="card-image">
-                <img class="card-img-top" src="https://designmodo.com/wp-content/uploads/2015/08/bicycle.jpg" alt="Card image cap">
-            </div>
+            <img class="card-img-top" src="https://designmodo.com/wp-content/uploads/2015/08/bicycle.jpg" alt="Card image cap">
 
             <div class="linear-status">
                 <div class="green"></div>
@@ -18,7 +16,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{item.title}}</h5>
 
-                <p class="card-text">Some quick example text to build on the card title and make</p>
+                <div class="card-text">Some quick example text to build on the card title and make</div>
 
                 <a class="btn btn-primary btn-sm" [routerLink]="['details', item.id]"> Details </a>
             </div>
