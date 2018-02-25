@@ -11,8 +11,11 @@
         padding: 0 0.5em;
         align-items: center;
 
-        .fa-trash-o:hover {
-            color: red;
+        .tools {
+            width: 2em;
+            .fa-trash {
+                font-size: 0.9em;
+            }
         }
     }
 }

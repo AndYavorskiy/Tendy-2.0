@@ -1,4 +1,14 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { BsModalService, BsModalRef, ModalDirective } from 'ngx-bootstrap';
+
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  TemplateRef,
+  ViewChild
+} from '@angular/core';
 
 import { AttachmentService } from '../services';
 import { LinkModel } from '../models';
@@ -16,25 +26,38 @@ export class AddLinkComponent {
   @Output()
   public onSubmit: EventEmitter<void> = new EventEmitter<void>();
 
-  public loading = true;
+  @ViewChild('mainModal') mainModal: ModalDirective;
+  @ViewChild('confirmModel') confirmModel: ModalDirective;
 
   public links: LinkModel[] = [];
   public editedLink: LinkModel = new LinkModel();
 
-  constructor(private attachmentApi: AttachmentService) { }
+  public loading: boolean = true;
+  public isChanged: boolean;
+
+  constructor(private modalService: BsModalService,
+    private attachmentApi: AttachmentService) { }
 
   public loadData() {
     this.attachmentApi.getLinks(this.ideaId)
       .subscribe(
-      data => {
-        this.links = data,
-          this.loading = false;
-      },
-      error => alert("error: " + error));
+        data => {
+          this.links = data,
+            this.loading = false;
+        },
+        error => alert("error: " + error));
   }
 
-  public submit() {
+  public startInicialization() {
+    this.loading = true;
+    this.isChanged = false;
+    this.loadData();    
+  }
+
+  public add() {
     if (this.editedLink.url && this.editedLink.title) {
+      this.isChanged = true;
+
       if (!this.editedLink.id) {
         this.links.push({
           id: -1,
@@ -68,13 +91,40 @@ export class AddLinkComponent {
   public save() {
     this.attachmentApi.updateLinks(this.ideaId, this.links)
       .subscribe(
-      data => {
-        this.loading = true;
-        this.loadData();
-        this.onSubmit.emit();
-        
-        alert("success: " + data);
-      },
-      error => alert("error: " + error))
+        data => {
+          this.loading = true;
+
+          if (data) {
+            alert("success: " + data);
+            this.onSubmit.emit();
+            this.mainModal.hide();
+          } else {
+            alert("error: can't save changes!")
+          }
+        },
+        error => alert("error: " + error))
+  }
+
+  public openModal() {
+    this.mainModal.show();
+    this.startInicialization();
+  }
+
+  public closeModal() {
+    if (this.isChanged) {
+      this.confirmModel.show();
+    }
+    else {
+      this.mainModal.hide();
+    }
+  }
+
+  public confirm(): void {
+    this.confirmModel.hide();
+    this.mainModal.hide();
+  }
+
+  public decline(): void {
+    this.confirmModel.hide();
   }
 }

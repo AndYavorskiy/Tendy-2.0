@@ -90,9 +90,23 @@
 }
 
 //------------------------ Containers Sizes --------------------------
+@mixin ellipsis() {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .full-screen {
     width: 100%;
     height: calc(100vh);
+}
+
+.full-width {
+    width: 100%;
+}
+
+.text-ellipsis {
+    @include ellipsis();
 }
 
 //--------------------------- Utils ----------------------------------
@@ -115,10 +129,6 @@
 
 .right-border {
     border-right: 1px solid #333;
-}
-
-.pointer {
-    cursor: pointer;
 }
 
 .inline-flex {

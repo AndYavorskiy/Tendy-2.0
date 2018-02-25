@@ -1,7 +1,7 @@
+
 .link-list {
     width: 100%;
     padding: 0.5em 0;
-
     .list-item {
         display: flex;
         justify-content: space-between;
@@ -11,13 +11,11 @@
         padding: 0 0.5em;
         align-items: center;
 
-        .fa-trash-o:hover {
-            color: rgb(255, 0, 0);
-        }
-
-        
-        .fa-edit:hover {
-            color: #ffae00;
+        .tools {
+            width: 3em;
+            .fa-trash {
+                font-size: 0.9em;
+            }
         }
     }
 }
