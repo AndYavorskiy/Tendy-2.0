@@ -29,128 +29,128 @@ using Tendy.DAL.Entities;
 
 namespace Tendy
 {
-  public class Startup
-  {
-    private const string SecretKey = "iNivDmHLpUA223sqsfhqGbMRdRj1PVkH";
-    private readonly SymmetricSecurityKey _signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(SecretKey));
-
-    public Startup(IConfiguration configuration)
+    public class Startup
     {
-      Configuration = configuration;
-    }
+        private const string SecretKey = "iNivDmHLpUA223sqsfhqGbMRdRj1PVkH";
+        private readonly SymmetricSecurityKey _signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(SecretKey));
 
-    public IConfiguration Configuration { get; }
-
-    public void ConfigureServices(IServiceCollection services)
-    {
-      string connectionType = "local";
-
-      services.AddDbContext<ApplicationDbContext>(options =>
-          options.UseSqlServer(Configuration.GetConnectionString(connectionType)));
-
-      services.AddIdentity<ApplicationUser, IdentityRole>(options =>
-      {
-        options.Password.RequiredLength = 5;
-        options.Password.RequireLowercase = false;
-        options.Password.RequireUppercase = false;
-        options.Password.RequireNonAlphanumeric = false;
-        options.Password.RequireDigit = false;
-      })
-          .AddEntityFrameworkStores<ApplicationDbContext>()
-          .AddDefaultTokenProviders();
-
-      services.AddCors(options =>
-          options.AddPolicy("AllowCors",
-          builder => builder
-                     .WithOrigins("http://localhost:4200")
-                     .WithMethods("GET", "PUT", "POST", "DELETE")
-                     .AllowAnyHeader()
-          ));
-
-      services.AddAuthorization(options =>
-      {
-        options.AddPolicy("ApiUser", policy =>
-            policy.RequireClaim(Constants.JwtClaimIdentifiers.Role, Constants.JwtClaims.ApiAccess));
-      });
-
-      //jwt wire up. Get options from app settings
-      var jwtAppSettingOptions = Configuration.GetSection(nameof(JwtIssuerOptions));
-
-      // Configure JwtIssuerOptions
-      services.Configure<JwtIssuerOptions>(options =>
-      {
-        options.Issuer = jwtAppSettingOptions[nameof(JwtIssuerOptions.Issuer)];
-        options.Audience = jwtAppSettingOptions[nameof(JwtIssuerOptions.Audience)];
-        options.SigningCredentials = new SigningCredentials(_signingKey, SecurityAlgorithms.HmacSha256);
-      });
-
-      services.AddAuthentication(options =>
-      {
-        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-      }).AddJwtBearer(o =>
-      {
-        o.RequireHttpsMetadata = false;
-        o.TokenValidationParameters = new TokenValidationParameters()
+        public Startup(IConfiguration configuration)
         {
-          ValidateIssuer = true,
-          ValidIssuer = jwtAppSettingOptions[nameof(JwtIssuerOptions.Issuer)],
+            Configuration = configuration;
+        }
 
-          ValidateAudience = true,
-          ValidAudience = jwtAppSettingOptions[nameof(JwtIssuerOptions.Audience)],
+        public IConfiguration Configuration { get; }
 
-          ValidateIssuerSigningKey = true,
-          IssuerSigningKey = _signingKey,
+        public void ConfigureServices(IServiceCollection services)
+        {
+            string connectionType = "local";
 
-          RequireExpirationTime = false,
-          ValidateLifetime = false,
-          ClockSkew = TimeSpan.Zero
-        };
-      });
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString(connectionType)));
 
-      services.AddAutoMapper(Assembly.GetAssembly(typeof(MappingProfile)));
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.Password.RequiredLength = 5;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireDigit = false;
+            })
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
 
-      services.AddMvc()
-        .AddFluentValidation(fv => fv.RegisterValidatorsFromAssembly(Assembly.GetAssembly(typeof(RegistrationViewModelValidator))));
+            services.AddCors(options =>
+                options.AddPolicy("AllowCors",
+                builder => builder
+                           .WithOrigins("http://localhost:4200")
+                           .WithMethods("GET", "PUT", "POST", "DELETE")
+                           .AllowAnyHeader()
+                ));
 
-      //dependency injection DAL
-      services.AddScoped<IUnitOfWork, UnitOfWork>();
-      services.AddScoped<IRepository<ApplicationUser>, Repository<ApplicationUser>>();
-      services.AddScoped<IRepository<Attachment>, Repository<Attachment>>();
-      services.AddScoped<IRepository<Category>, Repository<Category>>();
-      services.AddScoped<IRepository<Idea>, Repository<Idea>>();
-      services.AddScoped<IRepository<PeopleGroup>, Repository<PeopleGroup>>();
-      services.AddScoped<IRepository<Request>, Repository<Request>>();
-      services.AddScoped<IRepository<UserProfile>, Repository<UserProfile>>();
-      services.AddScoped<IRepository<IdeaCategory>, Repository<IdeaCategory>>();
-      services.AddScoped<IRepository<Link>, Repository<Link>>();
-      services.AddScoped<IRepository<File>, Repository<File>>();
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("ApiUser", policy =>
+              policy.RequireClaim(Constants.JwtClaimIdentifiers.Role, Constants.JwtClaims.ApiAccess));
+            });
 
-      //dependency injection BLL
-      services.AddScoped<IIdeasService, IdeaService>();
-      services.AddScoped<IAccountsService, AccountsService>();
+            //jwt wire up. Get options from app settings
+            var jwtAppSettingOptions = Configuration.GetSection(nameof(JwtIssuerOptions));
 
-      //dependency injection WEB
-      services.AddSingleton<IJwtFactory, JwtFactory>();
+            // Configure JwtIssuerOptions
+            services.Configure<JwtIssuerOptions>(options =>
+            {
+                options.Issuer = jwtAppSettingOptions[nameof(JwtIssuerOptions.Issuer)];
+                options.Audience = jwtAppSettingOptions[nameof(JwtIssuerOptions.Audience)];
+                options.SigningCredentials = new SigningCredentials(_signingKey, SecurityAlgorithms.HmacSha256);
+            });
 
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(o =>
+            {
+                o.RequireHttpsMetadata = false;
+                o.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidIssuer = jwtAppSettingOptions[nameof(JwtIssuerOptions.Issuer)],
+
+                    ValidateAudience = true,
+                    ValidAudience = jwtAppSettingOptions[nameof(JwtIssuerOptions.Audience)],
+
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = _signingKey,
+
+                    RequireExpirationTime = false,
+                    ValidateLifetime = false,
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
+
+            services.AddAutoMapper(Assembly.GetAssembly(typeof(MappingProfile)));
+
+            services.AddMvc()
+              .AddFluentValidation(fv => fv.RegisterValidatorsFromAssembly(Assembly.GetAssembly(typeof(RegistrationViewModelValidator))));
+
+            //dependency injection DAL
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IRepository<ApplicationUser>, Repository<ApplicationUser>>();
+            services.AddScoped<IRepository<Category>, Repository<Category>>();
+            services.AddScoped<IRepository<Idea>, Repository<Idea>>();
+            services.AddScoped<IRepository<PeopleGroup>, Repository<PeopleGroup>>();
+            services.AddScoped<IRepository<Request>, Repository<Request>>();
+            services.AddScoped<IRepository<UserProfile>, Repository<UserProfile>>();
+            services.AddScoped<IRepository<IdeaCategory>, Repository<IdeaCategory>>();
+            services.AddScoped<IRepository<Link>, Repository<Link>>();
+            services.AddScoped<IRepository<File>, Repository<File>>();
+
+            //dependency injection BLL
+            services.AddScoped<IIdeasService, IdeaService>();
+            services.AddScoped<IAccountsService, AccountsService>();
+            services.AddScoped<IAttachmentsManager, AttachmentsManager>();
+
+            //dependency injection WEB
+            services.AddSingleton<IJwtFactory, JwtFactory>();
+
+        }
+
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            app.UseGlobalErrorHandling();
+
+            if (env.IsDevelopment())
+            {
+                app.Shell("npm start");
+            }
+
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
+            app.UseCors("AllowCors");
+            app.UseAuthentication();
+
+            app.UseMvc();
+        }
     }
-
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    {
-      app.UseGlobalErrorHandling();
-
-      if (env.IsDevelopment())
-      {
-        app.Shell("npm start");
-      }
-
-      app.UseDefaultFiles();
-      app.UseStaticFiles();
-
-      app.UseCors("AllowCors");
-      app.UseAuthentication();
-
-      app.UseMvc();
-    }
-  }
 }

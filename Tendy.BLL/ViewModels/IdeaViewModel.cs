@@ -5,9 +5,9 @@ using Tendy.BLL.Utils.Validations;
 
 namespace Tendy.BLL.ViewModels
 {
-    [Validator(typeof(IdeaViewModelValidator))]
-    public class IdeaViewModel
-    {
+	[Validator(typeof(IdeaViewModelValidator))]
+	public class IdeaViewModel
+	{
 		public int Id { get; set; }
 
 		public string Title { get; set; }
@@ -29,7 +29,11 @@ namespace Tendy.BLL.ViewModels
 		public int? RequestedPeopleGroupId { get; set; }
 		public virtual PeopleGroupViewModel RequestedPeopleGroup { get; set; }
 
-		public virtual AttachmentViewModel Attachment { get; set; }
 		public virtual ICollection<IdeaCategoryViewModel> IdeaCategories { get; set; }
+
+		public virtual ICollection<LinkViewModel> Links { get; set; }
+
+		public virtual IEnumerable<FileViewModel> Files { get; set; }
+
 	}
 }

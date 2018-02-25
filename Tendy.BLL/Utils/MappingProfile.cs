@@ -12,9 +12,6 @@ namespace Tendy.BLL.Utils
             CreateMap<ApplicationUser, ApplicationUserViewModel>();
             CreateMap<ApplicationUserViewModel, ApplicationUser>();
 
-            CreateMap<Attachment, AttachmentViewModel>();
-            CreateMap<AttachmentViewModel, Attachment>();
-
             CreateMap<Category, CategoryViewModel>();
             CreateMap<CategoryViewModel, Category>();
 
@@ -24,7 +21,13 @@ namespace Tendy.BLL.Utils
             CreateMap<Idea, IdeaViewModel>();
             CreateMap<IdeaViewModel, Idea>();
 
-            CreateMap<PeopleGroup, PeopleGroupViewModel>();
+			CreateMap<Link, LinkViewModel>();
+			CreateMap<LinkViewModel, Link>();
+
+			CreateMap<File, FileViewModel>();
+			CreateMap<FileViewModel, File>();
+
+			CreateMap<PeopleGroup, PeopleGroupViewModel>();
             CreateMap<PeopleGroupViewModel, PeopleGroup>();
 
             CreateMap<Request, RequestViewModel>();

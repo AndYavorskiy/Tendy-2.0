@@ -15,11 +15,9 @@ namespace Tendy.BLL.Services
 	public class IdeaService : IIdeasService
 	{
 		IUnitOfWork _uow;
-		private readonly IMapper _mapper;
-		public IdeaService(IUnitOfWork uow, IMapper mapper)
+		public IdeaService(IUnitOfWork uow)
 		{
-			_uow = uow;
-			_mapper = mapper;
+			_uow = uow;			
 		}
 
 		public AggregateContent<IdeaViewModel> Search(IdeaSearchFilter filter)

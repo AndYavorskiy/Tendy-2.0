@@ -1,0 +1,10 @@
+<div class="link-list row" *ngIf="links.length">
+    <div class="col-sm-6 col-md-3 list-item" *ngFor="let item of links">
+        <div class="link">
+            <i class="fas fa-link"></i>
+            <a href="{{item.url}}" target="_blank">
+                {{item.title}}
+            </a>
+        </div>
+    </div>
+</div>

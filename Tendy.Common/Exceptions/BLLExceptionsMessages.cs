@@ -13,5 +13,10 @@ namespace Tendy.Common.Exceptions
         //Accounts
         public static readonly ErrorInfo CantRegisterAccount = new ErrorInfo("02x00001", "Can not register an account!");
         public static readonly ErrorInfo CantAssignUserRole = new ErrorInfo("02x00002", "Can not assign user role!");
+
+		//Attachments
+		//--Links
+		public static readonly ErrorInfo CantFindLinks = new ErrorInfo("03x00001", "Can not find Links!");
+		public static readonly ErrorInfo CantUpdateLinks = new ErrorInfo("03x00003", "Can not update Links!");
 	}
 }

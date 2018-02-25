@@ -6,8 +6,8 @@ namespace Tendy.DAL.Entities
 	{
 		public int Id { get; set; }
 
-		public int AttachmentId { get; set; }
-		public virtual Attachment Attachment { get; set; }
+		public int IdeaId { get; set; }
+		public virtual Idea Idea { get; set; }
 
 		public string Name { get; set; }
 

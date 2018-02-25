@@ -1,7 +1,7 @@
 export class FileModel extends File {
     public id: number;
 
-    public attachmentId: number;
+    public ideaId: number;
 
     public name: string;
 

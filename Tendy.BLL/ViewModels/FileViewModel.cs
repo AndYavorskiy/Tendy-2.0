@@ -8,7 +8,7 @@ namespace Tendy.BLL.ViewModels
     {
 		public int Id { get; set; }
 
-		public int AttachmentId { get; set; }
+		public int IdeaId { get; set; }
 
 		public string Name { get; set; }
 

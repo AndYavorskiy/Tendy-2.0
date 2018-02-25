@@ -12,7 +12,7 @@ import { IdeaModel, SearchFilter } from '../models';
   styleUrls: ['./idea-list.component.scss']
 })
 export class IdeaListComponent implements OnInit {
-  
+
   loading: boolean = true;
   page: number = 1;
   pageSize: number = 12;
@@ -22,8 +22,8 @@ export class IdeaListComponent implements OnInit {
   constructor(route: ActivatedRoute,
     private ideaService: IdeaService) {
   }
-  
-  ngOnInit() {
+
+  public ngOnInit() {
     let filter = {
       page: this.page,
       pageSize: this.pageSize

@@ -1,11 +1,9 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Tendy.DAL.Entities
 {
-    public class UserProfile
-    {
+	public class UserProfile
+	{
         public string Id { get; set; }
 
         public string FirstName { get; set; }

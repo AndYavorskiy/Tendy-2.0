@@ -34,8 +34,8 @@ export class IdeaEditComponent implements OnInit {
         if (!this.isNewIdea) {
             this.ideaService.get(this.editIdeaId)
                 .subscribe(
-                data => this.editIdea = data,
-                error => this.router.navigate(['../../ideas'])
+                    data => this.editIdea = data,
+                    error => this.router.navigate(['ideas/my'])
                 );
         }
 
@@ -57,15 +57,18 @@ export class IdeaEditComponent implements OnInit {
     add(addIdea: IdeaModel) {
         this.ideaService.create(addIdea)
             .subscribe(
-            result => this.router.navigate(['../../ideas/my']),
-            error => this.showErrorMsg(error));
+                result => this.router.navigate(['ideas/my']),
+                error => this.showErrorMsg(error));
     }
 
     edit(editIdea: IdeaModel) {
         this.ideaService.update(editIdea)
             .subscribe(
-            result => this.showSuccessMsg("Changes seved successfuly!"),
-            error => this.showErrorMsg(error));
+                result => {
+                    this.showSuccessMsg("Changes seved successfuly!");
+                    this.router.navigate(['ideas/my']);
+                },
+                error => this.showErrorMsg(error));
     }
 
     private showSuccessMsg(message: string) {

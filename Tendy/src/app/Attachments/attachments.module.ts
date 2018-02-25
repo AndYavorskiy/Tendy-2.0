@@ -1,30 +1,35 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
+import { SharedModule } from '../common/shared.module';
 import { AttachmentsRoutingModule } from './attachments-routing.module';
 import { AttachmentService } from './services';
+
 import {
     AttachmentsLayoutComponent,
-    AttachmentsListComponent,
-    AttachmentsAddComponent
+    AddFileComponent, 
+    AddLinkComponent
 } from './components';
-import { FileUploaderComponent } from '../common/components/file-uploader.component';
-import { SharedModule } from '../common/shared.module';
+import { LinkListComponent } from './components/link-list.component';
+import { FileListComponent } from './components/file-list.component';
 
 @NgModule({
     imports: [
         CommonModule,
         AttachmentsRoutingModule,
+        FormsModule,
         SharedModule,
     ],
     declarations: [
-        AttachmentsListComponent,
         AttachmentsLayoutComponent,
-        AttachmentsAddComponent,
+        AddLinkComponent,
+        AddFileComponent,
+        LinkListComponent,
+        FileListComponent,
     ],
     exports: [
-        AttachmentsListComponent,
         AttachmentsLayoutComponent,
     ],
     providers: [AttachmentService]

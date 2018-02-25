@@ -29,12 +29,17 @@ namespace Tendy.DAL.Entities
 		[InverseProperty(nameof(PeopleGroup.IdeaRequestedPeople))]
 		public virtual PeopleGroup RequestedPeopleGroup { get; set; }
 
-		public virtual Attachment Attachment { get; set; }
 		public virtual ICollection<IdeaCategory> IdeaCategories { get; set; }
+
+		public virtual ICollection<Link> Links { get; set; }
+
+		public virtual ICollection<File> Files { get; set; }
 
 		public Idea()
 		{
 			IdeaCategories = new List<IdeaCategory>();
+			Links = new List<Link>();
+			Files = new List<File>();
 		}
 	}
 }

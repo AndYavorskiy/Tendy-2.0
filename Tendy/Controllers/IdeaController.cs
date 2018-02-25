@@ -84,7 +84,7 @@ namespace Idemty_Web.Controllers
       {
         return BadRequest();
       }
-      return StatusCode(StatusCodes.Status204NoContent, _ideaService.Delete(id));
+      return Ok(_ideaService.Delete(id));
     }
   }
 }

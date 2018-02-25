@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 namespace Tendy.DAL.Concrete
 {
     public class Repository<T> : IRepository<T> where T : class
-    {
+	{
         private readonly ApplicationDbContext _context;
         private DbSet<T> _dbSet;
 
@@ -54,12 +54,12 @@ namespace Tendy.DAL.Concrete
             return query.ToList();
         }
 
-        public virtual T FindSingle(int id)
+        public virtual T FindSingle(int Id)
         {
-            return _dbSet.Find(id);
+            return _dbSet.Find(Id);
         }
 
-        public virtual T Create(T item)
+		public virtual T Create(T item)
         {
             _dbSet.Add(item);
             return item;

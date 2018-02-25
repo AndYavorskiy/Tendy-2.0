@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 namespace Tendy.DAL.Abstract
 {
@@ -8,7 +9,7 @@ namespace Tendy.DAL.Abstract
         IQueryable<T> FindBy(Func<T, bool> predicate);
         T FindSingle(int id);
         T Create(T item);
-        T Update(T item);
+		T Update(T item);
         void Delete(int id);
         void Delete(T entity);
     }

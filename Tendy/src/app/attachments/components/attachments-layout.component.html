@@ -1,5 +1,21 @@
 <div>
-    <attachments-list></attachments-list>
+    <div>
+        <div class="inline-flex">
+            <h5 class="pdn-r-7">Links</h5>
 
-    <app-attachments-add></app-attachments-add>
+            <app-add-link [ideaId]="ideaId" (onSubmit)="linkList.loadData()"></app-add-link>
+        </div>
+
+        <app-link-list [ideaId]="ideaId" #linkList></app-link-list>
+    </div>
+
+    <div>
+        <div class="inline-flex">
+            <h5 class="pdn-r-7">Files</h5>
+
+            <app-add-file [ideaId]="ideaId"></app-add-file>
+        </div>
+
+        <app-file-list [ideaId]="ideaId"></app-file-list>
+    </div>
 </div>

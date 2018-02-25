@@ -1,0 +1,23 @@
+.link-list {
+    width: 100%;
+    padding: 0.5em 0;
+
+    .list-item {
+        display: flex;
+        justify-content: space-between;
+        line-height: 1.5em;
+        margin: 0.2em 0;
+        background-color: #f8f9fa;
+        padding: 0 0.5em;
+        align-items: center;
+
+        .fa-trash-o:hover {
+            color: rgb(255, 0, 0);
+        }
+
+        
+        .fa-edit:hover {
+            color: #ffae00;
+        }
+    }
+}

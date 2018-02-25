@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { SharedModule } from '../common/shared.module';
 import { IdeaRoutingModule } from './idea-routing.module';
 import { IdeaService } from './services';
 import { ServiceProviderModule } from '../common/app-common.module';
@@ -16,7 +17,6 @@ import {
     MyIdeaComponent,
     IdeaManageComponent
 } from './components';
-import { SharedModule } from '../common/shared.module';
 
 @NgModule({
     imports: [

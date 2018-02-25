@@ -12,28 +12,52 @@
     color: #ffffff;
 }
 
-.text-dark {
-    color: #3C4252 !important
+.dark {
+    color: #3C4252;
 }
 
-.text-cyan {
-    color: #009688 !important;
+.grey {
+    color: #9e9e9e;
 }
 
-.text-danger {
-    color: #F44336 !important;
+.cyan {
+    color: #009688;
 }
 
-.text-warning {
-    color: #FF9800 !important;
+.danger {
+    color: #F44336;
 }
 
-.text-muted {
-    color: rgba(0, 0, 0, 0.38) !important;
+.warning {
+    color: #FF9800;
 }
 
-.text-dobger-blue {
-    color: #2196F3 !important
+.muted {
+    color: rgba(0, 0, 0, 0.38);
+}
+
+.violet {
+    color: #3f51b5;
+}
+
+.pink {
+    color: #c92fa2;
+}
+
+.coral {
+    color: rgb(196, 0, 0);
+}
+
+.dobger-blue {
+    color: #2196F3;
+}
+
+.dart-green {
+    color: #00695C !important;
+}
+
+.excel {
+    color: #217345 !important;
 }
 
 //------------------------ Text Sizes --------------------------
@@ -45,8 +69,62 @@
     font-size: 3em;
 }
 
+//------------------------ Icon Styles --------------------------
+@mixin defaultIStyles() {
+    color: #9e9e9e;
+    cursor: pointer;
+}
+
+.i-edit {
+    @include defaultIStyles();
+    &:hover {
+        color: #2196F3;
+    }
+}
+
+.i-delete {
+    @include defaultIStyles();
+    &:hover {
+        color: #F44336;
+    }
+}
+
 //------------------------ Containers Sizes --------------------------
 .full-screen {
     width: 100%;
     height: calc(100vh);
+}
+
+//--------------------------- Utils ----------------------------------
+.unstyled {
+    text-decoration: unset !important;
+}
+
+.ico-link {
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+    background-color: rgba(96, 125, 139, 0.473);
+    border-radius: 0.2em;
+    &:hover {
+        background-color: rgba(96, 125, 139, 0.904);
+    }
+}
+
+.right-border {
+    border-right: 1px solid #333;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+
+.pdn-r-7 {
+    padding: 0 7px 0 0;
 }

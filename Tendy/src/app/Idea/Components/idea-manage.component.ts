@@ -11,11 +11,12 @@ import { IdeaService } from '../services';
 })
 export class IdeaManageComponent implements OnInit {
 
-    manageIdeaId?: number;
-    idea: IdeaModel;
-
+    loading: boolean = true;
     errors: string;
     success: string;
+
+    manageIdeaId?: number;
+    idea: IdeaModel;
 
     constructor(
         private router: Router,
@@ -29,13 +30,29 @@ export class IdeaManageComponent implements OnInit {
 
     ngOnInit() {
         if (!this.manageIdeaId) {
-            this.router.navigate(['../my'])
+            this.router.navigate(['ideas/my'])
         }
 
         this.ideaService.get(this.manageIdeaId)
             .subscribe(
-            data => this.idea = data,
-            error => this.router.navigate(['../my'])
+                data => {
+                    this.idea = data;
+                    this.loading = false;
+                },
+                error => this.router.navigate(['ideas/my'])
             );
+    }
+
+    delete() {
+        this.ideaService
+            .delete(this.idea.id)
+            .subscribe(data => {
+                if (data) {
+                    this.router.navigate(['ideas/my']);
+                }
+                else {
+                    error => alert(error)
+                }
+            }, error => alert(error));
     }
 }

@@ -1,0 +1,19 @@
+<div class="file-list" *ngIf="files.length">
+    <ngx-carousel [inputs]="carouselBanner">
+        <ngx-item NgxCarouselItem class="bannerStyle" *ngFor="let item of files">
+            <div class="wrapper">
+                <div class="container">
+                    <i class="fas fa-3x" [ngClass]="getFileIcon(item)"></i>
+
+                    <div class="text">
+                        <p>{{item.name | uppercase}}</p>
+                        <p>{{item.extension | uppercase}}</p>
+                    </div>
+                </div>
+            </div>
+        </ngx-item>
+
+        <button NgxCarouselPrev class='leftRs'>&#10094;</button>
+        <button NgxCarouselNext class='rightRs'>&#10095;</button>
+    </ngx-carousel>
+</div>

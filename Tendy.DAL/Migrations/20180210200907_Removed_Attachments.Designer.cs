@@ -11,9 +11,10 @@ using Tendy.DAL.EF;
 namespace Tendy.DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180210200907_Removed_Attachments")]
+    partial class Removed_Attachments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -278,8 +279,6 @@ namespace Tendy.DAL.Migrations
                     b.Property<bool>("IsPrivate")
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(false);
-
-                    b.Property<string>("Title");
 
                     b.Property<string>("Url");
 

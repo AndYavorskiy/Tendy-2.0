@@ -12,7 +12,6 @@ namespace Tendy.Concrete
 		private readonly IRepository<ApplicationUser> _applicationUsersRepository;
 		private readonly IRepository<UserProfile> _userProfilesRepository;
 		private readonly IRepository<Idea> _ideasRepository;
-		private readonly IRepository<Attachment> _attachmentsRepository;
 		private readonly IRepository<Category> _categoriesRepository;
 		private readonly IRepository<Request> _requestsRepository;
 		private readonly IRepository<PeopleGroup> _peopleGroupsRepository;
@@ -25,7 +24,6 @@ namespace Tendy.Concrete
 			IRepository<ApplicationUser> applicationUsersRepository,
 			IRepository<UserProfile> userProfilesRepository,
 			IRepository<Idea> ideasRepository,
-			IRepository<Attachment> attachmentsRepository,
 			IRepository<Category> categoriesRepository,
 			IRepository<Request> requestsRepository,
 			IRepository<PeopleGroup> peopleGroupsRepository,
@@ -37,7 +35,6 @@ namespace Tendy.Concrete
 			_applicationUsersRepository = applicationUsersRepository;
 			_userProfilesRepository = userProfilesRepository;
 			_ideasRepository = ideasRepository;
-			_attachmentsRepository = attachmentsRepository;
 			_categoriesRepository = categoriesRepository;
 			_requestsRepository = requestsRepository;
 			_peopleGroupsRepository = peopleGroupsRepository;
@@ -54,8 +51,6 @@ namespace Tendy.Concrete
 		public IRepository<UserProfile> UserProfilesRepository => _userProfilesRepository;
 
 		public IRepository<Idea> IdeasRepository => _ideasRepository;
-
-		public IRepository<Attachment> AttachmentsRepository => _attachmentsRepository;
 
 		public IRepository<Category> CategoriesRepository => _categoriesRepository;
 

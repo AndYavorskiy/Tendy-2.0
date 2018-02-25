@@ -31,6 +31,6 @@ export class IdeaService {
     }
 
     delete(id: number): Observable<boolean> {
-        return this.api.delete(this.baseUrl + JSON.stringify(id));
+        return this.api.delete<boolean>(this.baseUrl + JSON.stringify(id));
     }
 }

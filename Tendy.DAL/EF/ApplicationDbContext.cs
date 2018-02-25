@@ -32,7 +32,6 @@ namespace Tendy.DAL.EF
 
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Idea> Ideas { get; set; }
-        public DbSet<Attachment> Attachments { get; set; }
         public DbSet<Link> Links { get; set; }
         public DbSet<File> Files { get; set; }
 		public DbSet<Category> Categories { get; set; }

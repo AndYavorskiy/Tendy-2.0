@@ -1,4 +1,6 @@
-<div class="container margin-bottom-1">
+<app-spinner [visible]="loading"></app-spinner>
+
+<div class="container margin-bottom-1" *ngIf="!loading">
     <div class="row">
         <div class="container-fluid">
             <div class="card-block">
@@ -8,9 +10,11 @@
                     </div>
 
                     <div>
-                        <a [routerLink]="['../../edit',idea.id]">
-                            <span class="fa fa-pencil-square-o fa-lg"></span>
+                        <a class="unstyled" [routerLink]="['../../edit',idea.id]">
+                            <i class="fas fa-pen-square fa-lg i-edit"></i>
                         </a>
+
+                        <i class="fas fa-trash i-delete" (click)="delete()"></i>
                     </div>
                 </div>
 
@@ -37,7 +41,10 @@
                             </div>
 
                             <div *ngIf="idea.gitHubLink">
-                                <a class="btn btn-dark btn-sm" href="{{idea.gitHubLink}}" target="_blank">GitHub</a>
+                                <a class="btn btn-dark btn-sm" href="{{idea.gitHubLink}}" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                    GitHub
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -50,10 +57,10 @@
         <div class="col-md-3 col-sm-6 col-6">
             <div class="card-block">
                 <div class="card-block-body text-center">
-                    <span class="text-3x text-cyan">10</span>
+                    <span class="text-3x cyan">10</span>
 
                     <h6>
-                        <span class="text-muted">Need people</span>
+                        <span class="muted">Need people</span>
                     </h6>
                 </div>
             </div>
@@ -62,10 +69,10 @@
         <div class="col-md-3 col-sm-6 col-6">
             <div class="card-block">
                 <div class="card-block-body text-center">
-                    <span class="text-3x text-warning">10</span>
+                    <span class="text-3x warning">10</span>
 
                     <h6>
-                        <span class="text-muted">Need people</span>
+                        <span class="muted">Need people</span>
                     </h6>
                 </div>
             </div>
@@ -74,10 +81,10 @@
         <div class="col-md-3 col-sm-6 col-6">
             <div class="card-block">
                 <div class="card-block-body text-center">
-                    <span class="text-3x text-dobger-blue">40</span>
+                    <span class="text-3x dobger-blue">40</span>
 
                     <h6>
-                        <span class="text-muted">Need people</span>
+                        <span class="muted">Need people</span>
                     </h6>
                 </div>
             </div>
@@ -86,10 +93,10 @@
         <div class="col-md-3 col-sm-6 col-6">
             <div class="card-block">
                 <div class="card-block-body text-center">
-                    <span class="text-3x text-danger">25</span>
+                    <span class="text-3x danger">25</span>
 
                     <h6>
-                        <span class="text-muted">Need people</span>
+                        <span class="muted">Need people</span>
                     </h6>
                 </div>
             </div>
@@ -115,7 +122,7 @@
                     <h4 class="card-title">Publications</h4>
 
                     <p class="card-text">
-                        <small class="text-muted">Last updated 3 mins ago</small>
+                        <small class="muted">Last updated 3 mins ago</small>
                     </p>
                 </div>
             </div>

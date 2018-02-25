@@ -1,7 +1,7 @@
 ﻿namespace Tendy.DAL.Entities
 {
-    public class PeopleGroup
-    {
+	public class PeopleGroup 
+	{
         public int Id { get; set; }
         public string Name { get; set; }
         
