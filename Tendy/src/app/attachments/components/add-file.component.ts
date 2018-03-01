@@ -23,6 +23,8 @@ export class AddFileComponent implements OnInit {
   }
 
   onFilesSelected(files: FileModel[]) {
+    console.log(files);
+    
     this.files.push(...files as FileModel[]);
   }
 

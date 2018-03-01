@@ -1,4 +1,15 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/forkJoin';
+
+import {
+    Component,
+    OnInit,
+    Output,
+    EventEmitter
+} from '@angular/core';
+
+import { FileReaderService } from '../services/file-reader.service';
+import { FileModel } from '../../attachments/models';
 
 @Component({
     selector: 'file-uploader',
@@ -9,7 +20,7 @@ export class FileUploaderComponent implements OnInit {
 
     @Output() onSelect = new EventEmitter();
 
-    constructor() { }
+    constructor(private fireReader: FileReaderService) { }
 
     ngOnInit() {
     }
@@ -22,6 +33,13 @@ export class FileUploaderComponent implements OnInit {
             fileList.push(target.files[i]);
         }
 
-        this.onSelect.emit(fileList);
+        var tasks$: Observable<FileModel>[] = [];
+
+        for (let i = 0; i < fileList.length; i++) {
+            tasks$.push(this.fireReader.readFileAsBase64(fileList[i]).first());
+        }
+
+        Observable.forkJoin(...tasks$)
+            .subscribe(results => this.onSelect.emit(results));
     }
 }

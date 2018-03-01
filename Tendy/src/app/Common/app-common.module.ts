@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 
-import { ConfigService, ApiService } from './services';
+import { ConfigService, ApiService, FileReaderService} from './services';
 
 @NgModule({})
 export class ServiceProviderModule {
@@ -9,7 +9,8 @@ export class ServiceProviderModule {
             ngModule: ServiceProviderModule,
             providers: [
                 ConfigService,
-                ApiService
+                ApiService,
+                FileReaderService
             ],            
         };
     }
