@@ -13,9 +13,9 @@
         <div class="inline-flex">
             <h5 class="pdn-r-7">Files</h5>
 
-            <app-add-file [ideaId]="ideaId"></app-add-file>
+            <app-add-file [ideaId]="ideaId" (onSubmit)="fileList.loadData()"></app-add-file>
         </div>
 
-        <app-file-list [ideaId]="ideaId"></app-file-list>
+        <app-file-list [ideaId]="ideaId" #fileList></app-file-list>
     </div>
 </div>

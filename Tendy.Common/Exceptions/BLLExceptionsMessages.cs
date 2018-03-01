@@ -18,5 +18,8 @@ namespace Tendy.Common.Exceptions
 		//--Links
 		public static readonly ErrorInfo CantFindLinks = new ErrorInfo("03x00001", "Can not find Links!");
 		public static readonly ErrorInfo CantUpdateLinks = new ErrorInfo("03x00003", "Can not update Links!");
+		//--Files
+		public static readonly ErrorInfo CantFindFiles = new ErrorInfo("04x00001", "Can not find Files!");
+		public static readonly ErrorInfo CantUpdateFiles = new ErrorInfo("04x00003", "Can not update Files!");
 	}
 }

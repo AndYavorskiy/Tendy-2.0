@@ -51,7 +51,7 @@ export class AddLinkComponent {
   public startInicialization() {
     this.loading = true;
     this.isChanged = false;
-    this.loadData();    
+    this.loadData();
   }
 
   public add() {
@@ -89,7 +89,8 @@ export class AddLinkComponent {
   }
 
   public save() {
-    this.attachmentApi.updateLinks(this.ideaId, this.links)
+    this.attachmentApi
+      .updateLinks(this.ideaId, this.links)
       .subscribe(
         data => {
           this.loading = true;
@@ -102,7 +103,7 @@ export class AddLinkComponent {
             alert("error: can't save changes!")
           }
         },
-        error => alert("error: " + error))
+        error => alert("error: " + error));
   }
 
   public openModal() {

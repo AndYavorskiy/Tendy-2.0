@@ -1,9 +1,10 @@
-import _ = require('lodash');
+import * as _ from 'lodash';
 import { NgxCarousel, NgxCarouselStore } from 'ngx-carousel';
 
 import { Component, OnInit, Input } from '@angular/core';
 
 import { FileModel } from '../models/file.model';
+import { AttachmentService } from '../services';
 
 @Component({
   selector: 'app-file-list',
@@ -15,19 +16,12 @@ export class FileListComponent implements OnInit {
   @Input()
   public ideaId: number;
 
-  public files: FileModel[] = [
-    { name: "some file1", extension: "txt" } as FileModel,
-    { name: "some file2", extension: "png" } as FileModel,
-    { name: "some file3", extension: "doc" } as FileModel,
-    { name: "some file4", extension: "xls" } as FileModel,
-    { name: "some file5", extension: "zip" } as FileModel,
-    { name: "some file6", extension: "rar" } as FileModel,
-    { name: "some file7", extension: "pdf" } as FileModel,
-  ];
-
   public carouselBanner: NgxCarousel;
+  public files: FileModel[] = [];
 
-  constructor() { }
+  constructor(
+    private attachmentApi: AttachmentService
+  ) { }
 
   public ngOnInit() {
     this.carouselBanner = {
@@ -66,6 +60,13 @@ export class FileListComponent implements OnInit {
       load: 4,
       touch: true
     }
+
+    this.loadData();
+  }
+
+  loadData() {
+    this.attachmentApi.getFiles(this.ideaId)
+      .subscribe(data => this.files = data)
   }
 
   public getFileIcon(file: FileModel) {

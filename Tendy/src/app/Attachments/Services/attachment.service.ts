@@ -20,12 +20,11 @@ export class AttachmentService {
     return this.api.post<boolean>(this.baseUrl + "link/" + ideaId, links);
   }
 
-  addFiles(ideaId: number, files: FileModel[]): Observable<boolean> {
-    return this.api.post<boolean>(this.baseUrl + "file/" + ideaId, files);
+  getFiles(ideaId: number): Observable<FileModel[]> {
+    return this.api.get<FileModel[]>(this.baseUrl + "file/" + ideaId);
   }
 
-  deleteFiles(ideaId: number, fileId: number): Observable<boolean> {
-    return this.api.delete<boolean>(this.baseUrl + "file/" + ideaId + "/" + fileId);
-
+  updateFiles(ideaId: number, files: FileModel[]): Observable<boolean> {
+    return this.api.post<boolean>(this.baseUrl + "file/" + ideaId, files);
   }
 }

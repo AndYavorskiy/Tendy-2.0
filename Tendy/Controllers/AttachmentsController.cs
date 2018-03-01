@@ -38,10 +38,26 @@ namespace Tendy.Controllers
             return Ok(_attachmentsManager.UpdateLinks(ideaId.Value, links));
         }
 
-        [HttpPost("file/{ideaId}")]
-        public IActionResult AddFiles(int ideaId, [FromBody] IEnumerable<FileViewModel> model)
+        [HttpGet("file/{ideaId}")]
+        public ActionResult GetFiles(int ideaId)
         {
-            return Ok(true);
+            if (ideaId < 0)
+            {
+                return BadRequest();
+            }
+
+            return Ok(_attachmentsManager.GetFiles(ideaId));
+        }
+
+        [HttpPost("file/{ideaId}")]
+        public IActionResult UpdateFiles(int? ideaId, [FromBody] IEnumerable<FileViewModel> model)
+        {
+            if (ideaId == null || model == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(_attachmentsManager.UpdateFile(ideaId.Value, model));
         }
     }
 }
