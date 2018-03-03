@@ -9,24 +9,35 @@ namespace Tendy.Controllers
     [Route("api/account")]
     public class AccountController : Controller
     {
-    private readonly IAccountsService _accountsService;
+        private readonly IAccountsService _accountsService;
 
-    public AccountController(IAccountsService accountsService)
-    {
-      _accountsService = accountsService;
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Post([FromBody]RegistrationViewModel model)
-    {
-        if (!ModelState.IsValid)
+        public AccountController(IAccountsService accountsService)
         {
-          return BadRequest(ModelState);
+            _accountsService = accountsService;
         }
 
-        var result = await _accountsService.Create(model);
+        [HttpPost]
+        public async Task<IActionResult> CreateAccount([FromBody]RegistrationViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        return StatusCode(StatusCodes.Status201Created, true);
+            await _accountsService.CreateAccount(model);
+
+            return StatusCode(StatusCodes.Status201Created, true);
+        }
+
+        [HttpPut("setting")]
+        public IActionResult UpdateSetting([FromBody]AccountSettingsViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            return Ok(_accountsService.UpdateSettings(model));
+        }
     }
-  }
 }

@@ -15,7 +15,7 @@ namespace Tendy.DAL.Entities
 
 		public string SourceUrl { get; set; }
 
-		public bool IsPrivate { get; set; }
+		public bool? IsPrivate { get; set; }
 
 		public DateTime? DateOfCreation { get; set; }
 	}

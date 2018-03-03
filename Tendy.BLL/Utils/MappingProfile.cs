@@ -36,8 +36,11 @@ namespace Tendy.BLL.Utils
             CreateMap<UserProfile, UserProfileViewModel>();
             CreateMap<UserProfileViewModel, UserProfile>();
 
-            //--- AuxiliaryViewModels
-            CreateMap<RegistrationViewModel, ApplicationUser>()
+			CreateMap<AccountSettings, AccountSettingsViewModel>();
+			CreateMap<AccountSettingsViewModel, AccountSettings>();
+
+			//--- AuxiliaryViewModels
+			CreateMap<RegistrationViewModel, ApplicationUser>()
                     .ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(src => src.Password));
             CreateMap<ApplicationUser, RegistrationViewModel>()
                     .ForMember(dest => dest.Password, opt => opt.MapFrom(src => src.PasswordHash));

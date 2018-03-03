@@ -10,7 +10,7 @@ namespace Tendy.DAL.Entities
 
 		public string Url { get; set; }
 
-		public bool IsPrivate { get; set; }
+		public bool? IsPrivate { get; set; }
 
 		public int IdeaId { get; set; }
 		public virtual Idea Idea { get; set; }

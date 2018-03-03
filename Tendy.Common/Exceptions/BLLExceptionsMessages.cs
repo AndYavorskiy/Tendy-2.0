@@ -21,5 +21,8 @@ namespace Tendy.Common.Exceptions
 		//--Files
 		public static readonly ErrorInfo CantFindFiles = new ErrorInfo("04x00001", "Can not find Files!");
 		public static readonly ErrorInfo CantUpdateFiles = new ErrorInfo("04x00003", "Can not update Files!");
+
+		//Account Configuration
+		public static readonly ErrorInfo CantUpdateAccountConfiguration = new ErrorInfo("05x00003", "Can not update Account Configuration!");
 	}
 }

@@ -18,9 +18,10 @@ namespace Tendy.Concrete
 		private readonly IRepository<IdeaCategory> _ideasCategoriesRepository;
 		private readonly IRepository<Link> _linksRepository;
 		private readonly IRepository<File> _filesRepository;
+		private readonly IRepository<AccountSettings> _accountCofigurationRepository;
 
-
-		public UnitOfWork(ApplicationDbContext context,
+		public UnitOfWork(
+			ApplicationDbContext context,
 			IRepository<ApplicationUser> applicationUsersRepository,
 			IRepository<UserProfile> userProfilesRepository,
 			IRepository<Idea> ideasRepository,
@@ -29,7 +30,8 @@ namespace Tendy.Concrete
 			IRepository<PeopleGroup> peopleGroupsRepository,
 			IRepository<IdeaCategory> ideasCategoriesRepository,
 			IRepository<Link> linksRepository,
-			IRepository<File> filesRepository)
+			IRepository<File> filesRepository,
+			IRepository<AccountSettings> accountCofigurationRepository)
 		{
 			Context = context;
 			_applicationUsersRepository = applicationUsersRepository;
@@ -41,7 +43,7 @@ namespace Tendy.Concrete
 			_ideasCategoriesRepository = ideasCategoriesRepository;
 			_linksRepository = linksRepository;
 			_filesRepository = filesRepository;
-
+			_accountCofigurationRepository = accountCofigurationRepository;
 		}
 
 		public ApplicationDbContext Context { get => _context; set => _context = value; }
@@ -63,6 +65,8 @@ namespace Tendy.Concrete
 		public IRepository<Link> LinksRepository => _linksRepository;
 
 		public IRepository<File> FilesRepository => _filesRepository;
+
+		public IRepository<AccountSettings> AccountCofigurationRepository => _accountCofigurationRepository;
 
 		public void SaveChanges()
 		{

@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Tendy.Constants;
 using Tendy.DAL.Entities;
 using Tendy.BLL.Interfaces;
 using Tendy.BLL.ViewModels;
+using Tendy.Common.Constants;
 
 namespace Idemty_Web.Controllers
 {
@@ -21,7 +21,6 @@ namespace Idemty_Web.Controllers
             _userManager = userManager;
         }
 
-        // GET: api/idea
         [HttpGet]
         [Route("search")]
         public ActionResult Get(IdeaSearchFilter filter)
@@ -36,7 +35,6 @@ namespace Idemty_Web.Controllers
             return Ok(_ideaService.Search(filter));
         }
 
-        // GET api/idea/5
         [HttpGet("{id}")]
         public ActionResult Get(int id)
         {
@@ -50,7 +48,6 @@ namespace Idemty_Web.Controllers
             return Ok(_ideaService.GetById(id));
         }
 
-        // POST api/idea
         [HttpPost]
         public IActionResult Post([FromBody]IdeaViewModel ideaVm)
         {
@@ -64,7 +61,6 @@ namespace Idemty_Web.Controllers
             return StatusCode(StatusCodes.Status201Created, _ideaService.Create(ideaVm));
         }
 
-        // PUT api/idea/5
         [HttpPut]
         public IActionResult Put([FromBody]IdeaViewModel ideaVm)
         {
@@ -76,7 +72,6 @@ namespace Idemty_Web.Controllers
             return Ok(_ideaService.Update(ideaVm));
         }
 
-        // DELETE api/idea/5
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

@@ -1,4 +1,4 @@
-namespace Tendy.Constants
+namespace Tendy.Common.Constants
 {
   public static class JwtClaimIdentifiers
   {

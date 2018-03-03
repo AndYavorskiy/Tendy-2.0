@@ -25,6 +25,7 @@ using Tendy.DAL.Abstract;
 using Tendy.DAL.Concrete;
 using Tendy.DAL.EF;
 using Tendy.DAL.Entities;
+using Tendy.Common.Constants;
 #endregion
 
 namespace Tendy
@@ -70,7 +71,9 @@ namespace Tendy
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("ApiUser", policy =>
-              policy.RequireClaim(Constants.JwtClaimIdentifiers.Role, Constants.JwtClaims.ApiAccess));
+                        policy.RequireClaim(JwtClaimIdentifiers.Role, JwtClaims.ApiAccess));
+                options.AddPolicy("OnlyForAdmin", policy =>
+                        policy.RequireClaim(JwtClaimIdentifiers.Role, JwtClaims.Admin));
             });
 
             //jwt wire up. Get options from app settings
@@ -114,6 +117,7 @@ namespace Tendy
               .AddFluentValidation(fv => fv.RegisterValidatorsFromAssembly(Assembly.GetAssembly(typeof(RegistrationViewModelValidator))));
 
             //dependency injection DAL
+            services.AddScoped<IDbInitializer, DbInitializer>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IRepository<ApplicationUser>, Repository<ApplicationUser>>();
             services.AddScoped<IRepository<Category>, Repository<Category>>();
@@ -124,6 +128,7 @@ namespace Tendy
             services.AddScoped<IRepository<IdeaCategory>, Repository<IdeaCategory>>();
             services.AddScoped<IRepository<Link>, Repository<Link>>();
             services.AddScoped<IRepository<File>, Repository<File>>();
+            services.AddScoped<IRepository<AccountSettings>, Repository<AccountSettings>>();
 
             //dependency injection BLL
             services.AddScoped<IIdeasService, IdeaService>();
@@ -135,7 +140,7 @@ namespace Tendy
 
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IDbInitializer dbInitializer)
         {
             app.UseGlobalErrorHandling();
 
@@ -146,6 +151,8 @@ namespace Tendy
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
+
+           //dbInitializer.Initialize();
 
             app.UseCors("AllowCors");
             app.UseAuthentication();

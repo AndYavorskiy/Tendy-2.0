@@ -5,6 +5,8 @@ namespace Tendy.BLL.Interfaces
 {
     public interface IAccountsService
     {
-        Task<RegistrationViewModel> Create(RegistrationViewModel regModel);
-    }
+        Task<RegistrationViewModel> CreateAccount(RegistrationViewModel regModel);
+
+        AccountSettingsViewModel UpdateSettings(AccountSettingsViewModel regModel);
+	}
 }

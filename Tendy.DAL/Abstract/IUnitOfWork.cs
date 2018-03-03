@@ -14,6 +14,7 @@ namespace Tendy.Abstract
 		IRepository<PeopleGroup> PeopleGroupsRepository { get; }
 		IRepository<Link> LinksRepository { get; }
 		IRepository<File> FilesRepository { get; }
+		IRepository<AccountSettings> AccountCofigurationRepository { get; }
 
 		void SaveChanges();
 	}
