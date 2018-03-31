@@ -89,6 +89,18 @@
     <None Update="src\app\app.component.scss">
       <DependentUpon>app.component.ts</DependentUpon>
     </None>
+    <None Update="src\app\attachments\components\add-file.component.html">
+      <DependentUpon>add-file.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\attachments\components\add-file.component.scss">
+      <DependentUpon>add-file.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\attachments\components\add-link.component.html">
+      <DependentUpon>add-link.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\attachments\components\add-link.component.scss">
+      <DependentUpon>add-link.component.ts</DependentUpon>
+    </None>
     <None Update="src\app\attachments\components\attachments-add.component.html">
       <DependentUpon>attachments-add.component.ts</DependentUpon>
     </None>
@@ -107,6 +119,18 @@
     <None Update="src\app\attachments\components\attachments-list.component.scss">
       <DependentUpon>attachments-list.component.ts</DependentUpon>
     </None>
+    <None Update="src\app\attachments\components\file-list.component.html">
+      <DependentUpon>file-list.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\attachments\components\file-list.component.scss">
+      <DependentUpon>file-list.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\attachments\components\link-list.component.html">
+      <DependentUpon>link-list.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\attachments\components\link-list.component.scss">
+      <DependentUpon>link-list.component.ts</DependentUpon>
+    </None>
     <None Update="src\app\authorization\components\sign-in.component.html">
       <DependentUpon>sign-in.component.ts</DependentUpon>
     </None>
@@ -118,6 +142,24 @@
     </None>
     <None Update="src\app\authorization\components\sign-up.component.scss">
       <DependentUpon>sign-up.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\common\components\file-uploader.component.html">
+      <DependentUpon>file-uploader.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\common\components\file-uploader.component.scss">
+      <DependentUpon>file-uploader.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\common\components\spinner.component.html">
+      <DependentUpon>spinner.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\common\components\spinner.component.scss">
+      <DependentUpon>spinner.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\home\components\home-layout.component.html">
+      <DependentUpon>home-layout.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\home\components\home-layout.component.scss">
+      <DependentUpon>home-layout.component.ts</DependentUpon>
     </None>
     <None Update="src\app\idea\components\idea-details.component.html">
       <DependentUpon>idea-details.component.ts</DependentUpon>

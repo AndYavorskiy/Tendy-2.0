@@ -13,6 +13,8 @@ namespace Tendy.DAL.EF
         {
 			modelBuilder.Entity<Link>().Property(p => p.IsPrivate).HasDefaultValue(false);
 			modelBuilder.Entity<File>().Property(p => p.IsPrivate).HasDefaultValue(false);
+			modelBuilder.Entity<Request>().Property(p => p.IsAccepted).HasDefaultValue(false);
+			modelBuilder.Entity<Request>().Property(p => p.IsActive).HasDefaultValue(true);
 
 			modelBuilder.Entity<IdeaCategory>()
 				.HasKey(t => new { t.IdeaId, t.CategoryId });
@@ -36,6 +38,5 @@ namespace Tendy.DAL.EF
         public DbSet<File> Files { get; set; }
 		public DbSet<Category> Categories { get; set; }
         public DbSet<Request> Requests { get; set; }
-        public DbSet<PeopleGroup> PeopleGroups { get; set; }
     }
 }

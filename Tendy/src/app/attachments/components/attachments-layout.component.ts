@@ -15,5 +15,4 @@ export class AttachmentsLayoutComponent implements OnInit {
   public ngOnInit() {
     this.route.params.subscribe(params => this.ideaId = +params['id'])
   }
-
 }

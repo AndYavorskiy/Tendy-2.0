@@ -1,4 +1,3 @@
-#region Usings
 using AutoMapper;
 using FluentValidation.AspNetCore;
 using System;
@@ -26,7 +25,6 @@ using Tendy.DAL.Concrete;
 using Tendy.DAL.EF;
 using Tendy.DAL.Entities;
 using Tendy.Common.Constants;
-#endregion
 
 namespace Tendy
 {
@@ -122,7 +120,6 @@ namespace Tendy
             services.AddScoped<IRepository<ApplicationUser>, Repository<ApplicationUser>>();
             services.AddScoped<IRepository<Category>, Repository<Category>>();
             services.AddScoped<IRepository<Idea>, Repository<Idea>>();
-            services.AddScoped<IRepository<PeopleGroup>, Repository<PeopleGroup>>();
             services.AddScoped<IRepository<Request>, Repository<Request>>();
             services.AddScoped<IRepository<UserProfile>, Repository<UserProfile>>();
             services.AddScoped<IRepository<IdeaCategory>, Repository<IdeaCategory>>();
@@ -134,6 +131,7 @@ namespace Tendy
             services.AddScoped<IIdeasService, IdeaService>();
             services.AddScoped<IAccountsService, AccountsService>();
             services.AddScoped<IAttachmentsManager, AttachmentsManager>();
+            services.AddScoped<IManageIdeasService, ManageIdeasService>();
 
             //dependency injection WEB
             services.AddSingleton<IJwtFactory, JwtFactory>();

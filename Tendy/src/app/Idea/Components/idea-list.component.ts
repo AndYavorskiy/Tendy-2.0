@@ -26,7 +26,8 @@ export class IdeaListComponent implements OnInit {
   public ngOnInit() {
     let filter = {
       page: this.page,
-      pageSize: this.pageSize
+      pageSize: this.pageSize,
+      isUserAuthor: false
     } as SearchFilter;
 
     this.ideaService.search(filter)

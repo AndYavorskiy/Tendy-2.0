@@ -1,3 +1,63 @@
-<div *ngIf="idea" class="container">
-    {{idea.title}}
+<app-spinner [visible]="loading"></app-spinner>
+
+<div class="container margin-bottom-1" *ngIf="!loading">
+    <div class="row">
+        <div class="container-fluid">
+            <div class="card-block">
+                <div class="card-block-body">
+                    <div class="row ">
+                        <div class="col-md-4 text-center">
+                            <img class="img-fluid" src="https://expresswriters.com/wp-content/uploads/2014/06/write-creative-content.jpg" data-holder-rendered="true">
+                        </div>
+
+                        <div class="col-md-6">
+                            <div>
+                                <div>
+                                    <label>Title: </label>
+                                    <span>{{idea.title}}</span>
+                                </div>
+
+                                <div>
+                                    <label>Subtitle: </label>
+                                    <span>{{idea.subTitle}}</span>
+                                </div>
+
+                                <div>
+                                    <label>Description: </label>
+                                    <span>{{idea.description}}</span>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="btn btn-sm" [ngClass]="{'btn-success': !idea.isUserJoined, 'btn-secondary': idea.isUserJoined}" (click)="updateJoinRequest()"> {{idea.isUserJoined ? "Unfollow" : "Join"}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="container-fluid">
+            <div class="card-block">
+                <div class="card-block-body">
+                    <h4 class="card-title">Links</h4>
+
+                    <app-link-list [ideaId]="idea.id"></app-link-list>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="container-fluid">
+            <div class="card-block">
+                <div class="card-block-body">
+                    <h4 class="card-title">Files</h4>
+
+                    <app-file-list [ideaId]="idea.id"></app-file-list>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

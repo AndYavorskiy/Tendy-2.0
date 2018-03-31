@@ -11,7 +11,6 @@ namespace Tendy.Abstract
 		IRepository<IdeaCategory> IdeasCategoriesRepository { get; }
 		IRepository<Category> CategoriesRepository { get; }
 		IRepository<Request> RequestsRepository { get; }
-		IRepository<PeopleGroup> PeopleGroupsRepository { get; }
 		IRepository<Link> LinksRepository { get; }
 		IRepository<File> FilesRepository { get; }
 		IRepository<AccountSettings> AccountCofigurationRepository { get; }

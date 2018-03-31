@@ -14,15 +14,15 @@ namespace Tendy.BLL.Services
 {
 	public class IdeaService : IIdeasService
 	{
-		IUnitOfWork _uow;
+		IUnitOfWork uow;
 		public IdeaService(IUnitOfWork uow)
 		{
-			_uow = uow;			
+			this.uow = uow;
 		}
 
 		public AggregateContent<IdeaViewModel> Search(IdeaSearchFilter filter)
 		{
-			var query = _uow.IdeasRepository
+			var query = uow.IdeasRepository
 			.GetAll();
 
 			if (filter.IsUserAuthor)
@@ -37,19 +37,32 @@ namespace Tendy.BLL.Services
 							query
 								.Skip((filter.Page - 1) * filter.PageSize)
 								.Take(filter.PageSize)
+								.OrderByDescending(item => item.DateOfCreation)
 								.ToList()),
 				Total = query.Count()
 			};
 		}
 
-		public IdeaViewModel GetById(int id)
+		public IdeaViewModel Get(int ideaId, string userId)
 		{
-			var idea = _uow.IdeasRepository.FindSingle(id);
+			var idea = uow.IdeasRepository.FindSingle(ideaId);
 			if (idea == null)
 			{
 				throw new CustomException(StatusCodes.Status404NotFound, BLLExceptionsMessages.CantFindIdea);
 			}
-			return Mapper.Map<Idea, IdeaViewModel>(idea);
+
+			var ideaVm = Mapper.Map<Idea, IdeaViewModel>(idea);
+
+			var request = uow.RequestsRepository
+				.FindBy(req => req.IdeaId == ideaId && req.ApplicationUserId == userId)
+				.FirstOrDefault();
+
+			if (request != null)
+			{
+				ideaVm.IsUserJoined = request.IsActive.GetValueOrDefault();
+			}
+			
+			return ideaVm;
 		}
 
 		public IdeaViewModel Create(IdeaViewModel ideaVm)
@@ -65,8 +78,8 @@ namespace Tendy.BLL.Services
 
 			try
 			{
-				var createdIdea = _uow.IdeasRepository.Create(idea);
-				_uow.SaveChanges();
+				var createdIdea = uow.IdeasRepository.Create(idea);
+				uow.SaveChanges();
 				return Mapper.Map<Idea, IdeaViewModel>(createdIdea);
 			}
 			catch (Exception ex)
@@ -80,8 +93,8 @@ namespace Tendy.BLL.Services
 			var idea = Mapper.Map<IdeaViewModel, Idea>(ideaVm);
 			try
 			{
-				var updatedIdea = _uow.IdeasRepository.Update(idea);
-				_uow.SaveChanges();
+				var updatedIdea = uow.IdeasRepository.Update(idea);
+				uow.SaveChanges();
 				return Mapper.Map<Idea, IdeaViewModel>(updatedIdea);
 			}
 			catch (Exception ex)
@@ -94,8 +107,8 @@ namespace Tendy.BLL.Services
 		{
 			try
 			{
-				_uow.IdeasRepository.Delete(ideaId);
-				_uow.SaveChanges();
+				uow.IdeasRepository.Delete(ideaId);
+				uow.SaveChanges();
 				return true;
 			}
 			catch (Exception ex)

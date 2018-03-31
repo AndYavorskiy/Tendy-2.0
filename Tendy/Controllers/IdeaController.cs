@@ -12,44 +12,44 @@ namespace Idemty_Web.Controllers
     [Route("api/idea")]
     public class IdeaController : Controller
     {
-        private readonly IIdeasService _ideaService;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IIdeasService ideaService;
+        private readonly UserManager<ApplicationUser> userManager;
 
         public IdeaController(IIdeasService ideaService, UserManager<ApplicationUser> userManager)
         {
-            _ideaService = ideaService;
-            _userManager = userManager;
+            this.ideaService = ideaService;
+            this.userManager = userManager;
         }
 
         [HttpGet]
         [Route("search")]
-        public ActionResult Get(IdeaSearchFilter filter)
+        public ActionResult SearchIdea(IdeaSearchFilter filter)
         {
             if (filter == null)
             {
                 filter = new IdeaSearchFilter();
             }
 
-            filter.AuthorId = HttpContext.User.FindFirst(JwtClaimIdentifiers.Id).Value;
+            filter.AuthorId = HttpContext.User.FindFirst(JwtClaimIdentifiers.Id)?.Value;
 
-            return Ok(_ideaService.Search(filter));
+            return Ok(ideaService.Search(filter));
         }
 
         [HttpGet("{id}")]
-        public ActionResult Get(int id)
+        public ActionResult GetIdea(int id)
         {
             if (id < 0)
             {
                 return BadRequest();
             }
 
-            var a = HttpContext.User.Claims;
+            var userId = HttpContext.User.FindFirst(JwtClaimIdentifiers.Id)?.Value;
 
-            return Ok(_ideaService.GetById(id));
+            return Ok(ideaService.Get(id, userId));
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody]IdeaViewModel ideaVm)
+        public IActionResult AddIdea([FromBody]IdeaViewModel ideaVm)
         {
             if (!ModelState.IsValid)
             {
@@ -58,28 +58,28 @@ namespace Idemty_Web.Controllers
             var authorId = HttpContext.User.FindFirst(JwtClaimIdentifiers.Id).Value;
             ideaVm.AuthorId = authorId;
 
-            return StatusCode(StatusCodes.Status201Created, _ideaService.Create(ideaVm));
+            return StatusCode(StatusCodes.Status201Created, ideaService.Create(ideaVm));
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody]IdeaViewModel ideaVm)
+        public IActionResult UpdateIdea([FromBody]IdeaViewModel ideaVm)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            return Ok(_ideaService.Update(ideaVm));
+            return Ok(ideaService.Update(ideaVm));
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult DeleteIdea(int id)
         {
             if (id < 0)
             {
                 return BadRequest();
             }
-            return Ok(_ideaService.Delete(id));
-        }
+            return Ok(ideaService.Delete(id));
+        }       
     }
 }

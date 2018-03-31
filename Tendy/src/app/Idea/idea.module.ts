@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { SharedModule } from '../common/shared.module';
 import { IdeaRoutingModule } from './idea-routing.module';
-import { IdeaService } from './services';
+import { IdeaService, ManageIdeaService } from './services';
 import { ServiceProviderModule } from '../common/app-common.module';
 import { AttachmentsModule } from '../attachments/attachments.module';
 
@@ -38,7 +38,8 @@ import {
         IdeaManageComponent,
     ],
     providers: [
-        IdeaService
+        IdeaService,
+        ManageIdeaService,
     ]
 })
 export class IdeaModule { }

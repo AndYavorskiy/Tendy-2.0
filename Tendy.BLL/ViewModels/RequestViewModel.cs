@@ -6,13 +6,14 @@ namespace Tendy.BLL.ViewModels
     {
         public int Id { get; set; }
 
-        public string ApplicationUserId { get; set; }
+		public bool? IsAccepted { get; set; }
+
+		public string ApplicationUserId { get; set; }
 
         public ApplicationUserViewModel ApplicationUser { get; set; }
 
-        public int? PeopleGroupId { get; set; }
-
-        public PeopleGroupViewModel PeopleGroup { get; set; }
+		public int IdeaId { get; set; }
+		public IdeaViewModel Idea { get; set; }
 
         public DateTime? DateOfJoining { get; set; }
     }

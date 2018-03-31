@@ -1,10 +1,18 @@
 .nav-bar-custom {
     //darkblue
     //background-color: #243f6e !important;
-    
-    background-color: #2980b9 !important;    
-
-    //lightblue
+    background-color: #2980b9 !important; //lightblue
     /*background-color: #0062ad !important;*/
     padding: 0rem 0.6rem;
+    .nav-link {
+        color: white;
+        &:hover {
+            padding-bottom: 4px;
+            border-bottom: 4px solid #21587f;
+        }
+    }
+    .navbar-text {
+        color: white !important;
+        line-height: 2em !important;
+    }
 }

@@ -20,20 +20,18 @@ namespace Tendy.BLL.ViewModels
 
 		public DateTime? DateOfCreation { get; set; }
 
+		public bool IsUserJoined { get; set; }
+
 		public string AuthorId { get; set; }
-		public virtual ApplicationUserViewModel Author { get; set; }
+		public ApplicationUserViewModel Author { get; set; }
 
-		public int? AcceptedPeopleGroupId { get; set; }
-		public virtual PeopleGroupViewModel AcceptedPeopleGroup { get; set; }
+		public ICollection<RequestViewModel> Request { get; set; }
 
-		public int? RequestedPeopleGroupId { get; set; }
-		public virtual PeopleGroupViewModel RequestedPeopleGroup { get; set; }
+		public ICollection<IdeaCategoryViewModel> IdeaCategories { get; set; }
 
-		public virtual ICollection<IdeaCategoryViewModel> IdeaCategories { get; set; }
+		public ICollection<LinkViewModel> Links { get; set; }
 
-		public virtual ICollection<LinkViewModel> Links { get; set; }
-
-		public virtual IEnumerable<FileViewModel> Files { get; set; }
+		public IEnumerable<FileViewModel> Files { get; set; }
 
 	}
 }

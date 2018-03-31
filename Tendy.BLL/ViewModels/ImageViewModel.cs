@@ -9,7 +9,5 @@
         public bool? IsMain { get; set; }
 
         public IdeaImageViewModel IdeaImage { get; set; }
-
-        public PublicationImageViewModel PublicationImage { get; set; }
     }
 }

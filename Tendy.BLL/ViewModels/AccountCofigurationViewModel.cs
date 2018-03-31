@@ -10,6 +10,6 @@ namespace Tendy.BLL.ViewModels
 
 		public bool IsAdminMode { get; set; }
 
-		public virtual string ApplicationUserId { get; set; }
+		public string ApplicationUserId { get; set; }
 	}
 }

@@ -21,13 +21,7 @@ namespace Tendy.DAL.Entities
 		public string AuthorId { get; set; }
 		public virtual ApplicationUser Author { get; set; }
 
-		public int? AcceptedPeopleGroupId { get; set; }
-		[InverseProperty(nameof(PeopleGroup.IdeaAcceptedPeople))]
-		public virtual PeopleGroup AcceptedPeopleGroup { get; set; }
-
-		public int? RequestedPeopleGroupId { get; set; }
-		[InverseProperty(nameof(PeopleGroup.IdeaRequestedPeople))]
-		public virtual PeopleGroup RequestedPeopleGroup { get; set; }
+		public virtual ICollection<Request> Request { get; set; }
 
 		public virtual ICollection<IdeaCategory> IdeaCategories { get; set; }
 
@@ -40,6 +34,7 @@ namespace Tendy.DAL.Entities
 			IdeaCategories = new List<IdeaCategory>();
 			Links = new List<Link>();
 			Files = new List<File>();
+			Request = new List<Request>();
 		}
 	}
 }

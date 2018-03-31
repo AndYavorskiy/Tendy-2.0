@@ -19,16 +19,16 @@
             </li>
 
             <li class="nav-item" *ngIf="authInfo.isSignedIn">
-                <a class="btn btn-sm btn-outline-primary" (click)="logout()">
+                <a class="btn btn-darkblue btn-sm" (click)="logout()">
                     Sign out
                 </a>
             </li>
 
             <li class="nav-item" *ngIf="!authInfo.isSignedIn">
-                <a class="btn btn-sm btn-outline-success" routerLink="/authorize/sign-in">
+                <a class="btn btn-success  btn-sm" routerLink="/authorize/sign-in">
                     Sign in
                 </a>
-                <a class="btn btn-sm btn-outline-primary" routerLink="/authorize/sign-up">
+                <a class="btn btn-darkblue btn-sm" routerLink="/authorize/sign-up">
                     Sign up
                 </a>
             </li>

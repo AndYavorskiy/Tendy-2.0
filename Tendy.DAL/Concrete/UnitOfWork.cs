@@ -14,7 +14,6 @@ namespace Tendy.Concrete
 		private readonly IRepository<Idea> _ideasRepository;
 		private readonly IRepository<Category> _categoriesRepository;
 		private readonly IRepository<Request> _requestsRepository;
-		private readonly IRepository<PeopleGroup> _peopleGroupsRepository;
 		private readonly IRepository<IdeaCategory> _ideasCategoriesRepository;
 		private readonly IRepository<Link> _linksRepository;
 		private readonly IRepository<File> _filesRepository;
@@ -27,7 +26,6 @@ namespace Tendy.Concrete
 			IRepository<Idea> ideasRepository,
 			IRepository<Category> categoriesRepository,
 			IRepository<Request> requestsRepository,
-			IRepository<PeopleGroup> peopleGroupsRepository,
 			IRepository<IdeaCategory> ideasCategoriesRepository,
 			IRepository<Link> linksRepository,
 			IRepository<File> filesRepository,
@@ -39,7 +37,6 @@ namespace Tendy.Concrete
 			_ideasRepository = ideasRepository;
 			_categoriesRepository = categoriesRepository;
 			_requestsRepository = requestsRepository;
-			_peopleGroupsRepository = peopleGroupsRepository;
 			_ideasCategoriesRepository = ideasCategoriesRepository;
 			_linksRepository = linksRepository;
 			_filesRepository = filesRepository;
@@ -57,8 +54,6 @@ namespace Tendy.Concrete
 		public IRepository<Category> CategoriesRepository => _categoriesRepository;
 
 		public IRepository<Request> RequestsRepository => _requestsRepository;
-
-		public IRepository<PeopleGroup> PeopleGroupsRepository => _peopleGroupsRepository;
 
 		public IRepository<IdeaCategory> IdeasCategoriesRepository => _ideasCategoriesRepository;
 

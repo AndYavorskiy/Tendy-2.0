@@ -7,7 +7,7 @@ namespace Tendy.BLL.Interfaces
     {
 		AggregateContent<IdeaViewModel> Search(IdeaSearchFilter filter);
 
-		IdeaViewModel GetById(int id);
+		IdeaViewModel Get(int id, string userId);
 
         IdeaViewModel Create(IdeaViewModel ideaVm);
 

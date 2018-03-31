@@ -27,9 +27,6 @@ namespace Tendy.BLL.Utils
 			CreateMap<File, FileViewModel>();
 			CreateMap<FileViewModel, File>();
 
-			CreateMap<PeopleGroup, PeopleGroupViewModel>();
-            CreateMap<PeopleGroupViewModel, PeopleGroup>();
-
             CreateMap<Request, RequestViewModel>();
             CreateMap<RequestViewModel, Request>();
 

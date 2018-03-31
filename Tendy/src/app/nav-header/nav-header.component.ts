@@ -18,7 +18,6 @@ export class NavHeaderComponent implements OnInit {
     constructor(private authorizeService: AuthorizationService) { }
 
     ngOnInit() {
-
         this.subscription = this.authorizeService.authNavStatus$
             .subscribe(status => this.authInfo = status);
     }

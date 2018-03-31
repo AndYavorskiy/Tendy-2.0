@@ -31,6 +31,8 @@ import { FileListComponent } from './components/file-list.component';
     ],
     exports: [
         AttachmentsLayoutComponent,
+        LinkListComponent,
+        FileListComponent,
     ],
     providers: [AttachmentService]
 })
