@@ -1,0 +1,20 @@
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.1em 0.7em;
+    margin: 0.2em 0;
+    line-height: 2em;
+    background-color: #edeff5;
+
+    i {
+        line-height: 1.5em;
+    }
+
+    &.accepted {
+        border-left: 3px green solid;
+    }
+
+    &.rejected {
+        border-left: 3px grey solid;
+    }
+}

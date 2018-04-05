@@ -37,7 +37,9 @@
     <None Remove="src\app\common\utils\api-error-handler.ts" />
     <None Remove="src\app\common\utils\index.ts" />
     <None Remove="src\app\common\utils\local-storage-manager.service.ts" />
+    <None Remove="src\app\idea\components\idea-requests.component.ts" />
     <None Remove="src\app\idea\models\index.ts" />
+    <None Remove="src\app\idea\models\request.model.ts" />
     <None Remove="src\app\idea\models\search-filter.model.ts" />
   </ItemGroup>
 
@@ -78,7 +80,9 @@
     <TypeScriptCompile Include="src\app\common\utils\api-error-handler.ts" />
     <TypeScriptCompile Include="src\app\common\utils\index.ts" />
     <TypeScriptCompile Include="src\app\common\utils\local-storage-manager.service.ts" />
+    <TypeScriptCompile Include="src\app\idea\components\idea-requests.component.ts" />
     <TypeScriptCompile Include="src\app\idea\models\index.ts" />
+    <TypeScriptCompile Include="src\app\idea\models\request.model.ts" />
     <TypeScriptCompile Include="src\app\idea\models\search-filter.model.ts" />
   </ItemGroup>
 
@@ -190,6 +194,12 @@
     </None>
     <None Update="src\app\idea\components\idea-manage.component.scss">
       <DependentUpon>idea-manage.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\idea\components\idea-requests.component.html">
+      <DependentUpon>idea-requests.component.ts</DependentUpon>
+    </None>
+    <None Update="src\app\idea\components\idea-requests.component.scss">
+      <DependentUpon>idea-requests.component.ts</DependentUpon>
     </None>
     <None Update="src\app\idea\components\idea-side-menu.component.html">
       <DependentUpon>idea-side-menu.component.ts</DependentUpon>

@@ -1,0 +1,30 @@
+<div class="row justify-content-md-center">
+    <div class="col-md-5 pdn-bottom-10">
+        <h5>
+            Accepted
+        </h5>
+
+        <div class="list-item accepted" *ngFor="let request of acceptedRequests">
+            {{request.userName}}
+            <i class="far fa-times-circle fa-lg i-danger" (click)="updateRequest(request)"></i>
+        </div>
+
+        <div class="text-center pdn-top-10" *ngIf="acceptedRequests.length == 0">
+            <i class="fas fa-user-times fa-2x"></i>
+        </div>
+    </div>
+
+    <div class="col-md-5 pdn-bottom-10">
+        <h5>
+           Not Accepted
+        </h5>
+        <div class="list-item rejected" *ngFor="let request of rejectedRequests">
+            {{request.userName}}
+            <i class="far  fa-check-circle fa-lg i-success" (click)="updateRequest(request)"></i>
+        </div>
+
+        <div class="text-center pdn-top-10" *ngIf="rejectedRequests.length == 0">
+            <i class="fas fa-user-times fa-2x"></i>
+        </div>
+    </div>
+</div>

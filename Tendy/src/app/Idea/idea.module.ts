@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { SharedModule } from '../common/shared.module';
 import { IdeaRoutingModule } from './idea-routing.module';
-import { IdeaService, ManageIdeaService } from './services';
+import { IdeaService, ManageIdeaApiService } from './services';
 import { ServiceProviderModule } from '../common/app-common.module';
 import { AttachmentsModule } from '../attachments/attachments.module';
 
@@ -15,7 +15,8 @@ import {
     IdeaEditComponent,
     IdeaDetailsComponent,
     MyIdeaComponent,
-    IdeaManageComponent
+    IdeaManageComponent,
+    IdeaRequestsComponent, 
 } from './components';
 
 @NgModule({
@@ -36,10 +37,11 @@ import {
         IdeaDetailsComponent,
         MyIdeaComponent,
         IdeaManageComponent,
+        IdeaRequestsComponent, 
     ],
     providers: [
         IdeaService,
-        ManageIdeaService,
+        ManageIdeaApiService,
     ]
 })
 export class IdeaModule { }

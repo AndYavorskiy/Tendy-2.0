@@ -24,5 +24,8 @@ namespace Tendy.Common.Exceptions
 
 		//Account Configuration
 		public static readonly ErrorInfo CantUpdateAccountConfiguration = new ErrorInfo("05x00003", "Can not update Account Configuration!");
+
+		//Requsts
+		public static readonly ErrorInfo CannotAcceptDeclaimRequest = new ErrorInfo("06x00003", "Can not Accept/Declaim Request!");
 	}
 }

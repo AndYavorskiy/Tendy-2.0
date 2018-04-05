@@ -75,17 +75,27 @@
     cursor: pointer;
 }
 
-.i-edit {
+.i-blue {
     @include defaultIStyles();
+
     &:hover {
         color: #2196F3;
     }
 }
 
-.i-delete {
+.i-danger {
     @include defaultIStyles();
+
     &:hover {
         color: #F44336;
+    }
+}
+
+.i-success {
+    @include defaultIStyles();
+
+    &:hover {
+        color: #2fd415;
     }
 }
 
@@ -122,6 +132,7 @@
     text-align: center;
     background-color: rgba(96, 125, 139, 0.473);
     border-radius: 0.2em;
+
     &:hover {
         background-color: rgba(96, 125, 139, 0.904);
     }
@@ -137,4 +148,12 @@
 
 .pdn-r-7 {
     padding: 0 7px 0 0;
+}
+
+.pdn-top-10 {
+    padding-top: 10px;
+}
+
+.pdn-bottom-10 {
+    padding-bottom: 10px;
 }

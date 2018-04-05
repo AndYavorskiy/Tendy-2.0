@@ -11,10 +11,10 @@
 
                     <div>
                         <a class="unstyled" [routerLink]="['../../edit',idea.id]">
-                            <i class="fas fa-pen-square fa-lg i-edit"></i>
+                            <i class="fas fa-pen-square fa-lg i-blue"></i>
                         </a>
 
-                        <i class="fas fa-trash i-delete" (click)="delete()"></i>
+                        <i class="fas fa-trash i-danger" (click)="delete()"></i>
                     </div>
                 </div>
 
@@ -107,6 +107,18 @@
         <div class="container-fluid">
             <div class="card-block">
                 <div class="card-block-body">
+                    <h4 class="card-title">Requests</h4>
+
+                    <app-idea-requests [ideaId]="idea.id"></app-idea-requests>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="container-fluid">
+            <div class="card-block">
+                <div class="card-block-body">
                     <h4 class="card-title">Attachments</h4>
 
                     <app-attachments-layout></app-attachments-layout>
@@ -127,5 +139,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>    
 </div>

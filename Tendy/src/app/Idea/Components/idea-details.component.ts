@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { IdeaService, ManageIdeaService } from '../services';
+import { IdeaService, ManageIdeaApiService } from '../services';
 import { IdeaModel } from '../models';
 
 @Component({
@@ -18,7 +18,7 @@ export class IdeaDetailsComponent implements OnInit {
 
     constructor(private route: ActivatedRoute,
         private ideaService: IdeaService,
-        private manageIdeaService: ManageIdeaService,
+        private manageIdeaService: ManageIdeaApiService,
     ) { }
 
     ngOnInit() {

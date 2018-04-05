@@ -35,5 +35,24 @@ namespace Tendy.Controllers
 
             return StatusCode(StatusCodes.Status201Created, manageIdeasService.UpdateJoinRequest(ideaId, userId));
         }
+
+        [HttpGet("requests/{ideaId?}")]
+        public IActionResult GetRequests(int? ideaId)
+        {
+            return StatusCode(StatusCodes.Status200OK, manageIdeasService.GetRequests(ideaId));
+        }
+
+        [HttpGet("confirm-request/{requestId?}/{ideaId?}/{userId?}")]
+        public IActionResult ConfirmRequest(int requestId, int ideaId, string userId)
+        {
+            var managerId = HttpContext.User.FindFirst(JwtClaimIdentifiers.Id)?.Value;
+
+            if (string.IsNullOrEmpty(managerId))
+            {
+                return BadRequest(ModelState);
+            }
+
+            return StatusCode(StatusCodes.Status201Created, manageIdeasService.ConfirmRequest(ideaId, requestId, userId, managerId));
+        }
     }
 }
