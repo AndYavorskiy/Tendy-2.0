@@ -1,147 +1,87 @@
-#wrapper {
-    padding-left: 0;
-    -webkit-transition: all 0.6s ease;
-    -moz-transition: all 0.6s ease;
-    -o-transition: all 0.6s ease;
-    transition: all 0.6s ease;
-}
-
-#wrapper.toggled {
-    padding-left: 200px;
-}
-
-#sidebar-wrapper {
-    z-index: 1000;
+.toggle-bar {
     position: fixed;
-    left: 250px;
-    width: 0;
+    background-color: #edeff5;
+    width: 38px;
+    height: 45px;
+    z-index: 6;
+    top: 50px;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    -webkit-box-shadow: 0px 0px 20px 3px #757575;
+    cursor: pointer;
+
+    i {
+        color: #007fbd;
+        width: 32px;
+        line-height: 1.4em;
+    }
+
+    @media (max-width: 768px) {
+        &.opened {
+            margin-left: 13em;
+        }
+    }
+
+    @media (min-width: 768px) {
+        display: none
+    }
+}
+
+.sidebar {
+    width: 3em;
+    background-color: #00365c;
     height: 100%;
-    margin-left: -250px;
-    overflow-y: auto;
-    background-color: #312A25;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-
-#wrapper.toggled #sidebar-wrapper {
-    width: 0;
-}
-
-#page-content-wrapper {
-    width: 100%;
-    position: absolute;
-    padding: 10px;
-}
-
-#wrapper.toggled #page-content-wrapper {
-    position: absolute;
-    margin-left: -250px;
-}
-
-
-/* Sidebar Styles */
-
-.sidebar-nav {
-    position: absolute;
+    position: fixed;
+    z-index: 1;
     top: 0;
-    right: 15px;
-    width: 200px;
-    list-style: none;
-    padding-top: 1em;
-    padding-left: 2em;
-}
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 40px;
+    opacity: 0.93;
 
-.sidebar-nav li {
-    font-size: 1em;
-    line-height: 2em;
-}
+    &.toggled {
+        width: 13em;
 
-.sidebar-nav li a {
-    text-decoration: none;
-    color: #999999;
-}
+        ul li a span {
+            display: inline;
+        }
+    }
 
-.sidebar-nav li a:hover {
-    color: #fff;
-}
+    ul {
+        list-style: none;
+        padding: 0;
 
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-    text-decoration: none;
-}
+        li {
+            padding: 0.5em;
+            cursor: pointer;
 
-@media(min-width:768px) {
-    #wrapper {
-        padding-left: 220px;
-    }
-    #wrapper.toggled {
-        padding-left: 0;
-    }
-    #sidebar-wrapper {
-        width: 200px;
-    }
-    #wrapper.toggled #sidebar-wrapper {
-        width: 40px;
-    }
-    #wrapper.toggled span {
-        visibility: hidden;
-    }
-    #wrapper.toggled i {
-        float: right;
-    }
-    #page-content-wrapper {
-        padding: 20px;
-        position: relative;
-    }
-    #wrapper.toggled #page-content-wrapper {
-        position: relative;
-        margin-right: 0;
-    }
-}
+            &:hover {
+                background-color: #0d4871;
+            }
 
-@media(max-width:414px) {
-    #wrapper.toggled #page-content-wrapper {
-        position: absolute;
-        margin-right: 60px;
+            a {
+                color: white;
+                text-decoration: none;
+
+                i {
+                    width: 2em;
+                }
+
+                span {
+                    overflow: hidden;
+                    display: none;
+                }
+            }
+        }
     }
-    #wrapper.toggled {
-        padding-right: 60px;
-    }
-    #wrapper {
-        padding-left: 20px;
-    }
-    #wrapper.toggled {
-        padding-left: 0;
-    }
-    #sidebar-wrapper {
-        width: 50px;
-    }
-    #wrapper.toggled #sidebar-wrapper {
-        width: 140px;
-    }
-    #wrapper.toggled span {
-        visibility: visible;
-        position: relative;
-        left: 70px;
-        bottom: 13px;
-    }
-    #wrapper span {
-        visibility: hidden;
-    }
-    #wrapper.toggled i {
-        float: right;
-    }
-    #wrapper i {
-        float: right;
-    }
-    #page-content-wrapper {
-        padding: 5px;
-        position: relative;
-    }
-    #wrapper.toggled #page-content-wrapper {
-        position: relative;
-        margin-right: 0;
+
+    @media (max-width: 768px) {
+        &:not(.toggled) {
+            display: none
+        }
+
+        & ul li:first-child {
+            display: none;
+        }
     }
 }

@@ -10,7 +10,7 @@ import { IdeaService } from '../services';
 })
 export class IdeaSideMenuComponent implements OnInit {
 
-    public isToggled: boolean = true;
+    public isToggled: boolean = false;
 
     constructor(route: ActivatedRoute,
         private ideaService: IdeaService) {
@@ -25,6 +25,6 @@ export class IdeaSideMenuComponent implements OnInit {
     }
 
     public hide() {
-        this.isToggled = true;
+        this.isToggled = false;
     }
 }
