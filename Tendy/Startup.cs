@@ -17,7 +17,7 @@ using Tendy.Concrete;
 using Tendy.Middlewares;
 using Tendy.Models;
 using Tendy.BLL.Interfaces;
-using Tendy.BLL.Services;
+using Tendy.BLL.Managers;
 using Tendy.BLL.Utils;
 using Tendy.BLL.Utils.Validations;
 using Tendy.DAL.Abstract;
@@ -115,7 +115,6 @@ namespace Tendy
               .AddFluentValidation(fv => fv.RegisterValidatorsFromAssembly(Assembly.GetAssembly(typeof(RegistrationViewModelValidator))));
 
             //dependency injection DAL
-            services.AddScoped<IDbInitializer, DbInitializer>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IRepository<ApplicationUser>, Repository<ApplicationUser>>();
             services.AddScoped<IRepository<Category>, Repository<Category>>();
@@ -128,17 +127,17 @@ namespace Tendy
             services.AddScoped<IRepository<AccountSettings>, Repository<AccountSettings>>();
 
             //dependency injection BLL
-            services.AddScoped<IIdeasService, IdeaService>();
-            services.AddScoped<IAccountsService, AccountsService>();
+            services.AddScoped<IIdeaManager, IdeaManager>();
+            services.AddScoped<IAccountManager, AccountManager>();
             services.AddScoped<IAttachmentsManager, AttachmentsManager>();
-            services.AddScoped<IManageIdeasService, ManageIdeasService>();
+            services.AddScoped<IRequestManager, RequestManager>();
 
             //dependency injection WEB
             services.AddSingleton<IJwtFactory, JwtFactory>();
 
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IDbInitializer dbInitializer)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseGlobalErrorHandling();
 

@@ -3,19 +3,18 @@ using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Tendy.Abstract;
 using Tendy.BLL.Interfaces;
 using Tendy.BLL.ViewModels;
 using Tendy.Common.Exceptions;
 using Tendy.DAL.Entities;
 
-namespace Tendy.BLL.Services
+namespace Tendy.BLL.Managers
 {
-	public class ManageIdeasService : IManageIdeasService
+	public class RequestManager : IRequestManager
 	{
 		IUnitOfWork uow;
-		public ManageIdeasService(IUnitOfWork uow)
+		public RequestManager(IUnitOfWork uow)
 		{
 			this.uow = uow;
 		}
@@ -90,7 +89,7 @@ namespace Tendy.BLL.Services
 
 			if (allowEdit == null)
 			{
-				throw new CustomException(StatusCodes.Status403Forbidden, BLLExceptionsMessages.CannotAcceptDeclaimRequest);
+				throw new CustomException(StatusCodes.Status403Forbidden, ExceptionsMessages.CannotAcceptDeclaimRequest);
 			}
 
 			var requestToUpdate = uow.RequestsRepository
@@ -99,7 +98,7 @@ namespace Tendy.BLL.Services
 
 			if (requestToUpdate == null)
 			{
-				throw new CustomException(StatusCodes.Status501NotImplemented, BLLExceptionsMessages.CannotAcceptDeclaimRequest);
+				throw new CustomException(StatusCodes.Status501NotImplemented, ExceptionsMessages.CannotAcceptDeclaimRequest);
 			}
 
 			requestToUpdate.IsAccepted = !requestToUpdate.IsAccepted;

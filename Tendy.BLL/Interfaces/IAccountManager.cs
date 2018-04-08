@@ -3,7 +3,7 @@ using Tendy.BLL.ViewModels;
 
 namespace Tendy.BLL.Interfaces
 {
-    public interface IAccountsService
+    public interface IAccountManager
     {
         Task<RegistrationViewModel> CreateAccount(RegistrationViewModel regModel);
 

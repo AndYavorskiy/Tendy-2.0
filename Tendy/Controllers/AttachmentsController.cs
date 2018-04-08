@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Tendy.BLL.Interfaces;
-using Tendy.BLL.Services;
 using Tendy.BLL.ViewModels;
 
 namespace Tendy.Controllers

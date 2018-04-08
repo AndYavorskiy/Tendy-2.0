@@ -10,12 +10,12 @@ using Tendy.Common.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Tendy.Common.ViewModels;
 
-namespace Tendy.BLL.Services
+namespace Tendy.BLL.Managers
 {
-	public class IdeaService : IIdeasService
+	public class IdeaManager : IIdeaManager
 	{
 		IUnitOfWork uow;
-		public IdeaService(IUnitOfWork uow)
+		public IdeaManager(IUnitOfWork uow)
 		{
 			this.uow = uow;
 		}
@@ -48,7 +48,7 @@ namespace Tendy.BLL.Services
 			var idea = uow.IdeasRepository.FindSingle(ideaId);
 			if (idea == null)
 			{
-				throw new CustomException(StatusCodes.Status404NotFound, BLLExceptionsMessages.CantFindIdea);
+				throw new CustomException(StatusCodes.Status404NotFound, ExceptionsMessages.CantFindIdea);
 			}
 
 			var ideaVm = Mapper.Map<Idea, IdeaViewModel>(idea);
@@ -71,7 +71,7 @@ namespace Tendy.BLL.Services
 
 			if (idea == null)
 			{
-				throw new CustomException(StatusCodes.Status501NotImplemented, BLLExceptionsMessages.CantCreateIdea, new NullReferenceException());
+				throw new CustomException(StatusCodes.Status501NotImplemented, ExceptionsMessages.CantCreateIdea, new NullReferenceException());
 			}
 
 			idea.DateOfCreation = DateTime.UtcNow;
@@ -84,7 +84,7 @@ namespace Tendy.BLL.Services
 			}
 			catch (Exception ex)
 			{
-				throw new CustomException(StatusCodes.Status501NotImplemented, BLLExceptionsMessages.CantCreateIdea, ex);
+				throw new CustomException(StatusCodes.Status501NotImplemented, ExceptionsMessages.CantCreateIdea, ex);
 			}
 		}
 
@@ -99,7 +99,7 @@ namespace Tendy.BLL.Services
 			}
 			catch (Exception ex)
 			{
-				throw new CustomException(StatusCodes.Status501NotImplemented, BLLExceptionsMessages.CantEditeIdea, ex);
+				throw new CustomException(StatusCodes.Status501NotImplemented, ExceptionsMessages.CantEditeIdea, ex);
 			}
 		}
 
@@ -113,7 +113,7 @@ namespace Tendy.BLL.Services
 			}
 			catch (Exception ex)
 			{
-				throw new CustomException(StatusCodes.Status501NotImplemented, BLLExceptionsMessages.CantDeleteIdea, ex);
+				throw new CustomException(StatusCodes.Status501NotImplemented, ExceptionsMessages.CantDeleteIdea, ex);
 			}
 		}
 	}

@@ -9,7 +9,7 @@ using Tendy.BLL.ViewModels;
 using Tendy.Common.Exceptions;
 using Tendy.DAL.Entities;
 
-namespace Tendy.BLL.Services
+namespace Tendy.BLL.Managers
 {
 	public class AttachmentsManager : IAttachmentsManager
 	{
@@ -58,7 +58,7 @@ namespace Tendy.BLL.Services
 			}
 			catch (Exception ex)
 			{
-				throw new CustomException(StatusCodes.Status501NotImplemented, BLLExceptionsMessages.CantUpdateLinks, ex);
+				throw new CustomException(StatusCodes.Status501NotImplemented, ExceptionsMessages.CantUpdateLinks, ex);
 			}
 		}
 
@@ -101,7 +101,7 @@ namespace Tendy.BLL.Services
 			}
 			catch (Exception ex)
 			{
-				throw new CustomException(StatusCodes.Status501NotImplemented, BLLExceptionsMessages.CantUpdateFiles, ex);
+				throw new CustomException(StatusCodes.Status501NotImplemented, ExceptionsMessages.CantUpdateFiles, ex);
 			}
 		}
 	}

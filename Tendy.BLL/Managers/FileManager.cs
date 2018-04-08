@@ -3,9 +3,9 @@ using System.IO;
 using Tendy.BLL.Interfaces;
 using System.Threading.Tasks;
 
-namespace Tendy.BLL.Services
+namespace Tendy.BLL.Managers
 {
-	public class FileUploader : IFileManager
+	public class FileManager : IFileManager
 	{
 		const string path = @"C:\Project\FileStorage";
 

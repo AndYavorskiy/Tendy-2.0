@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using Tendy.BLL.ViewModels;
-using Tendy.Common.ViewModels;
 
 namespace Tendy.BLL.Interfaces
 {
-	public interface IManageIdeasService
+	public interface IRequestManager
     {
 		bool UpdateJoinRequest(int ideaId, string userId);
 		IEnumerable<RequestViewModel> GetRequests(int? ideaId);

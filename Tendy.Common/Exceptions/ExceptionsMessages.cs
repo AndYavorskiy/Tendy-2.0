@@ -2,7 +2,7 @@
 
 namespace Tendy.Common.Exceptions
 {
-    public static class BLLExceptionsMessages
+    public static class ExceptionsMessages
     {
         //Idea
         public static readonly ErrorInfo CantFindIdea =   new ErrorInfo("01x00001", "Can not find an Idea!");

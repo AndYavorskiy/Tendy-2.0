@@ -12,10 +12,10 @@ namespace Idemty_Web.Controllers
     [Route("api/idea")]
     public class IdeaController : Controller
     {
-        private readonly IIdeasService ideaService;
+        private readonly IIdeaManager ideaService;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public IdeaController(IIdeasService ideaService, UserManager<ApplicationUser> userManager)
+        public IdeaController(IIdeaManager ideaService, UserManager<ApplicationUser> userManager)
         {
             this.ideaService = ideaService;
             this.userManager = userManager;

@@ -3,7 +3,7 @@ using Tendy.Common.ViewModels;
 
 namespace Tendy.BLL.Interfaces
 {
-	public interface IIdeasService
+	public interface IIdeaManager
     {
 		AggregateContent<IdeaViewModel> Search(IdeaSearchFilter filter);
 

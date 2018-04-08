@@ -14,10 +14,10 @@ namespace Tendy.Controllers
     [Route("api/manage-idea")]
     public class ManageIdeaController : Controller
     {
-        private readonly IManageIdeasService manageIdeasService;
+        private readonly IRequestManager manageIdeasService;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public ManageIdeaController(IManageIdeasService manageIdeasService, UserManager<ApplicationUser> userManager)
+        public ManageIdeaController(IRequestManager manageIdeasService, UserManager<ApplicationUser> userManager)
         {
             this.manageIdeasService = manageIdeasService;
             this.userManager = userManager;

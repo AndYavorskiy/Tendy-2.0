@@ -9,9 +9,9 @@ namespace Tendy.Controllers
     [Route("api/account")]
     public class AccountController : Controller
     {
-        private readonly IAccountsService _accountsService;
+        private readonly IAccountManager _accountsService;
 
-        public AccountController(IAccountsService accountsService)
+        public AccountController(IAccountManager accountsService)
         {
             _accountsService = accountsService;
         }

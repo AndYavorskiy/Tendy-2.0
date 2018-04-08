@@ -1,25 +1,22 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using System.Collections.Generic;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using Tendy.Abstract;
 using Tendy.BLL.Interfaces;
 using Tendy.BLL.ViewModels;
-using Tendy.Common.Constants;
 using Tendy.Common.Exceptions;
 using Tendy.DAL.Entities;
 
-namespace Tendy.BLL.Services
+namespace Tendy.BLL.Managers
 {
-	public class AccountsService : IAccountsService
+	public class AccountManager : IAccountManager
 	{
 		private readonly UserManager<ApplicationUser> _userManager;
 		private readonly IUnitOfWork _uow;
 		private readonly IMapper _mapper;
 
-		public AccountsService(UserManager<ApplicationUser> userManager, IUnitOfWork uow, IMapper mapper)
+		public AccountManager(UserManager<ApplicationUser> userManager, IUnitOfWork uow, IMapper mapper)
 		{
 			_userManager = userManager;
 			_uow = uow;
@@ -34,7 +31,7 @@ namespace Tendy.BLL.Services
 
 			if (!result.Succeeded)
 			{
-				throw new CustomException(StatusCodes.Status501NotImplemented, BLLExceptionsMessages.CantRegisterAccount);
+				throw new CustomException(StatusCodes.Status501NotImplemented, ExceptionsMessages.CantRegisterAccount);
 			}
 
 			return regModel;
@@ -46,7 +43,7 @@ namespace Tendy.BLL.Services
 
 			if (configuration == null)
 			{
-				throw new CustomException(StatusCodes.Status501NotImplemented, BLLExceptionsMessages.CantUpdateAccountConfiguration);
+				throw new CustomException(StatusCodes.Status501NotImplemented, ExceptionsMessages.CantUpdateAccountConfiguration);
 			}
 
 			configuration.IsAdminMode = accConfig.IsAdminMode;
