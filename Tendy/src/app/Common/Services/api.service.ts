@@ -1,5 +1,5 @@
-import { map } from "rxjs/operator/map";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
+import { map, catchError } from "rxjs/operators";
 
 import { Injectable, Inject } from '@angular/core';
 import { Http, RequestOptionsArgs } from '@angular/http'
@@ -18,28 +18,36 @@ export class ApiService {
   public get<T>(url: string, params?: any): Observable<T> {
     return this._http
       .get(this.configServ.apiUrl + url, this.configServ.getRequestOptions(params))
-      .map(response => response.json() as T)
-      .catch(ApiErrorHandler.handleError);
+      .pipe(
+        map(response => response.json()),
+        catchError(ApiErrorHandler.handleError)
+      );
   }
 
   public post<T>(url: string, body: any): Observable<T> {
     return this._http
       .post(this.configServ.apiUrl + url, body, this.configServ.getRequestOptions())
-      .map(response => response.json() as T)
-      .catch(ApiErrorHandler.handleError);
+      .pipe(
+        map(response => response.json()),
+        catchError(ApiErrorHandler.handleError)
+      );
   }
 
   public put<T>(url: string, body: any): Observable<T> {
     return this._http
       .put(this.configServ.apiUrl + url, body, this.configServ.getRequestOptions())
-      .map(response => response.json() as T)
-      .catch(ApiErrorHandler.handleError);
+      .pipe(
+        map(response => response.json()),
+        catchError(ApiErrorHandler.handleError)
+      );
   }
 
   public delete<T>(url: string, body?: any): Observable<T> {
     return this._http
       .delete(this.configServ.apiUrl + url, this.configServ.getRequestOptions(body))
-      .map(response => response.json() as T)
-      .catch(ApiErrorHandler.handleError);
+      .pipe(
+        map(response => response.json()),
+        catchError(ApiErrorHandler.handleError)
+      );
   }
 }

@@ -1,5 +1,5 @@
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/forkJoin';
+import { Observable, forkJoin } from 'rxjs';
+import { first } from 'rxjs/operators';
 
 import {
     Component,
@@ -36,10 +36,10 @@ export class FileUploaderComponent implements OnInit {
         var tasks$: Observable<FileModel>[] = [];
 
         for (let i = 0; i < fileList.length; i++) {
-            tasks$.push(this.fireReader.readFileAsBase64(fileList[i]).first());
+            tasks$.push(this.fireReader.readFileAsBase64(fileList[i]).pipe(first()));
         }
 
-        Observable.forkJoin(...tasks$)
+        forkJoin(...tasks$)
             .subscribe(results => this.onSelect.emit(results));
     }
 }

@@ -87,6 +87,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="proxy.config.json">
+      <DependentUpon>.angular-cli.json</DependentUpon>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update=".npmrc">
+      <DependentUpon>package.json</DependentUpon>
+    </None>
     <None Update="src\app\app.component.html">
       <DependentUpon>app.component.ts</DependentUpon>
     </None>

@@ -1,5 +1,5 @@
-import { Observable } from 'rxjs/Rx';
-import { BehaviorSubject } from 'rxjs/Rx';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
@@ -34,19 +34,21 @@ export class AuthorizationService {
 
     return this.http
       .post(this.configServ.apiUrl + this.baseUrl + 'login', JSON.stringify({ email, password }), this.configServ.getRequestOptions())
-      .map(res => res.json())
-      .map(res => {
-        LocalStrg.setMany([
-          { key: "auth_token", value: res.auth_token },
-          { key: "user_name", value: res.user_name }
-        ]);
+      .pipe(
+        map(res => res.json()),
+        map(res => {
+          LocalStrg.setMany([
+            { key: "auth_token", value: res.auth_token },
+            { key: "user_name", value: res.user_name }
+          ]);
 
-        this.authInfo.isSignedIn = true;
-        this.authInfo.userName = res.user_name;
-        this._authNavStatusSource.next(this.authInfo);
-        return true;
-      })
-      .catch(ApiErrorHandler.handleError);
+          this.authInfo.isSignedIn = true;
+          this.authInfo.userName = res.user_name;
+          this._authNavStatusSource.next(this.authInfo);
+          return true;
+        }),
+        catchError(ApiErrorHandler.handleError)
+      );
   }
 
   logout() {

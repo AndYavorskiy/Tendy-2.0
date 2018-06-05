@@ -1,6 +1,5 @@
 import * as _ from "lodash";
-import { ReplaySubject } from "rxjs/ReplaySubject";
-import { Observable } from "rxjs/Observable";
+import { Observable, ReplaySubject } from "rxjs";
 
 import { Injectable } from '@angular/core';
 
