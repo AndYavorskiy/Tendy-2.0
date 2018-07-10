@@ -134,7 +134,6 @@ namespace Tendy
 
             //dependency injection WEB
             services.AddSingleton<IJwtFactory, JwtFactory>();
-
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

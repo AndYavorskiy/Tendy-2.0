@@ -230,6 +230,10 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="src\assets\" />
+  </ItemGroup>
+
   <!--<Target Name="AngularBuild" AfterTargets="Build">
     <Exec Command="npm run build" />
   </Target>-->

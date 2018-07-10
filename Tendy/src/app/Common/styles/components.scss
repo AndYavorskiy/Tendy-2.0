@@ -1,3 +1,10 @@
+@mixin ellipsis() {
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 //----------------------------------------------------------------
 //                            Switcher
 //----------------------------------------------------------------
@@ -59,6 +66,46 @@
 
             &:before {
                 border-radius: 50%;
+            }
+        }
+    }
+}
+
+//----------------------------------------------------------------
+//                          Flex List
+//----------------------------------------------------------------
+.flex-list {
+    margin: 0.5em 0;
+    padding: 0.3em;
+
+    .list-item {
+        padding: 0.3em;
+
+        .link {
+            display: inline-flex;
+            background-color: #BDBDBD;
+            width: 100%;
+
+            & i {
+                margin: auto 0.5em;
+                background-color: #BDBDBD;
+            }
+
+            & a:hover {
+                background-color: #BDBDBD;
+            }
+
+            & a {
+                @include ellipsis();
+                background: #edeff5;
+                position: relative;
+                display: block;
+                padding: .4em .4em .4em .8em;
+                *padding: .4em;
+                color: #444;
+                text-decoration: none;
+                transition: all .3s ease-out;
+                width: 100%;
             }
         }
     }

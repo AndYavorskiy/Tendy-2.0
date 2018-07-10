@@ -1,5 +1,4 @@
 import * as _ from 'lodash';
-import { NgxCarousel, NgxCarouselStore } from 'ngx-carousel';
 
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -16,7 +15,7 @@ export class FileListComponent implements OnInit {
   @Input()
   public ideaId: number;
 
-  public carouselBanner: NgxCarousel;
+  //public carouselBanner: NgxCarousel;
   public files: FileModel[] = [];
 
   constructor(
@@ -24,42 +23,42 @@ export class FileListComponent implements OnInit {
   ) { }
 
   public ngOnInit() {
-    this.carouselBanner = {
-      grid: { xs: 2, sm: 3, md: 4, lg: 5, all: 0 },
-      speed: 400,
-      point: {
-        visible: true,
-        pointStyles: `
-        .ngxcarouselPoint {
-          list-style-type: none;
-          text-align: center;
-          padding: 12px;
-          margin: 0;
-          white-space: nowrap;
-          overflow: auto;
-          box-sizing: border-box;
-        }
-        .ngxcarouselPoint li {
-          display: inline-block;
-          border-radius: 50%;
-          border: 2px solid rgba(0, 0, 0, 0.55);
-          padding: 4px;
-          margin: 0 3px;
-          transition-timing-function: cubic-bezier(.17, .67, .83, .67);
-          transition: .4s;
-        }
-        .ngxcarouselPoint li.active {
-            background: #6b6b6b;
-            transform: scale(1.2);
-        }
-        .ngxcarousel {
-          padding: 0 1em !important;
-        }
-        `
-      },
-      load: 4,
-      touch: true
-    }
+    //this.carouselBanner = {
+    //  grid: { xs: 2, sm: 3, md: 4, lg: 5, all: 0 },
+    //  speed: 400,
+    //  point: {
+    //    visible: true,
+    //    pointStyles: `
+    //    .ngxcarouselPoint {
+    //      list-style-type: none;
+    //      text-align: center;
+    //      padding: 12px;
+    //      margin: 0;
+    //      white-space: nowrap;
+    //      overflow: auto;
+    //      box-sizing: border-box;
+    //    }
+    //    .ngxcarouselPoint li {
+    //      display: inline-block;
+    //      border-radius: 50%;
+    //      border: 2px solid rgba(0, 0, 0, 0.55);
+    //      padding: 4px;
+    //      margin: 0 3px;
+    //      transition-timing-function: cubic-bezier(.17, .67, .83, .67);
+    //      transition: .4s;
+    //    }
+    //    .ngxcarouselPoint li.active {
+    //        background: #6b6b6b;
+    //        transform: scale(1.2);
+    //    }
+    //    .ngxcarousel {
+    //      padding: 0 1em !important;
+    //    }
+    //    `
+    //  },
+    //  load: 4,
+    //  touch: true
+    //}
 
     this.loadData();
   }

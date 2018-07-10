@@ -4,13 +4,15 @@
     <div class="row">
         <div class="container-fluid">
             <div class="card-block">
-                <div class="card-block-header">
-                    <div class="text-2x">
-                        <strong>{{idea.title}}</strong>
-                    </div>
+                <div class="card-block-header heigth-3x">
+                    <a class="i-blue unstyled" [routerLink]="['../../my']">
+                        <i class="fas fa-chevron-left margin-r-15" ></i>
+
+                        <strong>My Ideas</strong>  
+                    </a>
 
                     <div>
-                        <a class="unstyled" [routerLink]="['../../edit',idea.id]">
+                        <a class="unstyled margin-r-10" [routerLink]="['../../edit',idea.id]">
                             <i class="fas fa-pen-square fa-lg i-blue"></i>
                         </a>
 
@@ -27,21 +29,21 @@
                         <div class="col-md-7">
                             <div>
                                 <label>Title: </label>
-                                <span>{{idea.title}}</span>
+                                <span>{{ idea.title }}</span>
                             </div>
 
                             <div>
                                 <label>Subtitle: </label>
-                                <span>{{idea.subTitle}}</span>
+                                <span>{{ idea.subTitle }}</span>
                             </div>
 
                             <div>
                                 <label>Description: </label>
-                                <span>{{idea.description}}</span>
+                                <span>{{ idea.description }}</span>
                             </div>
 
                             <div *ngIf="idea.gitHubLink">
-                                <a class="btn btn-dark btn-sm" href="{{idea.gitHubLink}}" target="_blank">
+                                <a class="btn btn-dark btn-sm" href="{{ idea.gitHubLink }}" target="_blank">
                                     <i class="fab fa-github"></i>
                                     GitHub
                                 </a>

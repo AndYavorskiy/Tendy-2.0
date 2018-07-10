@@ -8,7 +8,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ConfigService, ApiService } from './services';
 import { FileUploaderComponent, SpinnerComponent } from './components';
 
-import { NgxCarouselModule } from 'ngx-carousel';
 import 'hammerjs';
 
 @NgModule({
@@ -20,7 +19,6 @@ import 'hammerjs';
         CarouselModule.forRoot(),
         AngularFontAwesomeModule,
         ReactiveFormsModule,
-        NgxCarouselModule,
     ],
     declarations: [
         FileUploaderComponent,
@@ -34,7 +32,6 @@ import 'hammerjs';
         FileUploaderComponent,
         SpinnerComponent,
         ReactiveFormsModule,
-        NgxCarouselModule,
     ]
 })
 export class SharedModule {
