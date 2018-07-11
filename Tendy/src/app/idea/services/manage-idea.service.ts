@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 import { Request } from "../models";
@@ -14,7 +15,7 @@ export class ManageIdeaApiService {
         return this.api.put<boolean>(this.baseUrl + "join", ideaId);
     }
 
-    public getRequests(ideaId: number) {
+    public getRequests(ideaId: number): Observable<Request[]> {
         return this.api.get<Request[]>(this.baseUrl + "requests", { ideaId: ideaId });
     }
 
