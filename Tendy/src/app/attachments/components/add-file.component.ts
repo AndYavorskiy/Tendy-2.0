@@ -1,111 +1,102 @@
 import * as _ from 'lodash';
 import { ModalDirective } from 'ngx-bootstrap';
 
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  ViewChild
-} from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 
 import { AttachmentService } from '../services';
-import { FileModel } from '../models';
+import { FileModel } from '../../common/models';
 
 @Component({
-  selector: 'app-add-file',
-  templateUrl: './add-file.component.html',
-  styleUrls: ['./add-file.component.scss']
+    selector: 'app-add-file',
+    templateUrl: './add-file.component.html',
+    styleUrls: ['./add-file.component.scss']
 })
 export class AddFileComponent {
 
-  @Input()
-  public ideaId: number;
+    @Input()
+    public ideaId: number;
 
-  @Output()
-  public onSubmit: EventEmitter<void> = new EventEmitter<void>();
+    @Output()
+    public onSubmit: EventEmitter<void> = new EventEmitter<void>();
 
-  @ViewChild('mainModal') mainModal: ModalDirective;
-  @ViewChild('confirmModel') confirmModel: ModalDirective;
-  
-  public files: FileModel[] = [];
+    @ViewChild('mainModal') mainModal: ModalDirective;
+    @ViewChild('confirmModel') confirmModel: ModalDirective;
 
-  public loading: boolean = true;
-  public isChanged: boolean;
+    public files: FileModel[] = [];
 
-  constructor(
-    private attachmentApi: AttachmentService
-  ) { }
+    public loading: boolean = true;
+    public isChanged: boolean;
 
-  public loadData() {
-    this.attachmentApi.getFiles(this.ideaId)
-      .subscribe(
-        data => {
-          this.files = data,
-            this.loading = false;
-        },
-        error => alert("error: " + error));
-  }
+    constructor(private attachmentApi: AttachmentService) { }
 
-  public startInicialization() {
-    this.loading = true;
-    this.isChanged = false;
-    this.loadData();
-  }
-
-  public onFilesSelected(files: FileModel[]) {
-    this.files.push(...(_.forEach(files, item=>item.ideaId = this.ideaId)) as FileModel[]);
-
-    this.isChanged = true;      
-  }
-
-  public removeFile(item: FileModel) {
-    var index = this.files.indexOf(item as FileModel, 0);
-    if (index > -1) {
-      this.files.splice(index, 1);
-      this.isChanged = true;      
+    public loadData() {
+	   this.attachmentApi.getFiles(this.ideaId)
+		  .subscribe(
+		  data => {
+			 this.files = data,
+				this.loading = false;
+		  },
+		  error => alert("error: " + error));
     }
-  }
 
-  public openModal() {
-    this.mainModal.show();
-    this.startInicialization();
-  }
-
-  public closeModal() {
-    if (this.isChanged) {
-      this.confirmModel.show();
+    public startInicialization() {
+	   this.loading = true;
+	   this.isChanged = false;
+	   this.loadData();
     }
-    else {
-      this.mainModal.hide();
+
+    public onFilesSelected(files: FileModel[]) {
+	   this.files.push(...(_.forEach(files, item => item.ideaId = this.ideaId)) as FileModel[]);
+
+	   this.isChanged = true;
     }
-  }
 
-  public confirm(): void {
-    this.confirmModel.hide();
-    this.mainModal.hide();
-  }
+    public removeFile(item: FileModel) {
+	   var index = this.files.indexOf(item as FileModel, 0);
+	   if (index > -1) {
+		  this.files.splice(index, 1);
+		  this.isChanged = true;
+	   }
+    }
 
-  public decline(): void {
-    this.confirmModel.hide();
-  }
-  
-  public save() {
-    this.attachmentApi
-      .updateFiles(this.ideaId, this.files)
-      .subscribe(
-        data => {
-          this.loading = true;
+    public openModal() {
+	   this.mainModal.show();
+	   this.startInicialization();
+    }
 
-          if (data) {
-            alert("success: " + data);
-            this.onSubmit.emit();
-            this.mainModal.hide();
-          } else {
-            alert("error: can't save changes!")
-          }
-        },
-        error => alert("error: " + error));
-  }
+    public closeModal() {
+	   if (this.isChanged) {
+		  this.confirmModel.show();
+	   }
+	   else {
+		  this.mainModal.hide();
+	   }
+    }
+
+    public confirm(): void {
+	   this.confirmModel.hide();
+	   this.mainModal.hide();
+    }
+
+    public decline(): void {
+	   this.confirmModel.hide();
+    }
+
+    public save() {
+	   this.attachmentApi
+		  .updateFiles(this.ideaId, this.files)
+		  .subscribe(
+		  data => {
+			 this.loading = true;
+
+			 if (data) {
+				alert("success: " + data);
+				this.onSubmit.emit();
+				this.mainModal.hide();
+			 } else {
+				alert("error: can't save changes!")
+			 }
+		  },
+		  error => alert("error: " + error));
+    }
 }

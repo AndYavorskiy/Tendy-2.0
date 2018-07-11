@@ -10,6 +10,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+
             <div class="modal-body">
                 <app-spinner [visible]="loading"></app-spinner>
 
@@ -23,7 +24,7 @@
                             <input type="text" class="form-control" placeholder="Link" [(ngModel)]="editedLink.url">
                         </div>
 
-                        <button type="button pull-right" class="btn btn-sm btn-outline-success" (click)='add()'>
+                        <button type="button" class="btn btn-sm btn-outline-success" (click)='add()'>
                             Add
                         </button>
                     </div>
@@ -38,12 +39,14 @@
 
                             <div class="text-right tools">
                                 <i class="fas fa-pencil-alt i-blue" (click)="editLink(item)"></i>
-                                <i class="fas fa-trash i-danger" (click)="removeLink(item)"></i>
+                                
+								<i class="fas fa-trash i-danger" (click)="removeLink(item)"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" (click)="save()">Submit</button>
             </div>
@@ -56,8 +59,10 @@
         <div class="modal-content">
             <div class="modal-body text-center">
                 <p>Are you sure you want to cancel the changes?</p>
-                <button type="button" class="btn btn-default" (click)="confirm()">Yes</button>
-                <button type="button" class="btn btn-primary" (click)="decline()">No</button>
+                
+				<button type="button" class="btn btn-default" (click)="confirm()">Yes</button>
+                
+				<button type="button" class="btn btn-primary" (click)="decline()">No</button>
             </div>
         </div>
     </div>

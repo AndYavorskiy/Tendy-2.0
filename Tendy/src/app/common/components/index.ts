@@ -1,2 +1,2 @@
-export { FileUploaderComponent } from "./file-uploader.component";
+export { FileUploaderControlComponent } from "./controls/file-uploader-control.component";
 export { SpinnerComponent } from "./spinner.component";

@@ -1,31 +1,33 @@
 <app-spinner [visible]="loading"></app-spinner>
 
 <div class="row content-wrapper" *ngIf="!loading">
-    <label *ngIf="!total">Ви ще не поширили жодної ідеї</label>
+	<label *ngIf="!total">Ви ще не поширили жодної ідеї</label>
 
-    <div class="col-md-3" *ngFor="let item of myIdeas">
-        <div class="card card-wrapper">
-            <div class="card-img">
-                    <img class="card-img-top" src="https://designmodo.com/wp-content/uploads/2015/08/bicycle.jpg" alt="Card image cap">
-    
-                    <div class="img-overlay text-right">
-                        <a class="ico-link" [routerLink]="['../manage',item.id]">
-                            <i class="fa fa-cogs white"> </i> 
-                        </a>
-                    </div>
-                </div>
+	<div class="col-md-3" *ngFor="let item of myIdeas">
+		<div class="card card-wrapper">
+			<div class="card-img">
+				<img class="card-img-top" src="https://designmodo.com/wp-content/uploads/2015/08/bicycle.jpg" alt="Card image cap">
 
-            <div class="linear-status">
-                <div tooltip="green" class="green"></div>
-                <div tooltip="orange" class="orange"></div>
-                <div tooltip="blue" class="blue"></div>
-            </div>
+				<div class="img-overlay text-right">
+					<a class="ico-link" [routerLink]="['../manage',item.id]">
+						<i class="fa fa-cogs white"> </i>
+					</a>
+				</div>
+			</div>
 
-            <div class="card-body">
-                <h5 class="card-title">{{item.title}}</h5>
+			<div class="linear-status">
+				<div tooltip="green" class="green"></div>
 
-                <p class="card-text">Some quick example text to build on the card title and make</p>
-            </div>
-        </div>
-    </div>
+				<div tooltip="orange" class="orange"></div>
+
+				<div tooltip="blue" class="blue"></div>
+			</div>
+
+			<div class="card-body">
+				<h5 class="card-title">{{item.title}}</h5>
+
+				<p class="card-text">Some quick example text to build on the card title and make</p>
+			</div>
+		</div>
+	</div>
 </div>

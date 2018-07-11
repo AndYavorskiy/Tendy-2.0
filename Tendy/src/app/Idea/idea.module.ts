@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../common/shared.module';
 import { IdeaRoutingModule } from './idea-routing.module';
 import { IdeaService, ManageIdeaApiService } from './services';
-import { ServiceProviderModule } from '../common/app-common.module';
+import { ServiceProviderModule } from '../common/service-provider.module';
 import { AttachmentsModule } from '../attachments/attachments.module';
 
 import {
@@ -16,32 +16,31 @@ import {
     IdeaDetailsComponent,
     MyIdeaComponent,
     IdeaManageComponent,
-    IdeaRequestsComponent, 
+    IdeaRequestsComponent,
 } from './components';
 
 @NgModule({
     imports: [
-        CommonModule,
-        ServiceProviderModule,
-        FormsModule,
-        IdeaRoutingModule,
-        AttachmentsModule,
-        SharedModule,
-
+	   CommonModule,
+	   ServiceProviderModule,
+	   FormsModule,
+	   IdeaRoutingModule,
+	   AttachmentsModule,
+	   SharedModule,
     ],
     declarations: [
-        IdeaListComponent,
-        IdeaLayoutComponent,
-        IdeaSideMenuComponent,
-        IdeaEditComponent,
-        IdeaDetailsComponent,
-        MyIdeaComponent,
-        IdeaManageComponent,
-        IdeaRequestsComponent, 
+	   IdeaListComponent,
+	   IdeaLayoutComponent,
+	   IdeaSideMenuComponent,
+	   IdeaEditComponent,
+	   IdeaDetailsComponent,
+	   MyIdeaComponent,
+	   IdeaManageComponent,
+	   IdeaRequestsComponent,
     ],
     providers: [
-        IdeaService,
-        ManageIdeaApiService,
+	   IdeaService,
+	   ManageIdeaApiService,
     ]
 })
 export class IdeaModule { }

@@ -1,5 +1,7 @@
 export class CustomException {
-  statusCode: string;
-  errorCode?: number;
-  message: string;
+    statusCode: string;
+
+    errorCode?: number;
+
+    message: string;
 }

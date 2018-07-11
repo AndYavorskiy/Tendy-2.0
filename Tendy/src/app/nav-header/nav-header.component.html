@@ -1,40 +1,40 @@
 <nav class="navbar fixed-top navbar-expand-sm navbar-dark nav-bar-custom">
-    <a class="navbar-brand" routerLink="">
-        <img src="http://web4design.co.uk/images/training-bulb.svg" width="30" height="30" class="d-inline-block align-top" alt=""> Tendy
-    </a>
+	<a class="navbar-brand" routerLink="">
+		<img src="http://web4design.co.uk/images/training-bulb.svg" width="30" height="30" class="d-inline-block align-top" alt=""> Tendy
+	</a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+			aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li>
-                <a class="nav-link" routerLink="/ideas">Ideas</a>
-            </li>
-        </ul>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li>
+				<a class="nav-link" routerLink="/ideas">Ideas</a>
+			</li>
+		</ul>
 
-        <ul class="nav justify-content-end">
-            <li class="nav-item navbar-text padding-x-1" *ngIf="authInfo.userName">
-                Hello, {{authInfo.userName}}
-            </li>
+		<ul class="nav justify-content-end">
+			<li class="nav-item navbar-text padding-x-1" *ngIf="authInfo.userName">
+				Hello, {{authInfo.userName}}
+			</li>
 
-            <li class="nav-item" *ngIf="authInfo.isSignedIn">
-                <a class="btn btn-darkblue btn-sm" (click)="logout()">
-                    Sign out
-                </a>
-            </li>
+			<li class="nav-item" *ngIf="authInfo.isSignedIn">
+				<a class="btn btn-darkblue btn-sm" (click)="logout()">
+					Sign out
+				</a>
+			</li>
 
-            <li class="nav-item" *ngIf="!authInfo.isSignedIn">
-                <a class="btn btn-success  btn-sm" routerLink="/authorize/sign-in">
-                    Sign in
-                </a>
+			<li class="nav-item" *ngIf="!authInfo.isSignedIn">
+				<a class="btn btn-success  btn-sm" routerLink="/authorize/sign-in">
+					Sign in
+				</a>
 
-                <a class="btn btn-darkblue btn-sm" routerLink="/authorize/sign-up">
-                    Sign up
-                </a>
-            </li>
-        </ul>
-    </div>
+				<a class="btn btn-darkblue btn-sm" routerLink="/authorize/sign-up">
+					Sign up
+				</a>
+			</li>
+		</ul>
+	</div>
 </nav>

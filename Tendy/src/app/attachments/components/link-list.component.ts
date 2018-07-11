@@ -1,30 +1,30 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { AttachmentService } from '../services';
-import { LinkModel } from '../models/link.model';
+import { LinkModel } from '../../common/models';
 
 @Component({
-  selector: 'app-link-list',
-  templateUrl: './link-list.component.html',
-  styleUrls: ['./link-list.component.scss']
+    selector: 'app-link-list',
+    templateUrl: './link-list.component.html',
+    styleUrls: ['./link-list.component.scss']
 })
-export class LinkListComponent implements OnChanges {
+export class LinkListComponent implements OnInit {
 
-  @Input()
-  public ideaId: number;
+    @Input()
+    public ideaId: number;
 
-  public links: LinkModel[] = [];
+    public links: LinkModel[] = [];
 
-  constructor(
-    private attachmentApi: AttachmentService
-  ) { }
+    constructor(
+	   private attachmentApi: AttachmentService
+    ) { }
 
-  ngOnChanges() {
-    this.loadData();
-  }
+    public ngOnInit() {
+	   this.loadData();
+    }
 
-  loadData() {
-    this.attachmentApi.getLinks(this.ideaId)
-      .subscribe(data => this.links = data)
-  }
+    public loadData() {
+	   this.attachmentApi.getLinks(this.ideaId)
+		  .subscribe(data => this.links = data)
+    }
 }

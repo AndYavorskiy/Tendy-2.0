@@ -6,32 +6,32 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { ConfigService, ApiService } from './services';
-import { FileUploaderComponent, SpinnerComponent } from './components';
+import { FileUploaderControlComponent, SpinnerComponent } from './components';
 
 import 'hammerjs';
 
 @NgModule({
     imports: [
-        CommonModule,
-        AlertModule.forRoot(),
-        ModalModule.forRoot(),
-        TooltipModule.forRoot(),
-        CarouselModule.forRoot(),
-        AngularFontAwesomeModule,
-        ReactiveFormsModule,
+	   CommonModule,
+	   AlertModule.forRoot(),
+	   ModalModule.forRoot(),
+	   TooltipModule.forRoot(),
+	   CarouselModule.forRoot(),
+	   AngularFontAwesomeModule,
+	   ReactiveFormsModule,
     ],
     declarations: [
-        FileUploaderComponent,
-        SpinnerComponent,
+	   FileUploaderControlComponent,
+	   SpinnerComponent,
     ],
     exports: [
-        AngularFontAwesomeModule,
-        AlertModule,
-        ModalModule,
-        TooltipModule,
-        FileUploaderComponent,
-        SpinnerComponent,
-        ReactiveFormsModule,
+	   AngularFontAwesomeModule,
+	   AlertModule,
+	   ModalModule,
+	   TooltipModule,
+	   FileUploaderControlComponent,
+	   SpinnerComponent,
+	   ReactiveFormsModule,
     ]
 })
 export class SharedModule {

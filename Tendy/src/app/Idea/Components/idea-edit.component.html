@@ -1,54 +1,60 @@
 <div class="container">
-    <h2 *ngIf="isNewIdea">Create new Idea</h2>
-    <h2 *ngIf="!isNewIdea">
-        Edit <strong>{{editIdea.title}}</strong>
-    </h2>
+	<h2 *ngIf="isNewIdea">Create new Idea</h2>
 
-    <div class="row">
-        <div class="col-md-4 image-wrapper">
-            <img class="image-wrapper" src="https://www.justpro.co/img/no-image.png" data-holder-rendered="true">
+	<h2 *ngIf="!isNewIdea">
+		Edit <strong>{{editIdea.title}}</strong>
+	</h2>
 
-            <div class="form-group">
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
-            </div>
-        </div>
+	<div class="row">
+		<div class="col-md-4 image-wrapper">
+			<img class="image-wrapper" src="https://www.justpro.co/img/no-image.png" data-holder-rendered="true">
 
-        <div class="col-md-6">
-            <form #editForm="ngForm" (ngSubmit)="save()">
-                <div class="form-group">
-                    <label>Title</label>
-                    <input class="form-control" type="text" name="title" [(ngModel)]="editIdea.title" required />
-                </div>
+			<div class="form-group">
+				<input type="file" class="form-control-file" id="exampleFormControlFile1">
+			</div>
+		</div>
 
-                <div class="form-group">
-                    <label>Subtitle</label>
-                    <input class="form-control" type="text" name="subTitle" [(ngModel)]="editIdea.subTitle" />
-                </div>
+		<div class="col-md-6">
+			<form #editForm="ngForm" (ngSubmit)="save()">
+				<div class="form-group">
+					<label>Title</label>
 
-                <div class="form-group">
-                    <label>Description</label>
-                    <textarea class="form-control blue-bootstr" name="description" rows="3" [(ngModel)]="editIdea.description" required></textarea>
-                    <small class="form-text muted">Write all you want about idea</small>
-                </div>
+					<input class="form-control" type="text" name="title" [(ngModel)]="editIdea.title" required />
+				</div>
 
-                <div class="form-group">
-                    <label>GitHub</label>
-                    <input class="form-control" type="text" name="gitHubLink" [(ngModel)]="editIdea.gitHubLink" ng-pattern="[0-9]+" />
-                </div>
+				<div class="form-group">
+					<label>Subtitle</label>
 
-                <div class="form-group">
-                    <button [disabled]="editForm.invalid" class="btn btn-success btn-small btn-block">Save</button>
-                </div>
-            </form>
+					<input class="form-control" type="text" name="subTitle" [(ngModel)]="editIdea.subTitle" />
+				</div>
 
-            <div *ngIf="success" class="alert alert-success" role="alert">
-                {{success}}
-            </div>
+				<div class="form-group">
+					<label>Description</label>
 
-            <div *ngIf="errors" class="alert alert-danger" role="alert">
-                <strong>Oops!</strong>
-                <br /> {{errors}}
-            </div>
-        </div>
-    </div>
+					<textarea class="form-control blue-bootstr" name="description" rows="3" [(ngModel)]="editIdea.description" required></textarea>
+
+					<small class="form-text muted">Write all you want about idea</small>
+				</div>
+
+				<div class="form-group">
+					<label>GitHub</label>
+					<input class="form-control" type="text" name="gitHubLink" [(ngModel)]="editIdea.gitHubLink" ng-pattern="[0-9]+" />
+				</div>
+
+				<div class="form-group">
+					<button [disabled]="editForm.invalid" class="btn btn-success btn-small btn-block">Save</button>
+				</div>
+			</form>
+
+			<div *ngIf="success" class="alert alert-success" role="alert">
+				{{success}}
+			</div>
+
+			<div *ngIf="errors" class="alert alert-danger" role="alert">
+				<strong>Oops!</strong>
+
+				<br /> {{errors}}
+			</div>
+		</div>
+	</div>
 </div>

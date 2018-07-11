@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -9,30 +8,30 @@ import { AttachmentService } from './services';
 
 import {
     AttachmentsLayoutComponent,
-    AddFileComponent, 
-    AddLinkComponent
+    AddFileComponent,
+    AddLinkComponent,
+    LinkListComponent,
+    FileListComponent
 } from './components';
-import { LinkListComponent } from './components/link-list.component';
-import { FileListComponent } from './components/file-list.component';
 
 @NgModule({
     imports: [
-        CommonModule,
-        AttachmentsRoutingModule,
-        FormsModule,
-        SharedModule,
+	   CommonModule,
+	   AttachmentsRoutingModule,
+	   FormsModule,
+	   SharedModule,
     ],
     declarations: [
-        AttachmentsLayoutComponent,
-        AddLinkComponent,
-        AddFileComponent,
-        LinkListComponent,
-        FileListComponent,
+	   AttachmentsLayoutComponent,
+	   AddLinkComponent,
+	   AddFileComponent,
+	   LinkListComponent,
+	   FileListComponent,
     ],
     exports: [
-        AttachmentsLayoutComponent,
-        LinkListComponent,
-        FileListComponent,
+	   AttachmentsLayoutComponent,
+	   LinkListComponent,
+	   FileListComponent,
     ],
     providers: [AttachmentService]
 })

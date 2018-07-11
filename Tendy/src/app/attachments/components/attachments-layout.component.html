@@ -1,21 +1,21 @@
 <div>
-    <div>
-        <div class="inline-flex">
-            <h5 class="pdn-r-7">Links</h5>
+	<div>
+		<div class="inline-flex">
+			<h5 class="pdn-r-7">Links</h5>
 
-            <app-add-link [ideaId]="ideaId" (onSubmit)="linkList.loadData()"></app-add-link>
-        </div>
+			<app-add-link [ideaId]="ideaId" (onSubmit)="linkList.loadData()"></app-add-link>
+		</div>
 
-        <app-link-list [ideaId]="ideaId" #linkList></app-link-list>
-    </div>
+		<app-link-list [ideaId]="ideaId" #linkList></app-link-list>
+	</div>
 
-    <div>
-        <div class="inline-flex">
-            <h5 class="pdn-r-7">Files</h5>
+	<div>
+		<div class="inline-flex">
+			<h5 class="pdn-r-7">Files</h5>
 
-            <app-add-file [ideaId]="ideaId" (onSubmit)="fileList.loadData()"></app-add-file>
-        </div>
+			<app-add-file [ideaId]="ideaId" (onSubmit)="fileList.loadData()"></app-add-file>
+		</div>
 
-        <app-file-list [ideaId]="ideaId" #fileList></app-file-list>
-    </div>
+		<app-file-list [ideaId]="ideaId" #fileList></app-file-list>
+	</div>
 </div>

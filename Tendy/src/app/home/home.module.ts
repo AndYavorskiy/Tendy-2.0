@@ -6,13 +6,13 @@ import { HomeLayoutComponent } from './components';
 import { SharedModule } from '../common/shared.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    SharedModule,
-  ],
-  declarations: [
-    HomeLayoutComponent
-  ]
+    imports: [
+	   CommonModule,
+	   HomeRoutingModule,
+	   SharedModule,
+    ],
+    declarations: [
+	   HomeLayoutComponent
+    ]
 })
 export class HomeModule { }

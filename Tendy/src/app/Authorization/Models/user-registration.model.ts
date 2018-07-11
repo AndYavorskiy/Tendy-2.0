@@ -1,9 +1,9 @@
 export class UserRegistrationViewModel {
-  public userName: string;
+    userName: string;
 
-  public email: string;
+    email: string;
 
-  public password: string;
+    password: string;
 
-  public phoneNumber: string;
+    phoneNumber: string;
 }

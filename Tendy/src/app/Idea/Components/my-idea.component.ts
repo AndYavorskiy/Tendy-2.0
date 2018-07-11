@@ -19,22 +19,22 @@ export class MyIdeaComponent implements OnInit {
     constructor(private ideaService: IdeaService) { }
 
     ngOnInit() {
-        let filter = {
-            isUserAuthor: true,
-            page: this.page,
-            pageSize: this.pageSize
-        } as SearchFilter;
+	   let filter = {
+		  isUserAuthor: true,
+		  page: this.page,
+		  pageSize: this.pageSize
+	   } as SearchFilter;
 
-        this.ideaService.search(filter)
-            .subscribe(
-            res => {
-                this.myIdeas = res.source;
-                this.total = res.total;
-                this.loading = false;
-            },
-            error => {
-                console.log(error);
-                this.loading = false;
-            });
+	   this.ideaService.search(filter)
+		  .subscribe(
+		  res => {
+			 this.myIdeas = res.source;
+			 this.total = res.total;
+			 this.loading = false;
+		  },
+		  error => {
+			 console.log(error);
+			 this.loading = false;
+		  });
     }
 }

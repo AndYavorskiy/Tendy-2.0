@@ -23,9 +23,6 @@
   <ItemGroup>
     <None Remove="README.md" />
     <None Remove="src\app\attachments\components\index.ts" />
-    <None Remove="src\app\attachments\models\attachments.model.ts" />
-    <None Remove="src\app\attachments\models\file.model.ts" />
-    <None Remove="src\app\attachments\models\index.ts" />
     <None Remove="src\app\attachments\services\index.ts" />
     <None Remove="src\app\authorization\models\user-registration.model.ts" />
     <None Remove="src\app\authorization\services\user.service.ts" />
@@ -66,9 +63,7 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="src\app\attachments\components\index.ts" />
-    <TypeScriptCompile Include="src\app\attachments\models\attachments.model.ts" />
-    <TypeScriptCompile Include="src\app\attachments\models\file.model.ts" />
-    <TypeScriptCompile Include="src\app\attachments\models\index.ts" />
+    <TypeScriptCompile Include="src\app\Common\models\file.model.ts" />
     <TypeScriptCompile Include="src\app\attachments\services\index.ts" />
     <TypeScriptCompile Include="src\app\authorization\models\user-registration.model.ts" />
     <TypeScriptCompile Include="src\app\authorization\services\user.service.ts" />
@@ -156,11 +151,11 @@
     <None Update="src\app\authorization\components\sign-up.component.scss">
       <DependentUpon>sign-up.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\common\components\file-uploader.component.html">
-      <DependentUpon>file-uploader.component.ts</DependentUpon>
+    <None Update="src\app\Common\components\controls\file-uploader.component.html">
+      <DependentUpon>file-uploader-control.component.ts</DependentUpon>
     </None>
-    <None Update="src\app\common\components\file-uploader.component.scss">
-      <DependentUpon>file-uploader.component.ts</DependentUpon>
+    <None Update="src\app\Common\components\controls\file-uploader.component.scss">
+      <DependentUpon>file-uploader-control.component.ts</DependentUpon>
     </None>
     <None Update="src\app\common\components\spinner.component.html">
       <DependentUpon>spinner.component.ts</DependentUpon>

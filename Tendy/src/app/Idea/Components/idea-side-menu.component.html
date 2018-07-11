@@ -1,58 +1,58 @@
 <div class="toggle-bar" [ngClass]="{'opened': isToggled}" (click)="toggle()">
-    <i class="fas fa-2x text-center" aria-hidden="true" [ngClass]="{'fa-angle-left': isToggled, 'fa-angle-right': !isToggled}"> </i>
+	<i class="fas fa-2x text-center" aria-hidden="true" [ngClass]="{'fa-angle-left': isToggled, 'fa-angle-right': !isToggled}"> </i>
 </div>
 
 <div class="sidebar" id="sidebar" [ngClass]="{'toggled': isToggled}">
-    <ul>
-        <li (click)="toggle()" id="menu-toggle">
-            <a>
-                <i class="fa fa-bars text-center" aria-hidden="true" *ngIf="!isToggled"> </i>
-                <i class="fas fa-times text-center" aria-hidden="true" *ngIf="isToggled"> </i>
-                <span>Menu</span>
-            </a>
-        </li>
+	<ul>
+		<li (click)="toggle()" id="menu-toggle">
+			<a>
+				<i class="fa fa-bars text-center" aria-hidden="true" *ngIf="!isToggled"> </i>
+				<i class="fas fa-times text-center" aria-hidden="true" *ngIf="isToggled"> </i>
+				<span>Menu</span>
+			</a>
+		</li>
 
-        <li routerLink="./" (click)="hide()">
-            <a>
-                <i class="fa fa-lightbulb text-center" aria-hidden="true"> </i>
-                <span>All Ideas</span>
-            </a>
-        </li>
+		<li routerLink="./" (click)="hide()">
+			<a>
+				<i class="fa fa-lightbulb text-center" aria-hidden="true"> </i>
+				<span>All Ideas</span>
+			</a>
+		</li>
 
-        <li routerLink="./" (click)="hide()">
-            <a>
-                <i class="fa fa-newspaper text-center" aria-hidden="true"> </i>
-                <span>Publications</span>
-            </a>
-        </li>
+		<li routerLink="./" (click)="hide()">
+			<a>
+				<i class="fa fa-newspaper text-center" aria-hidden="true"> </i>
+				<span>Publications</span>
+			</a>
+		</li>
 
-        <li routerLink="my" (click)="hide()">
-            <a>
-                <i class="fa fa-archive text-center" aria-hidden="true"> </i>
-                <span>My Ideas</span>
-            </a>
-        </li>
+		<li routerLink="my" (click)="hide()">
+			<a>
+				<i class="fa fa-archive text-center" aria-hidden="true"> </i>
+				<span>My Ideas</span>
+			</a>
+		</li>
 
-        <li routerLink="add" (click)="hide()">
-            <a>
-                <i class="fa fa-plus text-center" aria-hidden="true"> </i>
-                <span>Add New One</span>
-            </a>
-        </li>
+		<li routerLink="add" (click)="hide()">
+			<a>
+				<i class="fa fa-plus text-center" aria-hidden="true"> </i>
+				<span>Add New One</span>
+			</a>
+		</li>
 
-        <li routerLink="./" (click)="hide()">
-            <a>
-                <i class="fa fa-users text-center" aria-hidden="true"> </i>
-                <span>Requests</span>
-            </a>
+		<li routerLink="./" (click)="hide()">
+			<a>
+				<i class="fa fa-users text-center" aria-hidden="true"> </i>
+				<span>Requests</span>
+			</a>
 
-        </li>
+		</li>
 
-        <li routerLink="./" (click)="hide()">
-            <a>
-                <i class="fa fa-chart-line text-center" aria-hidden="true"> </i>
-                <span>Statistics</span>
-            </a>
-        </li>
-    </ul>
+		<li routerLink="./" (click)="hide()">
+			<a>
+				<i class="fa fa-chart-line text-center" aria-hidden="true"> </i>
+				<span>Statistics</span>
+			</a>
+		</li>
+	</ul>
 </div>

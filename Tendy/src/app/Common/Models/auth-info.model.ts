@@ -1,4 +1,5 @@
 export class AuthInfo {
-  isSignedIn: boolean;
-  userName: string;
+    isSignedIn: boolean;
+
+    userName: string;
 }

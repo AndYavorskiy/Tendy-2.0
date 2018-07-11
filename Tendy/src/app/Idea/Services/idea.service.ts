@@ -1,6 +1,4 @@
-import { Observable } from "rxjs";
-
-import { Injectable, Inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { IdeaModel, SearchFilter } from "../models";
 import { ApiService } from "../../common/services";
@@ -13,23 +11,23 @@ export class IdeaService {
 
     constructor(private api: ApiService) { }
 
-    search(filter: SearchFilter): Observable<AggregateContent<IdeaModel>> {
-        return this.api.get<AggregateContent<IdeaModel>>(this.baseUrl + "search", filter);
+    public search(filter: SearchFilter) {
+	   return this.api.get<AggregateContent<IdeaModel>>(this.baseUrl + "search", filter);
     }
 
-    get(id: number): Observable<IdeaModel> {
-        return this.api.get<IdeaModel>(this.baseUrl + JSON.stringify(id));
+    public get(id: number) {
+	   return this.api.get<IdeaModel>(this.baseUrl + JSON.stringify(id));
     }
 
-    create(model: IdeaModel): Observable<IdeaModel> {
-        return this.api.post<IdeaModel>(this.baseUrl, model);
+    public create(model: IdeaModel) {
+	   return this.api.post<IdeaModel>(this.baseUrl, model);
     }
 
-    update(model: IdeaModel): Observable<IdeaModel> {
-        return this.api.put<IdeaModel>(this.baseUrl, model);
+    public update(model: IdeaModel) {
+	   return this.api.put<IdeaModel>(this.baseUrl, model);
     }
 
-    delete(id: number): Observable<boolean> {
-        return this.api.delete<boolean>(this.baseUrl + JSON.stringify(id));
+    public delete(id: number) {
+	   return this.api.delete<boolean>(this.baseUrl + JSON.stringify(id));
     }
 }

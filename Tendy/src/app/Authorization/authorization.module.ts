@@ -7,18 +7,18 @@ import { AuthorizationService, UserService } from './services';
 import { SignUpComponent, SignInComponent } from './components';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    AuthorizationRoutingModule
-  ],
-  declarations: [
-    SignUpComponent,
-    SignInComponent
-  ],
-  providers: [
-    AuthorizationService,
-    UserService
-  ]
+    imports: [
+	   CommonModule,
+	   FormsModule,
+	   AuthorizationRoutingModule
+    ],
+    declarations: [
+	   SignUpComponent,
+	   SignInComponent
+    ],
+    providers: [
+	   AuthorizationService,
+	   UserService
+    ]
 })
 export class AuthorizationModule { }

@@ -19,29 +19,25 @@ export class SignInComponent implements OnInit {
     errors: string;
 
     constructor(
-        private router: Router,
-        private activatedRoute: ActivatedRoute,
-        private authorizeService: AuthorizationService
+	   private router: Router,
+	   private activatedRoute: ActivatedRoute,
+	   private authorizeService: AuthorizationService
     ) {
-
     }
 
-    ngOnInit() {
-        this.subscription = this.activatedRoute.queryParams.subscribe(
-            params => this.credentials.email = params['email']);
+    public ngOnInit() {
+	   this.subscription = this.activatedRoute.queryParams.subscribe(
+		  params => this.credentials.email = params['email']);
     }
 
-    signIn(value: Credentials) {
-        console.log(this.credentials);
-
-        this.authorizeService.login(value.email, value.password)
-            .subscribe(
-            result => {
-                if (result) {
-                    this.router.navigate(['../../ideas']);
-                }
-            },
-            error => this.errors = error);
-
+    public signIn(value: Credentials) {
+	   this.authorizeService.login(value.email, value.password)
+		  .subscribe(
+		  result => {
+			 if (result) {
+				this.router.navigate(['../../ideas']);
+			 }
+		  },
+		  error => this.errors = error);
     }
 }

@@ -7,21 +7,21 @@ export class ConfigService {
     public readonly apiUrl: string = 'http://localhost:53015/api/';
 
     private getRequestHeaders() {
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
+	   let headers = new Headers();
+	   headers.append('Content-Type', 'application/json');
 
-        let authToken = localStorage.getItem('auth_token');
-        if (!!authToken) {
-            headers.append('Authorization', `Bearer ${authToken}`);
-        }
+	   let authToken = localStorage.getItem('auth_token');
+	   if (!!authToken) {
+		  headers.append('Authorization', `Bearer ${authToken}`);
+	   }
 
-        return headers;
+	   return headers;
     }
 
     public getRequestOptions(params?: any): RequestOptionsArgs {
-        return {
-           params: params,
-           headers: this.getRequestHeaders()
-        }
+	   return {
+		  params: params,
+		  headers: this.getRequestHeaders()
+	   }
     }
 }
