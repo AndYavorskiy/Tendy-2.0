@@ -16,8 +16,8 @@
 		</ul>
 
 		<ul class="nav justify-content-end">
-			<li class="nav-item navbar-text padding-x-1" *ngIf="authInfo.userName">
-				Hello, {{authInfo.userName}}
+			<li class="nav-item navbar-text" *ngIf="authInfo.userName">
+				<i class="far fa-user"></i> {{authInfo.userName}}
 			</li>
 
 			<li class="nav-item" *ngIf="authInfo.isSignedIn">
