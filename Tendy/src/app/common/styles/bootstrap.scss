@@ -1,7 +1,36 @@
-.btn.btn-darkblue {
-    color: white !important;
-    background-color: #21587f !important;
-    &:hover {
-        background-color: #366ca2 !important;
+.btn {
+    &:focus {
+        box-shadow: 0 0 0 0.1rem rgba(0,123,255,.25);
+    }
+
+    &.btn-primary {
+        background-color: #2980b9 !important;
+
+        &:hover {
+            background-color: #186aa0 !important;
+        }
+
+        &:active:focus {
+            box-shadow: 0 0 0 0.1rem rgba(0,123,255,.5) !important;
+        }
+    }
+
+    &.btn-success {
+        &:active:focus {
+            box-shadow: 0 0 0 0.1rem rgba(40,167,69,.5) !important;
+        }
+    }
+
+    &.btn-darkblue {
+        color: white !important;
+        background-color: #21587f !important;
+
+        &:hover {
+            background-color: #154e76 !important;
+        }
+
+        &:active:focus {
+            box-shadow: 0 0 0 0.1rem rgba(21,48,118,.5) !important;
+        }
     }
 }

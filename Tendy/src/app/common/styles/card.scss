@@ -18,25 +18,7 @@
             width: 100%;
         }
     }
-    .linear-status {
-        height: 0.3em;
-        display: flex;
-        .green {
-            width: 25%;
-            height: inherit;
-            background-color: #28a745;
-        }
-        .orange {
-            width: 25%;
-            height: inherit;
-            background-color: #ffca28;
-        }
-        .blue {
-            width: 50%;
-            height: inherit;
-            background-color: #007bff;
-        }
-    }
+
     .card-body {
         padding: 0.5em;
     }

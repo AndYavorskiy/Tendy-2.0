@@ -1,35 +1,25 @@
 <app-spinner [visible]="loading"></app-spinner>
 
 <div class="row content-wrapper" *ngIf="!loading">
-    <label *ngIf="!total">Немає доступних ідей</label>
+	<label *ngIf="!total">Немає доступних ідей</label>
 
-    <div class="col-sm-6 col-md-3" *ngFor="let item of ideas">
-        <div class="card card-wrapper">
+	<div class="col-sm-6 col-md-3" *ngFor="let item of ideas">
+		<div class="card card-wrapper">
+			<div class="card-img">
+				<img class="card-img-top" src="https://designmodo.com/wp-content/uploads/2015/08/bicycle.jpg">
+			</div>
 
-            <div class="card-img">
-                <img class="card-img-top" src="https://designmodo.com/wp-content/uploads/2015/08/bicycle.jpg" alt="Card image cap">
+			<div class="card-body">
+				<h5 class="card-title">{{item.title}}</h5>
 
-                <div class="img-overlay text-right">
+				<div class="card-text">Some quick example text to build on the card title and make</div>
 
-                    <a class="ico-link" [routerLink]="['details', item.id]">
-                        <i class="fa fa-binoculars white"> </i> 
-                    </a>
-                </div>
-            </div>
-
-            <div class="linear-status">
-                <div class="green"></div>
-               
-				<div class="orange"></div>
-                
-				<div class="blue"></div>
-            </div>
-
-            <div class="card-body">
-                <h5 class="card-title">{{item.title}}</h5>
-
-                <div class="card-text">Some quick example text to build on the card title and make</div>
-            </div>
-        </div>
-    </div>
+				<div class="text-center">
+					<a class="btn btn-primary btn-sm" [routerLink]="['details', item.id]">
+					Let's view
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
