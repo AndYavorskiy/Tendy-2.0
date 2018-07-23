@@ -38,5 +38,6 @@ namespace Tendy.DAL.EF
         public DbSet<File> Files { get; set; }
 		public DbSet<Category> Categories { get; set; }
         public DbSet<Request> Requests { get; set; }
-    }
+        public DbSet<Notification> Notifications { get; set; }
+	}
 }

@@ -7,18 +7,6 @@ namespace Tendy.Concrete
 {
 	public class UnitOfWork : IUnitOfWork
 	{
-		private ApplicationDbContext _context;
-
-		private readonly IRepository<ApplicationUser> _applicationUsersRepository;
-		private readonly IRepository<UserProfile> _userProfilesRepository;
-		private readonly IRepository<Idea> _ideasRepository;
-		private readonly IRepository<Category> _categoriesRepository;
-		private readonly IRepository<Request> _requestsRepository;
-		private readonly IRepository<IdeaCategory> _ideasCategoriesRepository;
-		private readonly IRepository<Link> _linksRepository;
-		private readonly IRepository<File> _filesRepository;
-		private readonly IRepository<AccountSettings> _accountCofigurationRepository;
-
 		public UnitOfWork(
 			ApplicationDbContext context,
 			IRepository<ApplicationUser> applicationUsersRepository,
@@ -29,43 +17,47 @@ namespace Tendy.Concrete
 			IRepository<IdeaCategory> ideasCategoriesRepository,
 			IRepository<Link> linksRepository,
 			IRepository<File> filesRepository,
-			IRepository<AccountSettings> accountCofigurationRepository)
+			IRepository<AccountSettings> accountCofigurationRepository,
+			IRepository<Notification> notificationRepository)
 		{
 			Context = context;
-			_applicationUsersRepository = applicationUsersRepository;
-			_userProfilesRepository = userProfilesRepository;
-			_ideasRepository = ideasRepository;
-			_categoriesRepository = categoriesRepository;
-			_requestsRepository = requestsRepository;
-			_ideasCategoriesRepository = ideasCategoriesRepository;
-			_linksRepository = linksRepository;
-			_filesRepository = filesRepository;
-			_accountCofigurationRepository = accountCofigurationRepository;
+			ApplicationUsersRepository = applicationUsersRepository;
+			UserProfilesRepository = userProfilesRepository;
+			IdeasRepository = ideasRepository;
+			CategoriesRepository = categoriesRepository;
+			RequestsRepository = requestsRepository;
+			IdeasCategoriesRepository = ideasCategoriesRepository;
+			LinksRepository = linksRepository;
+			FilesRepository = filesRepository;
+			AccountCofigurationRepository = accountCofigurationRepository;
+			NotificationRepository = notificationRepository;
 		}
 
-		public ApplicationDbContext Context { get => _context; set => _context = value; }
+		public ApplicationDbContext Context { get; private set; }
 
-		public IRepository<ApplicationUser> ApplicationUsersRepository => _applicationUsersRepository;
+		public IRepository<ApplicationUser> ApplicationUsersRepository { get; private set; }
 
-		public IRepository<UserProfile> UserProfilesRepository => _userProfilesRepository;
+		public IRepository<UserProfile> UserProfilesRepository { get; private set; }
 
-		public IRepository<Idea> IdeasRepository => _ideasRepository;
+		public IRepository<Idea> IdeasRepository { get; private set; }
 
-		public IRepository<Category> CategoriesRepository => _categoriesRepository;
+		public IRepository<Category> CategoriesRepository { get; private set; }
 
-		public IRepository<Request> RequestsRepository => _requestsRepository;
+		public IRepository<Request> RequestsRepository { get; private set; }
 
-		public IRepository<IdeaCategory> IdeasCategoriesRepository => _ideasCategoriesRepository;
+		public IRepository<IdeaCategory> IdeasCategoriesRepository { get; private set; }
 
-		public IRepository<Link> LinksRepository => _linksRepository;
+		public IRepository<Link> LinksRepository { get; private set; }
 
-		public IRepository<File> FilesRepository => _filesRepository;
+		public IRepository<File> FilesRepository { get; private set; }
 
-		public IRepository<AccountSettings> AccountCofigurationRepository => _accountCofigurationRepository;
+		public IRepository<AccountSettings> AccountCofigurationRepository { get; private set; }
+
+		public IRepository<Notification> NotificationRepository { get; private set; }
 
 		public void SaveChanges()
 		{
-			_context.SaveChanges();
+			Context.SaveChanges();
 		}
 	}
 }

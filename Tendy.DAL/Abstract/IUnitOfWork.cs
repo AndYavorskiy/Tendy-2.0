@@ -14,6 +14,7 @@ namespace Tendy.Abstract
 		IRepository<Link> LinksRepository { get; }
 		IRepository<File> FilesRepository { get; }
 		IRepository<AccountSettings> AccountCofigurationRepository { get; }
+		IRepository<Notification> NotificationRepository { get; }
 
 		void SaveChanges();
 	}

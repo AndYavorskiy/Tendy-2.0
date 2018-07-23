@@ -125,15 +125,17 @@ namespace Tendy
             services.AddScoped<IRepository<Link>, Repository<Link>>();
             services.AddScoped<IRepository<File>, Repository<File>>();
             services.AddScoped<IRepository<AccountSettings>, Repository<AccountSettings>>();
+            services.AddScoped<IRepository<Notification>, Repository<Notification>>();
 
-            //dependency injection BLL
-            services.AddScoped<IIdeaManager, IdeaManager>();
+			//dependency injection BLL
+			services.AddScoped<IIdeaManager, IdeaManager>();
             services.AddScoped<IAccountManager, AccountManager>();
             services.AddScoped<IAttachmentsManager, AttachmentsManager>();
             services.AddScoped<IRequestManager, RequestManager>();
+            services.AddScoped<INotificationManager, NotificationManager>();
 
-            //dependency injection WEB
-            services.AddSingleton<IJwtFactory, JwtFactory>();
+			//dependency injection WEB
+			services.AddSingleton<IJwtFactory, JwtFactory>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
