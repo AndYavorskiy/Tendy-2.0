@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { AuthorizationRoutingModule } from './authorization-routing.module';
-import { AuthorizationService, UserService } from './services';
+import { AuthorizationService, AccountService } from './services';
 import { SignUpComponent, SignInComponent } from './components';
 
 @NgModule({
@@ -18,7 +18,7 @@ import { SignUpComponent, SignInComponent } from './components';
     ],
     providers: [
 	   AuthorizationService,
-	   UserService
+	   AccountService
     ]
 })
 export class AuthorizationModule { }

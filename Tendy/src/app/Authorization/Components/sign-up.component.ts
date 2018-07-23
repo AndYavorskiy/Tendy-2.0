@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { UserRegistrationViewModel } from '../models';
-import { UserService } from '../services';
+import { AccountService } from '../services';
 
 @Component({
     selector: 'app-sign-up',
@@ -16,12 +16,12 @@ export class SignUpComponent {
     constructor(
 	   private router: Router,
 	   private activatedRoute: ActivatedRoute,
-	   private userService: UserService
+	   private accountService: AccountService
     ) {
     }
 
     public registrate(value: UserRegistrationViewModel) {
-	   this.userService.register(value)
+	   this.accountService.register(value)
 		  .subscribe(
 		  result => {
 			 if (result) {

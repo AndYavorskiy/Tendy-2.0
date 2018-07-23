@@ -4,7 +4,7 @@ import { ApiService } from "../../common/services";
 import { UserRegistrationViewModel } from '../models';
 
 @Injectable()
-export class UserService {
+export class AccountService {
 
     baseUrl: string = 'account';
 

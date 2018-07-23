@@ -25,7 +25,7 @@
     <None Remove="src\app\attachments\components\index.ts" />
     <None Remove="src\app\attachments\services\index.ts" />
     <None Remove="src\app\authorization\models\user-registration.model.ts" />
-    <None Remove="src\app\authorization\services\user.service.ts" />
+    <None Remove="src\app\authorization\services\account.service.ts" />
     <None Remove="src\app\common\models\aggregate-content.model.ts" />
     <None Remove="src\app\common\models\auth-info.model.ts" />
     <None Remove="src\app\common\models\custom-exception.model.ts" />
@@ -66,7 +66,7 @@
     <TypeScriptCompile Include="src\app\Common\models\file.model.ts" />
     <TypeScriptCompile Include="src\app\attachments\services\index.ts" />
     <TypeScriptCompile Include="src\app\authorization\models\user-registration.model.ts" />
-    <TypeScriptCompile Include="src\app\authorization\services\user.service.ts" />
+    <TypeScriptCompile Include="src\app\authorization\services\account.service.ts" />
     <TypeScriptCompile Include="src\app\common\models\aggregate-content.model.ts" />
     <TypeScriptCompile Include="src\app\common\models\auth-info.model.ts" />
     <TypeScriptCompile Include="src\app\common\models\custom-exception.model.ts" />

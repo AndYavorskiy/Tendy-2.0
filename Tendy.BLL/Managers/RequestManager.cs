@@ -84,7 +84,7 @@ namespace Tendy.BLL.Managers
 		public bool ConfirmRequest(int ideaId, int requestId, string userId, string managerId)
 		{
 			var allowEdit = uow.IdeasRepository
-				.FindBy(idea => idea.Id == idea.Id && idea.AuthorId == managerId)
+				.FindBy(idea => idea.Id == ideaId && idea.AuthorId == managerId)
 				.SingleOrDefault();
 
 			if (allowEdit == null)
