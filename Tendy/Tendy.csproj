@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -223,10 +223,6 @@
     <None Update="src\app\nav-header\nav-header.component.scss">
       <DependentUpon>nav-header.component.ts</DependentUpon>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="src\assets\" />
   </ItemGroup>
 
   <!--<Target Name="AngularBuild" AfterTargets="Build">
